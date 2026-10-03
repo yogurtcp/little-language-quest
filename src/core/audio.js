@@ -4,8 +4,16 @@ export class GameAudio {
     this.muted = localStorage.getItem('llq-muted') === '1';
     this.context = null;
     this.voices = [];
+    this.pending = null;
     this.refreshVoices();
-    if ('speechSynthesis' in window) speechSynthesis.addEventListener('voiceschanged', () => this.refreshVoices());
+    if ('speechSynthesis' in window) speechSynthesis.addEventListener('voiceschanged', () => {
+      this.refreshVoices();
+      if (this.pending && this.voice(this.pending.locale)) {
+        const pending = this.pending;
+        this.pending = null;
+        this.speak(pending.text, pending.locale);
+      }
+    });
   }
   refreshVoices() { this.voices = 'speechSynthesis' in window ? speechSynthesis.getVoices() : []; }
   voice(locale) {
@@ -20,6 +28,7 @@ export class GameAudio {
   setMuted(value) {
     this.muted = value;
     localStorage.setItem('llq-muted', value ? '1' : '0');
+    if (value) this.pending = null;
     if (value && 'speechSynthesis' in window) speechSynthesis.cancel();
   }
   speak(text, locale) {
@@ -30,7 +39,8 @@ export class GameAudio {
     utterance.rate = 0.83;
     utterance.pitch = 1.05;
     const voice = this.voice(locale);
-    if (!voice) return false;
+    if (!voice) { this.pending = { text, locale }; return false; }
+    this.pending = null;
     utterance.voice = voice;
     speechSynthesis.speak(utterance);
     return true;

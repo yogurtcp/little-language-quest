@@ -2,6 +2,8 @@
 
 A visual language and number game for young children. Choose Russian, Hebrew, or English on launch. The game includes 12 activity types, spoken prompts using the device's installed voices, soft answer sounds, stars, a parent game lab, and offline install support.
 
+**Play:** <https://yogurtcp.github.io/little-language-quest/>
+
 ## Run locally
 
 From this directory:
