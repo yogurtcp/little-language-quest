@@ -145,13 +145,56 @@ export const comparisonSpeech = (locale, a, b) => [
   spoken[locale].numbers[b],
   t(locale, "compare"),
 ];
+// Speak complete, inflected noun phrases. Digits leave grammatical gender
+// and case up to the synthesizer (e.g. it can read "2 звезды" as "два звезды").
+const russianQuantities = {
+  countGroup: [
+    null,
+    "один кружок",
+    "два кружка",
+    "три кружка",
+    "четыре кружка",
+    "пять кружков",
+    "шесть кружков",
+    "семь кружков",
+    "восемь кружков",
+    "девять кружков",
+    "десять кружков",
+  ],
+  makeAmount: [
+    null,
+    "одну звезду",
+    "две звезды",
+    "три звезды",
+    "четыре звезды",
+    "пять звёзд",
+    "шесть звёзд",
+    "семь звёзд",
+    "восемь звёзд",
+    "девять звёзд",
+    "десять звёзд",
+  ],
+};
+export function quantitySpeech(locale, kind, n) {
+  if (locale !== "ru") return t(locale, kind, n);
+  const phrase = russianQuantities[kind]?.[n];
+  if (!phrase)
+    throw new RangeError(`Unsupported Russian quantity: ${kind}/${n}`);
+  return kind === "countGroup"
+    ? `Где ${phrase}?`
+    : `Сделай ${phrase}. Нажимай на плюс или минус.`;
+}
 export function speechCatalog(locale) {
   const values = [
     ...concepts.map((item) => word(item, locale).speech),
     ...clues.map((clue) => clue.prompts[locale]),
     ...alphabets[locale].map((letter) => initialSpeech(locale, letter)),
-    ...Array.from({ length: 10 }, (_, i) => t(locale, "countGroup", i + 1)),
-    ...Array.from({ length: 9 }, (_, i) => t(locale, "makeAmount", i + 2)),
+    ...Array.from({ length: 10 }, (_, i) =>
+      quantitySpeech(locale, "countGroup", i + 1),
+    ),
+    ...Array.from({ length: 9 }, (_, i) =>
+      quantitySpeech(locale, "makeAmount", i + 2),
+    ),
     ...[
       "memoryPairs",
       "letterOrder",

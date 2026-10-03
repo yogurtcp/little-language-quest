@@ -23,6 +23,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
         "llq-v4",
         "little-language-quest-shell-v4",
         "little-language-quest-shell-v5",
+        "little-language-quest-shell-v6",
         "little-language-quest-audio-v1",
       ],
       delete: async (key) => removed.push(key),
@@ -39,7 +40,11 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
     assert.ok(existsSync(new URL(`../${path}`, import.meta.url)), path);
   handlers.activate({ waitUntil: (p) => (pending = p) });
   await pending;
-  assert.deepEqual(removed, ["llq-v4", "little-language-quest-shell-v4"]);
+  assert.deepEqual(removed, [
+    "llq-v4",
+    "little-language-quest-shell-v4",
+    "little-language-quest-shell-v5",
+  ]);
   let intercepted = false;
   handlers.fetch({
     request: { method: "GET", url: "https://example.com/other-app/" },

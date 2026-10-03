@@ -1,3 +1,4 @@
+import { quantitySpeech } from "../core/speech.js";
 import { randomInt, node, button, pick } from "../core/helpers.js";
 import { t } from "../core/i18n.js";
 export const makeAmount = {
@@ -17,6 +18,7 @@ export const makeAmount = {
       answer: target,
       start,
       prompt: t(locale, "makeAmount", target),
+      speech: quantitySpeech(locale, "makeAmount", target),
       render(host, api) {
         let count = start;
         const row = node("div", "make-row");

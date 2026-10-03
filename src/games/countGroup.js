@@ -1,3 +1,4 @@
+import { quantitySpeech } from "../core/speech.js";
 import { pick, shuffle, randomInt } from "../core/helpers.js";
 import { t } from "../core/i18n.js";
 import { grid, group } from "./shared.js";
@@ -19,6 +20,7 @@ export const countGroup = {
       answer: target,
       options,
       prompt: t(locale, "countGroup", target),
+      speech: quantitySpeech(locale, "countGroup", target),
       render(host, api) {
         const area = grid(host, "count-grid");
         options.forEach((n) => {
