@@ -12,6 +12,7 @@ export const compare = {
     const answer = a < b ? '<' : a > b ? '>' : '=';
     return {
       prompt: t(locale,'compare'),
+      speech: t(locale,'compareSpeech',a,b),
       render(host,api) {
         equation(host,`${a} ? ${b}`);
         if (level === 1) { const visual=document.createElement('div'); visual.className='math-visual'; visual.dir='ltr'; visual.innerHTML=circles(a)+'<span>?</span>'+circles(b); host.append(visual); }

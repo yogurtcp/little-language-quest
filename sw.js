@@ -1,4 +1,4 @@
-const VERSION = 'llq-v2';
+const VERSION = 'llq-v3';
 const CORE = [
   './', './index.html', './styles.css', './manifest.webmanifest',
   './src/main.js', './src/core/content.js', './src/core/i18n.js',

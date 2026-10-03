@@ -25,6 +25,7 @@ function setLanguage(code) {
   locale = code;
   document.documentElement.lang = languages.find(lang=>lang.code===code).tag;
   document.documentElement.dir = code === 'he' ? 'rtl' : 'ltr';
+  document.title = t(code,'appName');
 }
 function header({ parent = true } = {}) {
   const bar = node('header','topbar');
@@ -44,7 +45,7 @@ function header({ parent = true } = {}) {
   return bar;
 }
 function languagePicker() {
-  locale = null; document.documentElement.lang='en'; document.documentElement.dir='ltr'; clear();
+  locale = null; document.documentElement.lang='en'; document.documentElement.dir='ltr'; document.title='Little Language Quest'; clear();
   const screen=node('main','screen launch-screen');
   const badge=node('div','launch-badge','✦  ✿  ★');
   const heading=node('h1','launch-title','Little Language Quest');

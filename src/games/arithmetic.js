@@ -13,6 +13,7 @@ export const arithmetic = {
     const options = shuffle([answer,...shuffle(Array.from({length:max+1},(_,i)=>i).filter(n=>n!==answer),rng).slice(0,2)],rng);
     return {
       prompt: t(locale,'arithmetic'),
+      speech: t(locale,'arithmeticSpeech',a,b,plus),
       render(host, api) {
         equation(host, `${a} ${plus?'+':'−'} ${b} = ?`);
         if (level === 1) {
