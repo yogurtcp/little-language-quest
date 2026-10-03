@@ -1,0 +1,37 @@
+// Small original SVG drawings. No image downloads or runtime requests.
+const stroke = 'stroke="#28324b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"';
+const fill = (color, shape) => shape.replaceAll('{fill}', color);
+const drawings = {
+  dog: `<path d="M28 36 16 25 17 55 28 53" fill="#b8754a" ${stroke}/><path d="M72 36 84 25 83 55 72 53" fill="#b8754a" ${stroke}/><ellipse cx="50" cy="53" rx="29" ry="27" fill="#d9a06d" ${stroke}/><ellipse cx="50" cy="66" rx="15" ry="10" fill="#fff0d8"/><circle cx="40" cy="49" r="3"/><circle cx="60" cy="49" r="3"/><ellipse cx="50" cy="62" rx="5" ry="4" fill="#28324b"/><path d="M50 66v5m-7 0q7 7 14 0" fill="none" ${stroke}/>` ,
+  cat: `<path d="M22 48 25 17 43 34 57 34 75 17 78 48" fill="#ecad61" ${stroke}/><ellipse cx="50" cy="57" rx="29" ry="25" fill="#ecad61" ${stroke}/><path d="M34 31 29 24v13m37-6 5-7v13" fill="#f6cda2"/><circle cx="40" cy="53" r="3"/><circle cx="60" cy="53" r="3"/><path d="m46 63 4 3 4-3-4-2z" fill="#ec6b77"/><path d="M30 64h12m-12 6h12m16-6h12m-12 6h12" ${stroke}/>` ,
+  juice: `<path d="M27 32h46l-5 46H32z" fill="#ffd37c" ${stroke}/><path d="M33 43h34l-3 27H36z" fill="#f7964c"/><path d="M52 35 61 17h15" fill="none" ${stroke}/><circle cx="49" cy="55" r="8" fill="#fff6cf"/><path d="M49 47v16m-8-8h16" stroke="#f7964c" stroke-width="2"/>`,
+  sausage: `<path d="M16 52q0-13 12-13h44q12 0 12 13T72 65H28Q16 65 16 52Z" fill="#e8756c" ${stroke}/><path d="M27 39q-5-6-10 0m10 26q-5 6-10 0m56-26q5-6 10 0m-10 26q5 6 10 0" fill="none" ${stroke}/><path d="M36 46h27" stroke="#f8b2a5" stroke-width="5" stroke-linecap="round"/>`,
+  sun: `<circle cx="50" cy="50" r="20" fill="#ffc94f" ${stroke}/><path d="M50 9v13m0 56v13M9 50h13m56 0h13M21 21l10 10m38 38 10 10m0-58L69 31M31 69 21 79" fill="none" ${stroke}/><circle cx="43" cy="49" r="2"/><circle cx="57" cy="49" r="2"/><path d="M43 58q7 7 14 0" fill="none" ${stroke}/>` ,
+  house: `<path d="M17 48 50 20l33 28v34H17z" fill="#f6d182" ${stroke}/><path d="M13 48 50 16l37 32" fill="none" ${stroke}/><path d="M42 82V56h17v26" fill="#a779d8" ${stroke}/><rect x="24" y="54" width="13" height="13" rx="2" fill="#9bdcd7" ${stroke}/>` ,
+  banana: `<path d="M20 31q27 37 64 6Q68 84 39 78 24 71 20 31Z" fill="#ffd359" ${stroke}/><path d="M20 31 17 25m67 12 5-4" fill="none" ${stroke}/><path d="M31 50q20 29 45 1" fill="none" stroke="#e4aa3c" stroke-width="3"/>`,
+  balloon: `<path d="M50 17c-16 0-25 12-25 28 0 18 12 28 25 34 13-6 25-16 25-34 0-16-9-28-25-28Z" fill="#fa7f89" ${stroke}/><path d="m45 79 5 7 5-7m-5 7q-8 7 0 14" fill="none" ${stroke}/><path d="M36 29q-9 13-5 24" fill="none" stroke="#ffd2d6" stroke-width="5" stroke-linecap="round"/>`,
+  milk: `<path d="M34 20h32v11l-5 10v41H39V41l-5-10Z" fill="#f3fbff" ${stroke}/><path d="M39 42h22v29H39z" fill="#a4dff0"/><path d="M34 30h32" ${stroke}/><circle cx="50" cy="55" r="7" fill="#fff"/>`,
+  window: `<rect x="21" y="20" width="58" height="60" rx="5" fill="#a6dbe9" ${stroke}/><path d="M50 20v60M21 50h58" ${stroke}/><path d="M29 36q4-6 9 0m24 21q4-6 9 0" fill="none" stroke="#fff" stroke-width="4"/>`,
+  clock: `<circle cx="50" cy="50" r="32" fill="#fff3d7" ${stroke}/><path d="M50 27v23l16 8" fill="none" ${stroke}/><circle cx="50" cy="50" r="3" fill="#28324b"/><path d="M50 21v5m0 48v5M21 50h5m48 0h5" ${stroke}/>` ,
+  chocolate: `<rect x="18" y="28" width="64" height="47" rx="5" fill="#925b4b" ${stroke}/><path d="M39 28v47m22-47v47M18 52h64" ${stroke}/><path d="M23 35h10m11 0h10m11 0h10" stroke="#bd8b72" stroke-width="3"/>`,
+  cow: `<path d="M29 35 19 25 17 41 28 47m43-12 10-10 2 16-11 6" fill="#f4d5b2" ${stroke}/><ellipse cx="50" cy="51" rx="29" ry="27" fill="#fffaf1" ${stroke}/><path d="M29 45q3-9 10-6m21 0q7-3 10 6" fill="none" ${stroke}/><ellipse cx="50" cy="66" rx="17" ry="11" fill="#f4c4ca" ${stroke}/><circle cx="44" cy="65" r="2"/><circle cx="56" cy="65" r="2"/><circle cx="39" cy="50" r="3"/><circle cx="61" cy="50" r="3"/>`,
+  book: `<path d="M17 25q18-7 33 2 15-9 33-2v52q-17-7-33 2-16-9-33-2Z" fill="#80c9bf" ${stroke}/><path d="M50 27v52" ${stroke}/><path d="M25 39q9-3 17 1m-17 9q9-3 17 1m16-10q8-4 17-1m-17 11q8-4 17-1" fill="none" stroke="#fff" stroke-width="3"/>`,
+  candy: `<path d="m29 42-17-8 6 17-6 17 17-8m42-18 17-8-6 17 6 17-17-8" fill="#ffbd69" ${stroke}/><rect x="27" y="38" width="46" height="27" rx="12" fill="#ec75a4" ${stroke}/><path d="M40 42q-9 10 0 20m15-20q-9 10 0 20" fill="none" stroke="#ffd6e7" stroke-width="4"/>`,
+  cake: `<path d="M20 46h60v33H20z" fill="#ffcc8b" ${stroke}/><path d="M20 46q8-9 15 0 8 9 15 0 8-9 15 0 8 9 15 0v13q-7 9-15 0-8-9-15 0-8 9-15 0-8-9-15 0Z" fill="#ffe8f3" ${stroke}/><path d="M50 46V24" ${stroke}/><path d="M50 17q-9 8 0 13 9-5 0-13Z" fill="#ffc752" ${stroke}/>` ,
+  car: `<path d="M19 50h62l-6-18H29z" fill="#ee7f76" ${stroke}/><rect x="13" y="48" width="74" height="24" rx="8" fill="#ee7f76" ${stroke}/><circle cx="31" cy="73" r="8" fill="#28324b"/><circle cx="69" cy="73" r="8" fill="#28324b"/><path d="M36 35h27l4 12H32z" fill="#a8e4e5"/>`,
+  duck: `<ellipse cx="49" cy="60" rx="27" ry="19" fill="#ffd45f" ${stroke}/><circle cx="63" cy="38" r="17" fill="#ffd45f" ${stroke}/><path d="M76 37 91 43 76 49" fill="#f49a51" ${stroke}/><circle cx="67" cy="34" r="2.5"/><path d="M30 60q16 15 27 0" fill="none" ${stroke}/><path d="M45 77v8m17-9v9" ${stroke}/>` ,
+  apple: `<path d="M50 35q-17-14-29 1-14 21 6 44 12 10 23 2 11 8 23-2 20-23 6-44-12-15-29-1Z" fill="#f07971" ${stroke}/><path d="M50 34q-3-14 6-21" fill="none" ${stroke}/><path d="M55 21q13-12 22-4-7 11-22 4Z" fill="#7bc790" ${stroke}/>` ,
+  fish: `<path d="M22 51 10 32v38Zm0 0q20-24 42-19 18 4 25 19-7 15-25 19-22 5-42-19Z" fill="#78c7dc" ${stroke}/><circle cx="70" cy="47" r="3"/><path d="M45 35q-8-17 6-16l9 15" fill="#93d9e7" ${stroke}/>` ,
+  tree: `<path d="M44 61h12v25H44z" fill="#ab7953" ${stroke}/><path d="M50 15q-19 0-21 17-16 4-13 20 4 14 18 14h32q14 0 18-14 3-16-13-20-2-17-21-17Z" fill="#7fc58a" ${stroke}/><circle cx="37" cy="38" r="4" fill="#f5b063"/><circle cx="63" cy="49" r="4" fill="#f5b063"/>`,
+  flower: `<path d="M50 52v34m0-18q-17-17-24-6 5 14 24 12m0-6q17-17 24-6-5 14-24 12" fill="#80c78d" ${stroke}/><g fill="#f59bbb" ${stroke}><circle cx="50" cy="30" r="12"/><circle cx="69" cy="42" r="12"/><circle cx="62" cy="61" r="12"/><circle cx="38" cy="61" r="12"/><circle cx="31" cy="42" r="12"/></g><circle cx="50" cy="45" r="11" fill="#ffd365" ${stroke}/>` ,
+  ball: `<circle cx="50" cy="50" r="32" fill="#8dc9e9" ${stroke}/><path d="M23 33q30 22 53 35M35 22q-7 38 28 58" fill="none" ${stroke}/><path d="M43 20q12 14 30 14" fill="none" stroke="#fff" stroke-width="5"/>`,
+  star: `<path d="m50 12 11 24 26 4-19 19 5 27-23-13-23 13 5-27-19-19 26-4Z" fill="#ffd159" ${stroke}/><circle cx="42" cy="50" r="2.5"/><circle cx="58" cy="50" r="2.5"/><path d="M43 60q7 6 14 0" fill="none" ${stroke}/>` ,
+  shoe: `<path d="M18 61q12 3 22-17l11 8q4 12 24 11 12 1 12 13v7H14v-8q0-12 4-14Z" fill="#a281d5" ${stroke}/><path d="M15 75h71m-40-23 9 5m-13 0 9 5" ${stroke}/>`
+};
+export function art(id, label = '') {
+  const safe = drawings[id] || drawings.star;
+  return `<svg class="art" viewBox="0 0 100 100" role="img" aria-label="${label.replaceAll('"','&quot;')}">${safe}</svg>`;
+}
+export function circles(count, color = '#78c7dc') {
+  return `<svg class="count-art" viewBox="0 0 160 112" aria-hidden="true">${Array.from({length:count},(_,i)=>`<circle cx="${28+(i%5)*27}" cy="${28+Math.floor(i/5)*43}" r="10" fill="${color}" stroke="#28324b" stroke-width="2"/>`).join('')}</svg>`;
+}
