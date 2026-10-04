@@ -1,3 +1,4 @@
+import { speechSchedule } from "./audio-timing.js";
 import { languages } from "./i18n.js";
 import { audioManifest } from "./audio-manifest.js";
 import { readSetting, writeSetting } from "./storage.js";
@@ -7,7 +8,7 @@ export class GameAudio {
     this.context = null;
     this.voices = [];
     this.generation = 0;
-    this.source = null;
+    this.sources = new Set();
     this.buffers = new Map();
     this.onStatus = () => {};
     this.status = "idle";
@@ -39,8 +40,8 @@ export class GameAudio {
   }
   stop() {
     this.generation++;
-    this.source?.stop();
-    this.source = null;
+    for (const source of this.sources) source.stop();
+    this.sources.clear();
     window.speechSynthesis?.cancel();
     this.notify(this.muted ? "muted" : "idle");
   }
@@ -51,11 +52,28 @@ export class GameAudio {
   }
   async buffer(path) {
     if (this.buffers.has(path)) return this.buffers.get(path);
-    const response = await fetch(new URL(`../../${path}`, import.meta.url));
-    if (!response.ok) throw new Error(`Audio HTTP ${response.status}`);
-    const decoded = await this.context.decodeAudioData(
-      await response.arrayBuffer(),
-    );
+    let decoded;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 8000);
+      try {
+        const url = new URL(`../../${path}`, import.meta.url);
+        // A retry bypasses both the browser HTTP cache and our service worker cache.
+        const response = await fetch(url, {
+          cache: attempt ? "reload" : "default",
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error(`Audio HTTP ${response.status}`);
+        decoded = await this.context.decodeAudioData(
+          await response.arrayBuffer(),
+        );
+        break;
+      } catch (error) {
+        if (attempt === 1) throw error;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
     // Bound decoded PCM memory; compressed files are retained by the service worker.
     if (this.buffers.size >= 24)
       this.buffers.delete(this.buffers.keys().next().value);
@@ -80,28 +98,30 @@ export class GameAudio {
           return this.buffer(path);
         }),
       );
-      for (const buffer of buffers) {
-        if (generation !== this.generation) return false;
-        this.notify("speaking");
-        await new Promise((resolve) => {
+      if (generation !== this.generation) return false;
+      const schedule = speechSchedule(buffers, this.context.currentTime);
+      this.notify("speaking");
+      await new Promise((resolve) => {
+        schedule.forEach((entry, index) => {
           const source = this.context.createBufferSource();
-          this.source = source;
-          source.buffer = buffer;
+          this.sources.add(source);
+          source.buffer = entry.buffer;
+          source.playbackRate.value = entry.rate;
           source.connect(this.context.destination);
           source.onended = () => {
-            if (this.source === source) this.source = null;
-            resolve();
+            this.sources.delete(source);
+            if (index === schedule.length - 1) resolve();
           };
-          source.start();
+          source.start(entry.at, entry.offset, entry.duration);
         });
-      }
+      });
       if (generation === this.generation) this.notify("idle");
       return true;
     } catch {
       if (generation !== this.generation) return false;
-      // Offline first-time clip or blocked playback: same-language system voice only.
+      // Hebrew must use the authored phonetic recordings: system voices can ignore niqqud.
       this.refreshVoices();
-      const voice = this.voice(locale);
+      const voice = locale === "he" ? null : this.voice(locale);
       if (voice && window.SpeechSynthesisUtterance) {
         const utterance = new window.SpeechSynthesisUtterance(parts.join(". "));
         utterance.voice = voice;

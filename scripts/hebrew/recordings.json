@@ -1,0 +1,802 @@
+{
+  "engine": "Piper 1.8.0 / he_IL-saspeech-medium",
+  "model_sha256": "3dc067debc9e782a8a0d095dbb58786648743d406366dcc2aa81009660873b4d",
+  "records": {
+    "כֶּלֶב": {
+      "ipa": "kˈelev",
+      "path": "audio/he/fde369a44ba4bbc4.mp3"
+    },
+    "חָתוּל": {
+      "ipa": "χatˈul",
+      "path": "audio/he/8df21fdea33f0390.mp3"
+    },
+    "מִיץ": {
+      "ipa": "mˈits",
+      "path": "audio/he/f4b7005219dd1bae.mp3"
+    },
+    "נַקְנִיקִיָּה": {
+      "ipa": "naknikijˈa",
+      "path": "audio/he/9345abb22b53b924.mp3"
+    },
+    "שֶׁמֶשׁ": {
+      "ipa": "ʃˈemeʃ",
+      "path": "audio/he/4f6d87b6f449f9ab.mp3"
+    },
+    "בַּיִת": {
+      "ipa": "bˈajit",
+      "path": "audio/he/e3ca51f9f2df5fb6.mp3"
+    },
+    "בָּנָנָה": {
+      "ipa": "banˈana",
+      "path": "audio/he/60166701be2fd524.mp3"
+    },
+    "בַּלּוֹן": {
+      "ipa": "balˈon",
+      "path": "audio/he/0c2f3b15f213e7c1.mp3"
+    },
+    "חָלָב": {
+      "ipa": "χalˈav",
+      "path": "audio/he/5ddf4c98cf6fc5ba.mp3"
+    },
+    "חַלּוֹן": {
+      "ipa": "χalˈon",
+      "path": "audio/he/0d5a9d582cf523e7.mp3"
+    },
+    "שָׁעוֹן": {
+      "ipa": "ʃaˈon",
+      "path": "audio/he/487c3d93461e2ac1.mp3"
+    },
+    "שׁוֹקוֹלָד": {
+      "ipa": "ʃokolˈad",
+      "path": "audio/he/ecd8947f7044a503.mp3"
+    },
+    "פָּרָה": {
+      "ipa": "paʁˈa",
+      "path": "audio/he/163d7089fcbeb3eb.mp3"
+    },
+    "סֵפֶר": {
+      "ipa": "sˈefeʁ",
+      "path": "audio/he/498826e8d17b7dc6.mp3"
+    },
+    "מַמְתָּק": {
+      "ipa": "mamtˈak",
+      "path": "audio/he/278e293f53c7de03.mp3"
+    },
+    "עוּגָה": {
+      "ipa": "ugˈa",
+      "path": "audio/he/82640a015094653c.mp3"
+    },
+    "מְכוֹנִית": {
+      "ipa": "meχonˈit",
+      "path": "audio/he/6eb7762279280c2c.mp3"
+    },
+    "בַּרְוָז": {
+      "ipa": "baʁvˈaz",
+      "path": "audio/he/765c53eb2642e893.mp3"
+    },
+    "תַּפּוּחַ": {
+      "ipa": "tapˈuaχ",
+      "path": "audio/he/3b3f6dfdd87f2fff.mp3"
+    },
+    "דָּג": {
+      "ipa": "dˈag",
+      "path": "audio/he/2f24da533fb43121.mp3"
+    },
+    "עֵץ": {
+      "ipa": "ˈets",
+      "path": "audio/he/7ec88937a259ff25.mp3"
+    },
+    "פֶּרַח": {
+      "ipa": "pˈeʁaχ",
+      "path": "audio/he/281ab40f61f1facd.mp3"
+    },
+    "כַּדּוּר": {
+      "ipa": "kadˈuʁ",
+      "path": "audio/he/49e66dbaa295aab7.mp3"
+    },
+    "כּוֹכָב": {
+      "ipa": "koχˈav",
+      "path": "audio/he/a35e511d433290d3.mp3"
+    },
+    "נַעַל": {
+      "ipa": "nˈaal",
+      "path": "audio/he/46fb94fe10ffb5fa.mp3"
+    },
+    "אַרְנָב": {
+      "ipa": "aʁnˈav",
+      "path": "audio/he/11d714d9aa24cdf2.mp3"
+    },
+    "דֹּב": {
+      "ipa": "dˈov",
+      "path": "audio/he/893bac45ce7ca57a.mp3"
+    },
+    "אַרְיֵה": {
+      "ipa": "aʁjˈe",
+      "path": "audio/he/49793cb36a564b42.mp3"
+    },
+    "פִּיל": {
+      "ipa": "pˈil",
+      "path": "audio/he/ad26ef963f0476a6.mp3"
+    },
+    "גִּ׳ירָפָה": {
+      "ipa": "dʒiʁˈafa",
+      "path": "audio/he/6a13be786818934d.mp3"
+    },
+    "קוֹף": {
+      "ipa": "kˈof",
+      "path": "audio/he/67a6dc441b23e0ec.mp3"
+    },
+    "סוּס": {
+      "ipa": "sˈus",
+      "path": "audio/he/354991544dcfea54.mp3"
+    },
+    "כֶּבֶשׂ": {
+      "ipa": "kˈeves",
+      "path": "audio/he/745ce2469cbfa58a.mp3"
+    },
+    "חֲזִיר": {
+      "ipa": "χazˈiʁ",
+      "path": "audio/he/ef245f27e5a66c46.mp3"
+    },
+    "עַכְבָּר": {
+      "ipa": "aχbˈaʁ",
+      "path": "audio/he/b6a3ea74525ed3b3.mp3"
+    },
+    "צְפַרְדֵּעַ": {
+      "ipa": "tsfaʁdˈea",
+      "path": "audio/he/bad1c8142a431d47.mp3"
+    },
+    "צָב": {
+      "ipa": "tsˈav",
+      "path": "audio/he/074b95471ba913d0.mp3"
+    },
+    "פַּרְפַּר": {
+      "ipa": "paʁpˈaʁ",
+      "path": "audio/he/6481da0826be06d2.mp3"
+    },
+    "דְּבוֹרָה": {
+      "ipa": "dvoʁˈa",
+      "path": "audio/he/fb99782a47abee20.mp3"
+    },
+    "חִלָּזוֹן": {
+      "ipa": "χilazˈon",
+      "path": "audio/he/4359a6f82272e4c7.mp3"
+    },
+    "צִפּוֹר": {
+      "ipa": "tsipˈoʁ",
+      "path": "audio/he/d092c8e03cffaeed.mp3"
+    },
+    "תַּרְנְגוֹל": {
+      "ipa": "taʁnegˈol",
+      "path": "audio/he/ab2e8a6dd046b8d4.mp3"
+    },
+    "פִּינְגְּוִין": {
+      "ipa": "pˈingvin",
+      "path": "audio/he/d97b89cd8a082064.mp3"
+    },
+    "אַגָּס": {
+      "ipa": "agˈas",
+      "path": "audio/he/aafbbd2717561b92.mp3"
+    },
+    "תַּפּוּז": {
+      "ipa": "tapˈuz",
+      "path": "audio/he/3962019692158fc7.mp3"
+    },
+    "לִימוֹן": {
+      "ipa": "limˈon",
+      "path": "audio/he/cc2839d6393e5cee.mp3"
+    },
+    "תּוּת": {
+      "ipa": "tˈut",
+      "path": "audio/he/1d884c658e8161e3.mp3"
+    },
+    "עֲנָבִים": {
+      "ipa": "anavˈim",
+      "path": "audio/he/d6ab67b5dad73d0e.mp3"
+    },
+    "אֲבַטִּיחַ": {
+      "ipa": "avatˈiaχ",
+      "path": "audio/he/6bce61ace096d387.mp3"
+    },
+    "גֶּזֶר": {
+      "ipa": "gˈezeʁ",
+      "path": "audio/he/b930441228cb19ca.mp3"
+    },
+    "עַגְבָנִיָּה": {
+      "ipa": "agvanijˈa",
+      "path": "audio/he/070510e19260d7aa.mp3"
+    },
+    "מְלָפְפוֹן": {
+      "ipa": "melafefˈon",
+      "path": "audio/he/39888b5613d623e9.mp3"
+    },
+    "לֶחֶם": {
+      "ipa": "lˈeχem",
+      "path": "audio/he/9321eafffb19e257.mp3"
+    },
+    "גְּבִינָה": {
+      "ipa": "gvinˈa",
+      "path": "audio/he/998b5db677e91258.mp3"
+    },
+    "בֵּיצָה": {
+      "ipa": "bejtsˈa",
+      "path": "audio/he/3761ede5e7593f53.mp3"
+    },
+    "גְּלִידָה": {
+      "ipa": "glˈida",
+      "path": "audio/he/c8e86d9444f5a584.mp3"
+    },
+    "פִּיצָה": {
+      "ipa": "pˈitsa",
+      "path": "audio/he/f981f4bb420653ea.mp3"
+    },
+    "אוֹטוֹבּוּס": {
+      "ipa": "otˈobus",
+      "path": "audio/he/ecdbf8643ee17a66.mp3"
+    },
+    "רַכֶּבֶת": {
+      "ipa": "ʁakˈevet",
+      "path": "audio/he/fcc49b75e9eaaf3d.mp3"
+    },
+    "מָטוֹס": {
+      "ipa": "matˈos",
+      "path": "audio/he/0fd092c6f86a0912.mp3"
+    },
+    "סִירָה": {
+      "ipa": "siʁˈa",
+      "path": "audio/he/4cdaf708d9f8fa66.mp3"
+    },
+    "אוֹפַנַּיִם": {
+      "ipa": "ofanˈajim",
+      "path": "audio/he/4de3cdfc8fc7afe3.mp3"
+    },
+    "טִיל": {
+      "ipa": "tˈil",
+      "path": "audio/he/f85a3819e20ae5a4.mp3"
+    },
+    "מִטְרִיָּה": {
+      "ipa": "mitʁijˈa",
+      "path": "audio/he/79c14e8a9d3915cb.mp3"
+    },
+    "מַפְתֵּחַ": {
+      "ipa": "maftˈeaχ",
+      "path": "audio/he/6ca96f0ce839392d.mp3"
+    },
+    "כִּסֵּא": {
+      "ipa": "kisˈe",
+      "path": "audio/he/28a0b7343385db76.mp3"
+    },
+    "מִטָּה": {
+      "ipa": "mitˈa",
+      "path": "audio/he/77967e3241ac141c.mp3"
+    },
+    "סֵפֶל": {
+      "ipa": "sˈefel",
+      "path": "audio/he/22995eb2a9cfb6f2.mp3"
+    },
+    "כַּף": {
+      "ipa": "kˈaf",
+      "path": "audio/he/b7d0fdbd741b3920.mp3"
+    },
+    "מִבְרֶשֶׁת שִׁנַּיִם": {
+      "ipa": "mivʁˈeʃet ʃinˈajim",
+      "path": "audio/he/20d67f39e0f4bce4.mp3"
+    },
+    "עִפָּרוֹן": {
+      "ipa": "ipaʁˈon",
+      "path": "audio/he/9cae973db24a0758.mp3"
+    },
+    "מִסְפָּרַיִם": {
+      "ipa": "mispaʁˈajim",
+      "path": "audio/he/d7fdefb50478377e.mp3"
+    },
+    "כּוֹבַע": {
+      "ipa": "kˈova",
+      "path": "audio/he/53de532a4e8b5272.mp3"
+    },
+    "חֻלְצָה": {
+      "ipa": "χultsˈa",
+      "path": "audio/he/6a8d0c893e998a06.mp3"
+    },
+    "גֶּרֶב": {
+      "ipa": "gˈeʁev",
+      "path": "audio/he/e9418106cb1f8b4e.mp3"
+    },
+    "כְּפָפָה": {
+      "ipa": "kfafˈa",
+      "path": "audio/he/7d1744dd7fe327b4.mp3"
+    },
+    "תֹּף": {
+      "ipa": "tˈof",
+      "path": "audio/he/2b0907b905959a88.mp3"
+    },
+    "גִּיטָרָה": {
+      "ipa": "gitˈaʁa",
+      "path": "audio/he/72812fa56d7201f5.mp3"
+    },
+    "עֲפִיפוֹן": {
+      "ipa": "afifˈon",
+      "path": "audio/he/4cd76bdb818f5e60.mp3"
+    },
+    "יָרֵחַ": {
+      "ipa": "jaʁˈeaχ",
+      "path": "audio/he/2c316d7967271468.mp3"
+    },
+    "עָנָן": {
+      "ipa": "anˈan",
+      "path": "audio/he/1c7db945567704f5.mp3"
+    },
+    "קֶשֶׁת": {
+      "ipa": "kˈeʃet",
+      "path": "audio/he/26c3e646056f41fd.mp3"
+    },
+    "אִישׁ שֶׁלֶג": {
+      "ipa": "ˈiʃ ʃˈeleg",
+      "path": "audio/he/324386c801b10830.mp3"
+    },
+    "עָלֶה": {
+      "ipa": "alˈe",
+      "path": "audio/he/e1531f3984095d3f.mp3"
+    },
+    "פִּטְרִיָּה": {
+      "ipa": "pitʁijˈa",
+      "path": "audio/he/560de5b5784de4db.mp3"
+    },
+    "צְדָפָה": {
+      "ipa": "tsdafˈa",
+      "path": "audio/he/3c43e01899babba9.mp3"
+    },
+    "מִי אוֹמֵר הַב הַב?": {
+      "ipa": "mˈi omˈeʁ hˈav hˈav?",
+      "path": "audio/he/9ac97aa428f7698c.mp3"
+    },
+    "מִי אוֹמֵר מְיָאוּ?": {
+      "ipa": "mˈi omˈeʁ mjˈau?",
+      "path": "audio/he/5ee4f3fc0f938583.mp3"
+    },
+    "מִי אוֹמֵר מוּ?": {
+      "ipa": "mˈi omˈeʁ mˈu?",
+      "path": "audio/he/72c8d798c53288ec.mp3"
+    },
+    "מִי אוֹמֵר גַּע גַּע?": {
+      "ipa": "mˈi omˈeʁ gˈa gˈa?",
+      "path": "audio/he/fb2aac8b31c0d324.mp3"
+    },
+    "מִי אוֹמֵר מֶה?": {
+      "ipa": "mˈi omˈeʁ mˈe?",
+      "path": "audio/he/f4c0df347b0de75f.mp3"
+    },
+    "מִי קוֹרֵא קוּקוּרִיקוּ?": {
+      "ipa": "mˈi koʁˈe kukuʁˈiku?",
+      "path": "audio/he/e4877840aab1f172.mp3"
+    },
+    "מִי אוֹמֵר חְרוֹם חְרוֹם?": {
+      "ipa": "mˈi omˈeʁ χʁˈom χʁˈom?",
+      "path": "audio/he/17ac68b6ca1b5697.mp3"
+    },
+    "מִי צוֹהֵל?": {
+      "ipa": "mˈi tsohˈel?",
+      "path": "audio/he/40d72152947cad90.mp3"
+    },
+    "לְמִי יֵשׁ חֵדֶק אָרֹךְ?": {
+      "ipa": "lemˈi jˈeʃ χˈedek aʁˈoχ?",
+      "path": "audio/he/addb99c78eeb990d.mp3"
+    },
+    "לְמִי יֵשׁ צַוָּאר אָרֹךְ מְאוֹד?": {
+      "ipa": "lemˈi jˈeʃ tsavˈaʁ aʁˈoχ meˈod?",
+      "path": "audio/he/748f3451269a3604.mp3"
+    },
+    "לְמִי יֵשׁ רַעֲמָה סְבִיב הַפָּנִים?": {
+      "ipa": "lemˈi jˈeʃ ʁaamˈa svˈiv hapanˈim?",
+      "path": "audio/he/747bc2c7a51b371e.mp3"
+    },
+    "לְמִי יֵשׁ אָזְנַיִם אֲרֻכּוֹת?": {
+      "ipa": "lemˈi jˈeʃ oznˈajim aʁukˈot?",
+      "path": "audio/he/a2c181d8ad612e16.mp3"
+    },
+    "לְמִי יֵשׁ שִׁרְיוֹן עַל הַגַּב?": {
+      "ipa": "lemˈi jˈeʃ ʃiʁjˈon ˈal hagˈav?",
+      "path": "audio/he/8671cb7226bcea15.mp3"
+    },
+    "מִי זוֹחֵל עִם בַּיִת עַל הַגַּב?": {
+      "ipa": "mˈi zoχˈel ˈim bˈajit ˈal hagˈav?",
+      "path": "audio/he/3e2a62b3f66a5a0e.mp3"
+    },
+    "מִי עָף עִם כְּנָפַיִם צִבְעוֹנִיּוֹת?": {
+      "ipa": "mˈi ˈaf ˈim knafˈajim tsivonijˈot?",
+      "path": "audio/he/0fe8a63e9a049c01.mp3"
+    },
+    "מִי מְכִינָה דְּבַשׁ?": {
+      "ipa": "mˈi meχinˈa dvˈaʃ?",
+      "path": "audio/he/c7a5b2a1a9bc328e.mp3"
+    },
+    "מִי חַי מִתַּחַת לַמַּיִם?": {
+      "ipa": "mˈi χˈaj mitˈaχat lamˈajim?",
+      "path": "audio/he/50f4532cb0fa541b.mp3"
+    },
+    "מָה מָתוֹק?": {
+      "ipa": "mˈa matˈok?",
+      "path": "audio/he/81b44bbd56cb9e28.mp3"
+    },
+    "מָה חָמוּץ?": {
+      "ipa": "mˈa χamˈuts?",
+      "path": "audio/he/57529620b55e3099.mp3"
+    },
+    "מָה אָדֹם בַּתְּמוּנָה?": {
+      "ipa": "mˈa adˈom batmunˈa?",
+      "path": "audio/he/bca914ba81efbdd9.mp3"
+    },
+    "מָה צָהֹב בַּתְּמוּנָה?": {
+      "ipa": "mˈa tsahˈov batmunˈa?",
+      "path": "audio/he/3cef363ba8b137fd.mp3"
+    },
+    "מָה יָרֹק בַּתְּמוּנָה?": {
+      "ipa": "mˈa jaʁˈok batmunˈa?",
+      "path": "audio/he/32ee3b39efe0ee02.mp3"
+    },
+    "אֵיפֹה הַפְּרִי?": {
+      "ipa": "ˈefo hapʁˈi?",
+      "path": "audio/he/1399f073a007d176.mp3"
+    },
+    "מָה אֶפְשָׁר לִשְׁתּוֹת?": {
+      "ipa": "mˈa efʃˈaʁ liʃtˈot?",
+      "path": "audio/he/5f83cd120d475b34.mp3"
+    },
+    "מָה קַר וְנָמֵס?": {
+      "ipa": "mˈa kˈaʁ venamˈes?",
+      "path": "audio/he/a4356bfd1a786a7b.mp3"
+    },
+    "אֵיזֶה יָרָק הָאַרְנָב אוֹהֵב?": {
+      "ipa": "ˈeze jaʁˈak haaʁnˈav ohˈev?",
+      "path": "audio/he/f4f833db03fc32c9.mp3"
+    },
+    "מָה אֶפְשָׁר לִקְרֹא?": {
+      "ipa": "mˈa efʃˈaʁ likʁˈo?",
+      "path": "audio/he/5be67ea9e509bf70.mp3"
+    },
+    "מָה מַרְאֶה אֶת הַשָּׁעָה?": {
+      "ipa": "mˈa maʁˈe ˈet haʃaˈa?",
+      "path": "audio/he/628cbb26a50e4391.mp3"
+    },
+    "מָה מֵגֵן מִפְּנֵי הַגֶּשֶׁם?": {
+      "ipa": "mˈa megˈen mipnˈej hagˈeʃem?",
+      "path": "audio/he/34a09c0713d04a39.mp3"
+    },
+    "בְּמָה פּוֹתְחִים מַנְעוּל?": {
+      "ipa": "bemˈa potχˈim manˈul?",
+      "path": "audio/he/50f1fdfc3a17fc3a.mp3"
+    },
+    "אֵיפֹה אֲנַחְנוּ יְשֵׁנִים?": {
+      "ipa": "ˈefo anˈaχnu jeʃenˈim?",
+      "path": "audio/he/617f897e1ce4781b.mp3"
+    },
+    "עַל מָה אֲנַחְנוּ יוֹשְׁבִים?": {
+      "ipa": "ˈal mˈa anˈaχnu joʃvˈim?",
+      "path": "audio/he/d7c7ddf3b5f9141c.mp3"
+    },
+    "בְּמָה אוֹכְלִים מָרָק?": {
+      "ipa": "bemˈa oχlˈim maʁˈak?",
+      "path": "audio/he/f834512325afcb7c.mp3"
+    },
+    "בְּמָה מְצַחְצְחִים שִׁנַּיִם?": {
+      "ipa": "bemˈa metsaχtseχˈim ʃinˈajim?",
+      "path": "audio/he/1b74f4e69d57b2b7.mp3"
+    },
+    "בְּמָה מְצַיְּרִים עַל נְיָר?": {
+      "ipa": "bemˈa metsajʁˈim ˈal njˈaʁ?",
+      "path": "audio/he/df867685fa133ac8.mp3"
+    },
+    "בְּמָה גּוֹזְרִים נְיָר?": {
+      "ipa": "bemˈa gozʁˈim njˈaʁ?",
+      "path": "audio/he/7773c04fab558d8c.mp3"
+    },
+    "מָה חוֹבְשִׁים עַל הָרֹאשׁ?": {
+      "ipa": "mˈa χovʃˈim ˈal haʁˈoʃ?",
+      "path": "audio/he/a4b4101f16d28bc2.mp3"
+    },
+    "מָה מְחַמֵּם אֶת הַיָּדַיִם?": {
+      "ipa": "mˈa meχamˈem ˈet hajadˈajim?",
+      "path": "audio/he/d088f4ce3bbdd54b.mp3"
+    },
+    "מָה לוֹבְשִׁים עַל כַּפּוֹת הָרַגְלַיִם?": {
+      "ipa": "mˈa lovʃˈim ˈal kapˈot haʁaglˈajim?",
+      "path": "audio/he/916aef780f1fc3ea.mp3"
+    },
+    "מָה נוֹסֵעַ עַל מְסִלָּה?": {
+      "ipa": "mˈa nosˈea ˈal mesilˈa?",
+      "path": "audio/he/52f034fcead033fa.mp3"
+    },
+    "בְּמָה אֶפְשָׁר לָטוּס בַּשָּׁמַיִם?": {
+      "ipa": "bemˈa efʃˈaʁ latˈus baʃamˈajim?",
+      "path": "audio/he/e4aa79018f650a9f.mp3"
+    },
+    "בְּמָה אֶפְשָׁר לָשׁוּט עַל הַמַּיִם?": {
+      "ipa": "bemˈa efʃˈaʁ laʃˈut ˈal hamˈajim?",
+      "path": "audio/he/35f115bd8b843079.mp3"
+    },
+    "לְמָה יֵשׁ שְׁנֵי גַּלְגַּלִּים וּדְוָשׁוֹת?": {
+      "ipa": "lemˈa jˈeʃ ʃnˈej galgalˈim udvaʃˈot?",
+      "path": "audio/he/227c8098b0bb9eb3.mp3"
+    },
+    "בְּמָה טָסִים לֶחָלָל?": {
+      "ipa": "bemˈa tasˈim leχalˈal?",
+      "path": "audio/he/ff65d1bbfe2153f4.mp3"
+    },
+    "בְּמָה בּוֹעֲטִים בַּמִּשְׂחָק?": {
+      "ipa": "bemˈa boatˈim bamisχˈak?",
+      "path": "audio/he/073167477af27076.mp3"
+    },
+    "לְאֵיזֶה כְּלִי נְגִינָה יֵשׁ מֵיתָרִים?": {
+      "ipa": "leˈeze klˈi neginˈa jˈeʃ mejtaʁˈim?",
+      "path": "audio/he/0aa5d7d8ffa82329.mp3"
+    },
+    "עַל מָה מַכִּים בְּמַקְלוֹת כְּדֵי לְנַגֵּן?": {
+      "ipa": "ˈal mˈa makˈim bemaklˈot kedˈej lenagˈen?",
+      "path": "audio/he/f0db70b7370dc873.mp3"
+    },
+    "מַה בּוֹנִים מִשֶּׁלֶג?": {
+      "ipa": "mˈa bonˈim miʃˈeleg?",
+      "path": "audio/he/ab154f8b9fd94aea.mp3"
+    },
+    "מָה מוֹפִיעַ אַחֲרֵי הַגֶּשֶׁם וְיֵשׁ לוֹ הַרְבֵּה צְבָעִים?": {
+      "ipa": "mˈa mofˈia aχaʁˈej hagˈeʃem vejˈeʃ lˈo haʁbˈe tsvaˈim?",
+      "path": "audio/he/8018769632482b6d.mp3"
+    },
+    "מָה מֵאִיר וּמְחַמֵּם אוֹתָנוּ בַּיּוֹם?": {
+      "ipa": "mˈa meˈiʁ umeχamˈem otˈanu bajˈom?",
+      "path": "audio/he/71ccc1a194acfef5.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת אָלֶף.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ˈalef.",
+      "path": "audio/he/464b457dc4b5391d.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת בֵּית.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot bˈet.",
+      "path": "audio/he/6d9eeab15164e1c4.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת גִּימֶל.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot gˈimel.",
+      "path": "audio/he/ca179298bd447579.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת דָּלֶת.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot dˈalet.",
+      "path": "audio/he/b709f9c4799a1586.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת הֵא.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot hˈe.",
+      "path": "audio/he/769df9bd1adefc43.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת וָו.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot vˈav.",
+      "path": "audio/he/7720285746a5df96.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת זַיִן.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot zˈajin.",
+      "path": "audio/he/86bb6aea3064f5f1.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת חֵית.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot χˈet.",
+      "path": "audio/he/81dbcc69bc11d974.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת טֵית.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot tˈet.",
+      "path": "audio/he/9cabff90a3638455.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת יוֹד.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot jˈod.",
+      "path": "audio/he/6d573bac2a9c988c.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת כָּף.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot kˈaf.",
+      "path": "audio/he/d2eca40a042e9742.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת לָמֶד.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot lˈamed.",
+      "path": "audio/he/e5a04b54e174afef.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת מֵם.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot mˈem.",
+      "path": "audio/he/68e0b74dee4dba84.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת נוּן.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot nˈun.",
+      "path": "audio/he/2a7c0023b3840b32.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת סָמֶךְ.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot sˈameχ.",
+      "path": "audio/he/7a23b44eca829286.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת עַיִן.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ˈajin.",
+      "path": "audio/he/74e09626eae7234e.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת פֵּא.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot pˈe.",
+      "path": "audio/he/be09c18ad6837520.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת צָדִי.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot tsˈadi.",
+      "path": "audio/he/593604d447e39b8d.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת קוֹף.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot kˈof.",
+      "path": "audio/he/c9b878a5a6299055.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת רֵישׁ.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ʁˈeʃ.",
+      "path": "audio/he/d86d01d68ead4694.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת שִׁין.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ʃˈin.",
+      "path": "audio/he/cb9a08c646a0120e.mp3"
+    },
+    "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת תָּו.": {
+      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot tˈav.",
+      "path": "audio/he/5ffd088f764d0837.mp3"
+    },
+    "אֵיפֹה יֵשׁ עִגּוּל אֶחָד?": {
+      "ipa": "ˈefo jˈeʃ igˈul eχˈad?",
+      "path": "audio/he/ff7484d06c508eac.mp3"
+    },
+    "אֵיפֹה יֵשׁ שְׁנֵי עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ ʃnˈej igulˈim?",
+      "path": "audio/he/730d071e8fa011f6.mp3"
+    },
+    "אֵיפֹה יֵשׁ שְׁלוֹשָׁה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ ʃloʃˈa igulˈim?",
+      "path": "audio/he/cb2ead722e324a56.mp3"
+    },
+    "אֵיפֹה יֵשׁ אַרְבָּעָה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ aʁbaˈa igulˈim?",
+      "path": "audio/he/94d8b2a11dd44604.mp3"
+    },
+    "אֵיפֹה יֵשׁ חֲמִשָּׁה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ χamiʃˈa igulˈim?",
+      "path": "audio/he/38703ca6a5fb1f82.mp3"
+    },
+    "אֵיפֹה יֵשׁ שִׁשָּׁה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ ʃiʃˈa igulˈim?",
+      "path": "audio/he/2e344b82077645cf.mp3"
+    },
+    "אֵיפֹה יֵשׁ שִׁבְעָה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ ʃivˈa igulˈim?",
+      "path": "audio/he/85a08858ded01cf2.mp3"
+    },
+    "אֵיפֹה יֵשׁ שְׁמוֹנָה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ ʃmonˈa igulˈim?",
+      "path": "audio/he/00b1b328cbaf2fb5.mp3"
+    },
+    "אֵיפֹה יֵשׁ תִּשְׁעָה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ tiʃˈa igulˈim?",
+      "path": "audio/he/e75e2b168a152e7d.mp3"
+    },
+    "אֵיפֹה יֵשׁ עֲשָׂרָה עִגּוּלִים?": {
+      "ipa": "ˈefo jˈeʃ asaʁˈa igulˈim?",
+      "path": "audio/he/b7729010320bb37b.mp3"
+    },
+    "צֹר שְׁנֵי כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ ʃnˈej koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/f72b015950e3ce70.mp3"
+    },
+    "צֹר שְׁלוֹשָׁה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ ʃloʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/b8a2f3e4a71e0e41.mp3"
+    },
+    "צֹר אַרְבָּעָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ aʁbaˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/f9dd625844b262a5.mp3"
+    },
+    "צֹר חֲמִשָּׁה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ χamiʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/37ced41630a0acae.mp3"
+    },
+    "צֹר שִׁשָּׁה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ ʃiʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/ee35346833e206ef.mp3"
+    },
+    "צֹר שִׁבְעָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ ʃivˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/301e36d57d7637d6.mp3"
+    },
+    "צֹר שְׁמוֹנָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ ʃmonˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/41444ae4ec3b8b5b.mp3"
+    },
+    "צֹר תִּשְׁעָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ tiʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/cd263b321169c69c.mp3"
+    },
+    "צֹר עֲשָׂרָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
+      "ipa": "tsˈoʁ asaʁˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
+      "path": "audio/he/7b4cac94464b62d9.mp3"
+    },
+    "מְצָא זוּגוֹת שֶׁל מִלָּה וּתְמוּנָה.": {
+      "ipa": "metsˈa zugˈot ʃˈel milˈa utmunˈa.",
+      "path": "audio/he/0ecbddfddce71ffa.mp3"
+    },
+    "לְחַץ עַל הָאוֹתִיּוֹת לְפִי הַסֵּדֶר.": {
+      "ipa": "leχˈats ˈal haotijˈot lefˈi hasˈedeʁ.",
+      "path": "audio/he/afa89fe3592da8de.mp3"
+    },
+    "הַקְשֵׁב וּבְחַר תְּמוּנָה.": {
+      "ipa": "hakʃˈev uvχˈaʁ tmunˈa.",
+      "path": "audio/he/12412db11923e79f.mp3"
+    },
+    "אֵיזֶה מִסְפָּר חָסֵר?": {
+      "ipa": "ˈeze mispˈaʁ χasˈeʁ?",
+      "path": "audio/he/b72fbacb0daaad33.mp3"
+    },
+    "מָה בָּא אַחַר כָּךְ?": {
+      "ipa": "mˈa bˈa aχˈaʁ kˈaχ?",
+      "path": "audio/he/1e867e2e86d49edb.mp3"
+    },
+    "אֵיזֶה סִימָן מַתְאִים?": {
+      "ipa": "ˈeze simˈan matˈim?",
+      "path": "audio/he/1c6edff2ff75b65a.mp3"
+    },
+    "אֶפֶס": {
+      "ipa": "ˈefes",
+      "path": "audio/he/d1c37f365f8570eb.mp3"
+    },
+    "אַחַת": {
+      "ipa": "aχˈat",
+      "path": "audio/he/4ada3e9281f284f9.mp3"
+    },
+    "שְׁתַּיִם": {
+      "ipa": "ʃtˈajim",
+      "path": "audio/he/b27e253312714456.mp3"
+    },
+    "שָׁלוֹשׁ": {
+      "ipa": "ʃalˈoʃ",
+      "path": "audio/he/e23a8ab4300a3d96.mp3"
+    },
+    "אַרְבַּע": {
+      "ipa": "ˈaʁba",
+      "path": "audio/he/c58e29d11121656a.mp3"
+    },
+    "חָמֵשׁ": {
+      "ipa": "χamˈeʃ",
+      "path": "audio/he/c5e7e6295778f374.mp3"
+    },
+    "שֵׁשׁ": {
+      "ipa": "ʃˈeʃ",
+      "path": "audio/he/fa61db48d308dc8c.mp3"
+    },
+    "שֶׁבַע": {
+      "ipa": "ʃˈeva",
+      "path": "audio/he/7aa3403c9f728a67.mp3"
+    },
+    "שְׁמוֹנֶה": {
+      "ipa": "ʃmˈone",
+      "path": "audio/he/e7824cf4b424244a.mp3"
+    },
+    "תֵּשַׁע": {
+      "ipa": "tˈeʃa",
+      "path": "audio/he/abdbe57f159aa106.mp3"
+    },
+    "עֶשֶׂר": {
+      "ipa": "ˈeseʁ",
+      "path": "audio/he/2e77b49c06d41035.mp3"
+    },
+    "וְעוֹד": {
+      "ipa": "veˈod",
+      "path": "audio/he/2517ad6ae3d20751.mp3"
+    },
+    "פָּחוֹת": {
+      "ipa": "paχˈot",
+      "path": "audio/he/69c32e981451255c.mp3"
+    },
+    "וְגַם": {
+      "ipa": "vegˈam",
+      "path": "audio/he/e85c6d5735026583.mp3"
+    },
+    "כַּמָּה זֶה?": {
+      "ipa": "kˈama zˈe?",
+      "path": "audio/he/641b1bf496f657f4.mp3"
+    },
+    "מָה הָאוֹת הָרִאשׁוֹנָה בַּמִּלָּה הַזֹּאת?": {
+      "ipa": "mˈa haˈot haʁiʃonˈa bamilˈa hazˈot?",
+      "path": "audio/he/b97ff211a2462806.mp3"
+    }
+  }
+}

@@ -6,7 +6,7 @@ A browser game for young children, with a Russian, Hebrew, or English choice on 
 
 - 12 independent activities: starting letters, counting, word/picture memory, letter order, first letters, clues, addition/subtraction, comparison, listening, missing numbers, making amounts, and patterns.
 - 86 original SVG illustrations and independently localized words; 50 clues with explicit correct and incorrect choice pools.
-- 612 bundled narration clips (9.6 MiB across all three languages), downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. Correct pictures reveal and pronounce the complete word.
+- 612 active narration clips, downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
 - One of each activity per shuffled round. Separate content decks cycle through clues, listening words, letters, and math examples before repeating, and are remembered per language.
 - Five completed tasks earn a star; five stars unlock a celebration. Mistakes never take stars away. Difficulty advances separately after eight unassisted completions of each skill.
 - Completed answers stay visible until Next. Lab tasks do not award stars or change content decks.
@@ -34,7 +34,9 @@ Settings include language, sound, level, voice test, app installation, offline a
 
 ## Narration and Hebrew
 
-MP3s are generated at development time with Russian Svetlana, Hebrew Hila, and English Aria neural voices. Hebrew display and narration source text retain niqqud. Letter instructions use explicit letter names; abstract math uses feminine Hebrew number names. System speech is only a same-language fallback if a recording cannot load. Failed playback produces a visible message and a retry button.
+MP3s are generated at development time with Russian Svetlana and English Aria voices. Hebrew uses Piper with an explicit pronunciation dictionary containing vowels and stress for every pointed word. Hebrew display text retains niqqud. Letter instructions use explicit letter names; abstract math uses feminine Hebrew number names. Hebrew never falls back to system voices that may ignore niqqud. Russian and English can use a same-language fallback. Failed playback produces a visible message and a retry button. Compound questions trim clip padding and schedule short gaps between spoken segments.
+
+The Hebrew voice resource has a non-commercial license. See [Hebrew sources, pronunciation dictionary, and rebuild instructions](scripts/hebrew/SOURCES.md).
 
 The audio is synthesized, not a human recording. Linguistic text is curated, but the clips have not had a native-speaker listening review. The parent voice test and Game Lab support that review.
 
@@ -45,7 +47,7 @@ python3 -m pip install edge-tts==7.2.8
 python3 scripts/generate-audio.py
 ```
 
-The generator sends only the authored game text to the speech service at build time. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
+The Russian/English generator sends only authored game text to the speech service at build time. Hebrew recordings are generated locally, using the separate instructions above. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
 
 ## Installation, offline play, and updates
 

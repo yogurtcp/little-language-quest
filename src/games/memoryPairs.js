@@ -41,8 +41,7 @@ export const memoryPairs = {
               return;
             reveal(element, card);
             open.push({ card, element });
-            if (card.kind === "word")
-              api.audio.speak(word(card.item, locale).speech, locale);
+            api.audio.speak(word(card.item, locale).speech, locale);
             if (open.length === 2) {
               const [first, second] = open;
               if (

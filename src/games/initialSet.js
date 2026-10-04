@@ -2,7 +2,7 @@ import { initialSpeech } from "../core/speech.js";
 import { concepts, groups, word } from "../core/content.js";
 import { pick, sample, shuffle } from "../core/helpers.js";
 import { t } from "../core/i18n.js";
-import { grid, picture, revealWord } from "./shared.js";
+import { grid, picture, revealWord, wrongPicture } from "./shared.js";
 export const initialSet = {
   id: "initialSet",
   create({ locale, rng, choose = (_key, pool) => pick(pool, rng) }) {
@@ -34,7 +34,7 @@ export const initialSet = {
           const element = picture(item, locale, () => {
             if (api.isComplete?.() || found.has(item.id)) return;
             if (!correct.includes(item)) {
-              api.wrong(element);
+              wrongPicture(element, item, api);
               return;
             }
             found.add(item.id);

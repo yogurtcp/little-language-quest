@@ -317,3 +317,8 @@ Object.assign(copy.en, {
   parentHint: "Solve the sum to open settings.",
   installDone: "The app is already installed.",
 });
+
+// Keep the object name out of picture questions so its spelling cannot give the answer away.
+copy.ru.firstLetterPicture = "С какой буквы начинается название картинки?";
+copy.he.firstLetterPicture = "בְּאֵיזוֹ אוֹת מַתְחִיל שֵׁם הַתְּמוּנָה?";
+copy.en.firstLetterPicture = "What letter does this picture start with?";

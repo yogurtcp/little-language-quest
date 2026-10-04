@@ -1,7 +1,7 @@
 import { byId } from "../core/content.js";
 import { pick, sample, shuffle } from "../core/helpers.js";
 import { clues } from "../core/clues.js";
-import { grid, picture, revealWord } from "./shared.js";
+import { grid, picture, revealWord, wrongPicture } from "./shared.js";
 export const describe = {
   id: "describe",
   create({ locale, rng, choose = (_key, pool) => pick(pool, rng) }) {
@@ -28,7 +28,7 @@ export const describe = {
         for (const item of options) {
           const element = picture(item, locale, () => {
             if (api.isComplete?.()) return;
-            if (item.id !== answer.id) return api.wrong(element);
+            if (item.id !== answer.id) return wrongPicture(element, item, api);
             revealWord(element, item, api);
             api.complete();
           });

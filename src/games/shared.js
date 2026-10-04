@@ -51,3 +51,9 @@ export function revealWord(element, item, api) {
   element.classList.add("selected");
   api.audio.speak(word(item, api.locale).speech, api.locale);
 }
+
+// Incorrect picture taps teach the word too, without revealing its spelling.
+export function wrongPicture(element, item, api) {
+  api.wrong(element);
+  api.audio.speak(word(item, api.locale).speech, api.locale);
+}

@@ -23,7 +23,7 @@ export const firstLetter = {
       key: item.id,
       answer,
       options,
-      prompt: t(locale, "firstLetter", word(item, locale).display),
+      prompt: t(locale, "firstLetterPicture"),
       speech: firstSpeech(locale, item),
       render(host, api) {
         const visual = document.createElement("div");

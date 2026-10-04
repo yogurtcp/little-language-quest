@@ -1,5 +1,5 @@
 // Only this app's caches and requests are handled; other Pages apps share the origin.
-const VERSION = "little-language-quest-shell-v6";
+const VERSION = "little-language-quest-shell-v7";
 const AUDIO = "little-language-quest-audio-v1";
 const CORE = [
   "./",
@@ -9,6 +9,7 @@ const CORE = [
   "./src/core/art.js",
   "./src/core/audio-manifest.js",
   "./src/core/audio.js",
+  "./src/core/audio-timing.js",
   "./src/core/clues.js",
   "./src/core/content.js",
   "./src/core/extra-art.js",
@@ -75,13 +76,27 @@ self.addEventListener("fetch", (event) => {
     return;
   if (url.pathname.includes("/audio/")) {
     event.respondWith(
-      caches.open(AUDIO).then(async (cache) => {
-        const cached = await cache.match(event.request);
-        if (cached) return cached;
+      (async () => {
+        let cache;
+        try {
+          cache = await caches.open(AUDIO);
+          if (event.request.cache !== "reload") {
+            const cached = await cache.match(event.request);
+            if (cached) return cached;
+          }
+        } catch {
+          /* Audio still works if storage is unavailable. */
+        }
         const response = await fetch(event.request);
-        if (response.ok) await cache.put(event.request, response.clone());
+        if (response.ok && cache) {
+          try {
+            await cache.put(event.request, response.clone());
+          } catch {
+            /* Full cache must not silence the response. */
+          }
+        }
         return response;
-      }),
+      })(),
     );
     return;
   }
