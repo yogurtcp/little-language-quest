@@ -4,8 +4,13 @@ import { audioManifest } from "./audio-manifest.js";
 import { readSetting, writeSetting } from "./storage.js";
 export class GameAudio {
   constructor() {
-    this.muted = readSetting("llq-muted") === "1";
+    const savedVolume = Number(readSetting("llq-volume", "100"));
+    this.volume = Number.isFinite(savedVolume)
+      ? Math.max(0, Math.min(250, savedVolume))
+      : 100;
+    this.muted = readSetting("llq-muted") === "1" || this.volume === 0;
     this.context = null;
+    this.master = null;
     this.voices = [];
     this.generation = 0;
     this.sources = new Set();
@@ -30,6 +35,19 @@ export class GameAudio {
   async unlock() {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!this.context && AudioContext) this.context = new AudioContext();
+    if (this.context && !this.master && this.context.createGain) {
+      this.master = this.context.createGain();
+      this.master.gain.value = this.volume / 100;
+      if (this.context.createDynamicsCompressor) {
+        const limiter = this.context.createDynamicsCompressor();
+        limiter.threshold.value = -1;
+        limiter.knee.value = 0;
+        limiter.ratio.value = 20;
+        limiter.attack.value = 0.002;
+        limiter.release.value = 0.1;
+        this.master.connect(limiter).connect(this.context.destination);
+      } else this.master.connect(this.context.destination);
+    }
     if (this.context && this.context.state !== "running")
       await this.context.resume();
     this.refreshVoices();
@@ -47,8 +65,35 @@ export class GameAudio {
   }
   setMuted(value) {
     this.muted = value;
+    if (!value && this.volume === 0) {
+      this.volume = 100;
+      writeSetting("llq-volume", "100");
+      this.updateGain();
+    }
     writeSetting("llq-muted", value ? "1" : "0");
     this.stop();
+  }
+  updateGain() {
+    if (!this.master) return;
+    if (this.master.gain.setTargetAtTime)
+      this.master.gain.setTargetAtTime(
+        this.volume / 100,
+        this.context.currentTime,
+        0.02,
+      );
+    else this.master.gain.value = this.volume / 100;
+  }
+  setVolume(value) {
+    const volume = Math.round(Number(value));
+    if (!Number.isFinite(volume)) return;
+    const wasMuted = this.muted;
+    this.volume = Math.max(0, Math.min(250, volume));
+    this.muted = this.volume === 0;
+    writeSetting("llq-volume", String(this.volume));
+    writeSetting("llq-muted", this.muted ? "1" : "0");
+    this.updateGain();
+    if (this.muted) this.stop();
+    else if (wasMuted) this.notify("idle");
   }
   async buffer(path) {
     if (this.buffers.has(path)) return this.buffers.get(path);
@@ -107,7 +152,7 @@ export class GameAudio {
           this.sources.add(source);
           source.buffer = entry.buffer;
           source.playbackRate.value = entry.rate;
-          source.connect(this.context.destination);
+          source.connect(this.master || this.context.destination);
           source.onended = () => {
             this.sources.delete(source);
             if (index === schedule.length - 1) resolve();
@@ -127,6 +172,7 @@ export class GameAudio {
         utterance.voice = voice;
         utterance.lang = languages.find((lang) => lang.code === locale).tag;
         utterance.rate = 0.85;
+        utterance.volume = Math.min(1, this.volume / 100);
         utterance.onend = () => {
           if (generation === this.generation) this.notify("idle");
         };
@@ -150,7 +196,7 @@ export class GameAudio {
     volume.gain.setValueAtTime(0.001, when);
     volume.gain.exponentialRampToValueAtTime(gain, when + 0.02);
     volume.gain.exponentialRampToValueAtTime(0.001, when + duration);
-    oscillator.connect(volume).connect(this.context.destination);
+    oscillator.connect(volume).connect(this.master || this.context.destination);
     oscillator.start(when);
     oscillator.stop(when + duration + 0.02);
   }

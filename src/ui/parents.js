@@ -2,6 +2,7 @@ import { node, button } from "../core/helpers.js";
 import { languages, copy, t } from "../core/i18n.js";
 import { downloadLanguage } from "../core/offline.js";
 import { games } from "../games/index.js";
+import { volumeControl } from "./volume.js";
 export function createParentUI(app) {
   let gate = null,
     download = null;
@@ -83,12 +84,20 @@ export function createParentUI(app) {
     });
     row(panel, t(locale, "choose"), language);
     const toggle = node("input");
+    const volume = volumeControl(app.audio, locale, "parent-volume", () =>
+      app.audio.speak(t(locale, "listenChoose"), locale),
+    );
     toggle.type = "checkbox";
     toggle.checked = !app.audio.muted;
-    toggle.addEventListener("change", () =>
-      app.audio.setMuted(!toggle.checked),
-    );
+    toggle.addEventListener("change", () => {
+      app.audio.setMuted(!toggle.checked);
+      volume.sync();
+    });
+    volume.element.querySelector("input").addEventListener("input", () => {
+      toggle.checked = !app.audio.muted;
+    });
     row(panel, t(locale, "mute"), toggle);
+    panel.append(volume.element);
     const level = node("select", "setting-select");
     for (const value of [0, 1, 2, 3]) {
       const option = node(

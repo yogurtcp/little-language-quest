@@ -269,6 +269,43 @@ button:disabled {
   align-items: center;
   gap: 8px;
 }
+.volume-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 3px 8px;
+  color: #28324b;
+  font-weight: 750;
+}
+.volume-control label {
+  font-size: 14px;
+}
+.volume-range {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  accent-color: #39816c;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.volume-value {
+  min-width: 4ch;
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  font-size: 14px;
+}
+.stage-actions .volume-control {
+  width: min(190px, 44vw);
+}
+.parent-panel .volume-control {
+  border-bottom: 1px solid #e7e7ed;
+  padding: 14px 0;
+}
+.welcome-install {
+  align-self: center;
+  margin: 0 auto 16px;
+}
 .task-prompt {
   font-size: clamp(24px, 4vw, 42px);
   line-height: 1.22;

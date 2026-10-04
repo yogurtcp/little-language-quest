@@ -157,3 +157,116 @@ test("Hebrew does not fall back to a system voice that can ignore niqqud", async
   assert.equal(spoken, 0);
   assert.equal(audio.status, "error");
 });
+
+test("saved volume boosts recorded speech and effects through a peak limiter", async () => {
+  const saved = new Map(),
+    originalStorage = globalThis.localStorage;
+  globalThis.localStorage = {
+    getItem: (key) => saved.get(key) ?? null,
+    setItem: (key, value) => saved.set(key, value),
+  };
+  const connected = [];
+  class Context {
+    constructor() {
+      this.state = "running";
+      this.currentTime = 0;
+      this.destination = { name: "speaker" };
+    }
+    createGain() {
+      const gain = {
+        value: 1,
+        setTargetAtTime(value) {
+          this.value = value;
+        },
+        setValueAtTime() {},
+        exponentialRampToValueAtTime() {},
+      };
+      return {
+        gain,
+        connect(target) {
+          connected.push([this, target]);
+          return target;
+        },
+      };
+    }
+    createDynamicsCompressor() {
+      return {
+        threshold: { value: 0 },
+        knee: { value: 0 },
+        ratio: { value: 0 },
+        attack: { value: 0 },
+        release: { value: 0 },
+        connect: () => this.destination,
+      };
+    }
+    async decodeAudioData() {
+      return recording();
+    }
+    createBufferSource() {
+      return {
+        playbackRate: { value: 1 },
+        connect(target) {
+          connected.push(["speech", target]);
+        },
+        start() {
+          queueMicrotask(() => this.onended());
+        },
+        stop() {
+          this.onended?.();
+        },
+      };
+    }
+    createOscillator() {
+      return {
+        type: "",
+        frequency: { setValueAtTime() {} },
+        connect(target) {
+          connected.push(["effect", target]);
+          return target;
+        },
+        start() {},
+        stop() {},
+      };
+    }
+  }
+  try {
+    globalThis.window = { AudioContext: Context };
+    globalThis.fetch = async () => ({
+      ok: true,
+      arrayBuffer: async () => new ArrayBuffer(2),
+    });
+    const audio = new GameAudio();
+    audio.setVolume(250);
+    assert.equal(saved.get("llq-volume"), "250");
+    assert.equal(
+      await audio.speak(Object.keys(audioManifest.ru)[0], "ru"),
+      true,
+    );
+    assert.equal(audio.master.gain.value, 2.5);
+    assert.equal(
+      connected.some(
+        ([kind, target]) => kind === "speech" && target === audio.master,
+      ),
+      true,
+    );
+    audio.effect("right");
+    assert.equal(
+      connected.some(
+        ([kind, target]) => kind !== "speech" && target === audio.master,
+      ),
+      true,
+    );
+    audio.setVolume(0);
+    assert.equal(audio.muted, true);
+    assert.equal(
+      await audio.speak(Object.keys(audioManifest.ru)[0], "ru"),
+      false,
+    );
+    audio.setVolume(150);
+    assert.equal(audio.muted, false);
+    assert.equal(audio.master.gain.value, 1.5);
+    assert.equal(new GameAudio().volume, 150);
+  } finally {
+    globalThis.localStorage = originalStorage;
+  }
+});

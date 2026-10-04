@@ -69,6 +69,7 @@ export const copy = {
     voiceMissing:
       "На этом устройстве нет русского голоса. Добавьте его в настройках устройства.",
     mute: "Звук",
+    volume: "Громкость",
     difficulty: "Сложность",
     reset: "Сбросить прогресс",
     resetAsk: "Сбросить все звёзды и задания?",
@@ -151,6 +152,7 @@ export const copy = {
     voiceMissing:
       "לֹא נִמְצָא קוֹל עִבְרִי בַּמַּכְשִׁיר. הוֹסִיפוּ קוֹל בְּהַגְדָּרוֹת הַמַּכְשִׁיר.",
     mute: "קוֹל",
+    volume: "עוֹצְמַת קוֹל",
     difficulty: "רָמָה",
     reset: "אִפּוּס הִתְקַדְּמוּת",
     resetAsk: "לְאַפֵּס אֶת כָּל הַכּוֹכָבִים?",
@@ -233,6 +235,7 @@ export const copy = {
     voiceMissing:
       "No English voice is installed on this device. Add one in device settings.",
     mute: "Sound",
+    volume: "Volume",
     difficulty: "Difficulty",
     reset: "Reset progress",
     resetAsk: "Reset all stars and completed tasks?",

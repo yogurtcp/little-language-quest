@@ -6,6 +6,7 @@ import { readProgress, resetProgress, award } from "./core/rewards.js";
 import { readSetting, writeSetting } from "./core/storage.js";
 import { TaskLifetime } from "./core/lifecycle.js";
 import { createParentUI } from "./ui/parents.js";
+import { volumeControl } from "./ui/volume.js";
 import { games } from "./games/index.js";
 
 const app = document.querySelector("#app"),
@@ -41,6 +42,7 @@ window.addEventListener("beforeinstallprompt", (event) => {
 });
 window.addEventListener("appinstalled", () => {
   installPrompt = null;
+  document.querySelector(".welcome-install")?.remove();
 });
 if (
   "serviceWorker" in navigator &&
@@ -142,6 +144,15 @@ function welcome() {
     hero,
     button("text-button", t(locale, "choose"), languagePicker),
   );
+  if (!window.matchMedia("(display-mode: standalone)").matches) {
+    screen.append(
+      button(
+        "secondary-button welcome-install",
+        t(locale, "install"),
+        installApp,
+      ),
+    );
+  }
   app.append(screen);
 }
 function currentLevel(gameId) {
@@ -195,7 +206,12 @@ function startTask({ gameId = null, seed = null, practice = false } = {}) {
   replay.innerHTML =
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3zM16 8q4 4 0 8m3-11q7 7 0 14"/></svg>';
   replay.append(node("span", "", t(locale, "speaker")));
-  actions.append(replay);
+  actions.append(
+    replay,
+    volumeControl(audio, locale, "game-volume", () =>
+      audio.speak(task.speech || task.prompt, locale),
+    ).element,
+  );
   if (practice)
     actions.append(button("text-button", t(locale, "debug"), parents.showLab));
   meta.append(actions);
