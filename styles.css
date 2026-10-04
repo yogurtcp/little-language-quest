@@ -368,6 +368,15 @@ button:disabled {
 .memory-card {
   height: 128px;
   padding: 6px;
+  touch-action: manipulation;
+  transition: background 0.15s;
+}
+.memory-card:hover,
+.memory-card:active {
+  transform: none;
+}
+.memory-card.revealed:not(.matched) {
+  background: #fff2ca;
 }
 .memory-card .art {
   height: 110px;

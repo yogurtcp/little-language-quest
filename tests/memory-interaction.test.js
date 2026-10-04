@@ -93,3 +93,38 @@ test("a newer mismatch keeps its own preview when an older timer fires", () => {
   f.buttons[c].click();
   assert.notEqual(f.buttons[c].getAttribute("aria-label"), "?");
 });
+
+test("tapping an open card turns it face down, and matched cards stop responding", () => {
+  for (const locale of ["ru", "he", "en"]) {
+    const f = setup(locale, 1),
+      cards = f.task.cards;
+    const first = 0;
+    const partner = cards.findIndex(
+      (card, index) => index !== first && card.id === cards[first].id,
+    );
+    f.buttons[first].click();
+    assert.equal(f.buttons[first].getAttribute("aria-pressed"), "true");
+    f.buttons[first].click();
+    assert.equal(f.buttons[first].getAttribute("aria-label"), "?");
+    assert.equal(f.buttons[first].getAttribute("aria-pressed"), "false");
+    f.buttons[first].click();
+    f.buttons[partner].click();
+    assert.equal(f.buttons[first].disabled, true);
+    assert.equal(f.buttons[partner].disabled, true);
+    assert.equal(f.buttons[first].getAttribute("aria-pressed"), "true");
+  }
+});
+
+test("tapping a card in a mismatched pair turns it face down immediately", () => {
+  const f = setup("ru", 1),
+    cards = f.task.cards;
+  const second = cards.findIndex((card) => card.id !== cards[0].id);
+  f.buttons[0].click();
+  f.buttons[second].click();
+  f.buttons[0].click();
+  assert.equal(f.buttons[0].getAttribute("aria-label"), "?");
+  assert.equal(f.buttons[second].getAttribute("aria-label"), "?");
+  f.timers[0]();
+  f.buttons[0].click();
+  assert.notEqual(f.buttons[0].getAttribute("aria-label"), "?");
+});
