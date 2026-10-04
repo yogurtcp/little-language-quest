@@ -1,5 +1,5 @@
 import { concepts, word } from "../core/content.js";
-import { sample, shuffle, node, button, pick } from "../core/helpers.js";
+import { shuffle, node, button, pick } from "../core/helpers.js";
 import { art } from "../core/art.js";
 import { t } from "../core/i18n.js";
 import { grid, revealWord } from "./shared.js";
@@ -29,16 +29,17 @@ export const memoryPairs = {
         const area = grid(host, "memory-grid");
         let open = [],
           matched = new Set(),
-          busy = false;
+          pendingMismatch = null;
         const elements = cards.map((card) => {
           const element = button("choice memory-card", "", () => {
             if (
               api.isComplete?.() ||
-              busy ||
               matched.has(card.id) ||
-              open.some((x) => x.element === element)
+              (!pendingMismatch && open.some((x) => x.element === element))
             )
               return;
+            // A new tap ends the mismatch preview instead of being discarded.
+            if (pendingMismatch) hideMismatch(pendingMismatch);
             reveal(element, card);
             open.push({ card, element });
             api.audio.speak(word(card.item, locale).speech, locale);
@@ -56,17 +57,10 @@ export const memoryPairs = {
                 open = [];
                 if (matched.size === selected.length) api.complete();
               } else {
-                busy = true;
+                const pair = open;
+                pendingMismatch = pair;
                 api.wrong(null, false);
-                api.later(() => {
-                  for (const entry of [first, second]) {
-                    entry.element.innerHTML =
-                      '<span class="card-back">?</span>';
-                    entry.element.setAttribute("aria-label", "?");
-                  }
-                  open = [];
-                  busy = false;
-                }, 1100);
+                api.later(() => hideMismatch(pair), 1100);
               }
             }
           });
@@ -75,6 +69,16 @@ export const memoryPairs = {
           return element;
         });
         elements.forEach((element) => area.append(element));
+        function hideMismatch(pair) {
+          // A timer from an earlier preview must not hide a newer selection.
+          if (pendingMismatch !== pair) return;
+          for (const { element } of pair) {
+            element.innerHTML = '<span class="card-back">?</span>';
+            element.setAttribute("aria-label", "?");
+          }
+          open = [];
+          pendingMismatch = null;
+        }
         function reveal(element, card) {
           element.innerHTML =
             card.kind === "art"
