@@ -302,3 +302,15 @@ test("saved volume boosts recorded speech and effects through a peak limiter", a
     globalThis.localStorage = originalStorage;
   }
 });
+
+
+test("the new Hebrew release defaults to approved recordings even after an old device preference", () => {
+  const originalStorage = globalThis.localStorage;
+  globalThis.localStorage = {getItem(key) { return key === "llq-hebrew-voice" ? "device" : null; }};
+  globalThis.window = {};
+  try {
+    assert.equal(new GameAudio().hebrewVoice, "recorded");
+  } finally {
+    globalThis.localStorage = originalStorage;
+  }
+});

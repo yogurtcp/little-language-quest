@@ -1,47 +1,36 @@
-# Hebrew pronunciation recordings
+# Hebrew narration
 
-Every pointed Hebrew token in the game's narration has an explicit IPA entry in
-`pronunciations.json`. Lookup includes niqqud and fails for unknown spellings.
-`recordings.json` records the complete IPA input and model checksum for each clip.
-For example, שְׁמוֹנֶה and שְׁמוֹנָה have different final vowels and stress.
-A native-speaker listening review is still needed; explicit phonemes make any
-correction reproducible without relying on browser pronunciation guesses.
+The current recordings use **Microsoft Hila Neural** (`he-IL-HilaNeural`), at its
+normal speaking rate. The owner approved a sample of this voice with unpointed
+speech input. A previous sample with niqqud in the TTS input was rejected.
+
+The child still sees pointed Hebrew. `speech-text.json` maps every pointed token
+to its unpointed speech spelling, including required full spellings such as
+`עיגולים`, `מיטה`, and `תוף`. Simply deleting the vowel marks can produce a
+different word; the generator fails if any token lacks a mapping.
+
+`recordings.json` records the actual input and file path for each clip. Content
+hashes include the voice, rate, display text, and spoken text. The app uses the
+bundled clips by default; an optional device voice remains in the parent menu.
+No runtime TTS account, API key, or external speech service is needed.
 
 ## Rebuild
 
-Install build tools (not app dependencies):
-
 ```sh
-python3 -m pip install piper-tts==1.8.0 soundfile==0.14.0 imageio-ffmpeg==0.6.0
-```
-
-Download `he_IL-saspeech-medium.onnx` and its `.onnx.json` configuration from the
-[official Piper voice repository](https://huggingface.co/rhasspy/piper-voices/tree/main/he/he_IL/saspeech/medium)
-to a directory outside this repository. Then run:
-
-```sh
-python3 scripts/hebrew/generate.py --model /path/to/he_IL-saspeech-medium.onnx
+python3 -m pip install edge-tts==7.2.8
+python3 scripts/hebrew/generate.py
 python3 scripts/generate-audio.py
 ```
 
-Only MP3s ship in the app. The model, Python packages, and inference engine do not.
-The generator supplies authored phonemes directly, bypassing automatic Hebrew
-text-to-phoneme conversion. Unchanged content hashes reuse existing recordings.
-Old recording URLs are maintained through `scripts/audio-aliases.json` for
-previously installed app versions.
+The generator sends authored game text to Microsoft's online speech service.
+Only the finished MP3 assets ship with the game. It updates old recording aliases
+for existing installations; current clients use fresh filenames.
 
-## Attribution and use
+Microsoft documents Hila in its [supported voices](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts).
+The build client is [edge-tts](https://github.com/rany2/edge-tts).
 
-The Hebrew voice uses Piper's SASPEECH model, trained on the
-[SASPEECH dataset](https://www.openslr.org/134/) (Orian Sharoni, Roee Shenberg,
-and Erica Cooper, Interspeech 2023). Dataset recordings feature Shaul
-Amsterdamski; copyright in those recordings and transcripts belongs to the
-Israeli Public Broadcasting Corporation (IPBC).
-
-SASPEECH has a custom **non-commercial** license: no commercial, broadcast, or
-political uses, unlawful uses, harm to the speaker/IPBC, or implication of IPBC
-endorsement. See the dataset page and its linked Hebrew license for full terms.
-This app uses it for free family education. These restrictions concern this
-voice resource; they do not change the license of unrelated application code.
-The synthesized game narration is not a recording of the speaker saying these
-lines, and neither the speaker nor IPBC endorses this app.
+The sample has been reviewed by the owner; the complete catalog still needs a
+native-speaker listening review. The Game Lab supports targeted review of all
+activities. The old IPA dictionary remains as a pronunciation reference but is
+not fed to the new engine. Earlier Piper/SASPEECH recordings and their provenance
+remain available in Git history; current game narration no longer uses that model.

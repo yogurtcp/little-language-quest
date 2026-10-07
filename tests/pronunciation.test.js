@@ -4,22 +4,23 @@ import fs from "node:fs";
 import { audioManifest } from "../src/core/audio-manifest.js";
 const read = (path) =>
   JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
-const lexicon = read("../scripts/hebrew/pronunciations.json");
-const { records } = read("../scripts/hebrew/recordings.json");
-test("every Hebrew clip uses the exact pointed pronunciation dictionary", () => {
+const lexicon = read("../scripts/hebrew/speech-text.json");
+const { records, voice, rate } = read("../scripts/hebrew/recordings.json");
+test("Hebrew recordings use the approved Hila voice and explicit unpointed speech spelling", () => {
+  assert.equal(voice, "he-IL-HilaNeural");
+  assert.equal(rate, "+0%");
   for (const [text, path] of Object.entries(audioManifest.he)) {
-    const ipa = text
-      .normalize("NFC")
-      .replace(/[\u0590-\u05ff]+/gu, (token) => {
-        assert.ok(lexicon[token], `Missing pointed token: ${token}`);
-        return lexicon[token];
-      })
-      .replaceAll("\u0361", "");
-    assert.equal(records[text].ipa, ipa, text);
+    const input = text.normalize("NFC").replace(/[\u0590-\u05ff]+/gu, (token) => {
+      assert.ok(lexicon[token], `Missing speech spelling: ${token}`);
+      return lexicon[token];
+    });
+    assert.equal(records[text].input, input, text);
+    assert.doesNotMatch(input, /[\u0591-\u05bd\u05bf-\u05c2\u05c4-\u05c7]/);
     assert.equal(records[text].path, path);
   }
-  assert.equal(lexicon["שְׁמוֹנֶה".normalize("NFC")], "ʃmˈone");
-  assert.equal(lexicon["שְׁמוֹנָה".normalize("NFC")], "ʃmonˈa");
+  assert.equal(lexicon["עִגּוּלִים".normalize("NFC")], "עיגולים");
+  assert.equal(lexicon["יָרָק".normalize("NFC")], "ירק");
+  assert.equal(lexicon["יָרֹק".normalize("NFC")], "ירוק");
 });
 test("legacy recording URLs contain the corrected audio", () => {
   const aliases = read("../scripts/audio-aliases.json");

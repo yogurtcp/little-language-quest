@@ -32,6 +32,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
         "little-language-quest-shell-v11",
         "little-language-quest-shell-v13",
         "little-language-quest-shell-v14",
+        "little-language-quest-shell-v15",
         "little-language-quest-audio-v1",
       ],
       delete: async (key) => removed.push(key),
@@ -62,6 +63,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
     "little-language-quest-shell-v10",
     "little-language-quest-shell-v11",
     "little-language-quest-shell-v13",
+    "little-language-quest-shell-v14",
   ]);
   let intercepted = false;
   handlers.fetch({
@@ -130,4 +132,33 @@ test("audio plays even if its cache is full; reload bypasses a stale cache", asy
     respondWith: (p) => (pending = p),
   });
   assert.equal(await pending, response);
+});
+
+
+test("a transient shell download failure retries; permanent failure never activates", async () => {
+  for (const failures of [1, Infinity]) {
+    const handlers = {};
+    let attempts = 0, activated = false, pending;
+    vm.runInNewContext(readFileSync(new URL("../sw.js", import.meta.url), "utf8"), {
+      URL, Request, Promise,
+      self: {
+        registration: {scope: "https://example.com/game/"},
+        addEventListener: (name, fn) => handlers[name] = fn,
+        skipWaiting: async () => {activated = true;},
+      },
+      caches: {open: async () => ({addAll: async () => {
+        if (++attempts <= failures) throw new Error("HTTP 503");
+      }})},
+    });
+    handlers.install({waitUntil: (promise) => {pending = promise;}});
+    if (failures === Infinity) {
+      await assert.rejects(pending, /503/);
+      assert.equal(attempts, 3);
+      assert.equal(activated, false);
+    } else {
+      await pending;
+      assert.equal(attempts, 2);
+      assert.equal(activated, true);
+    }
+  }
 });

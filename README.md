@@ -30,7 +30,7 @@ Tests exercise completing all 12 games in three languages and three levels, incl
 
 **Tap the Menu / gear button**, then answer the adult arithmetic check (12 + 7). Keyboard shortcut: Alt+Shift+P. Escape closes the check; the native dialog manages keyboard focus.
 
-Settings include language, sound, level, voice test, app installation, offline audio downloads, progress reset, and the Game Lab. Hebrew also has a saved choice between the device's Hebrew voice and the phonetic recorded voice. If no Hebrew device voice is available, the recorded voice plays. Choose any activity and a task number in the lab for a reproducible question.
+Settings include language, sound, level, voice test, app installation, offline audio downloads, progress reset, and the Game Lab. Hebrew also has a saved choice between Hila recordings and the device's Hebrew voice. If no Hebrew device voice is available, the recorded voice plays. Choose any activity and a task number in the lab for a reproducible question.
 
 ## Object artwork
 
@@ -54,11 +54,16 @@ in the offline shell. The original family photo is not included in the repositor
 
 ## Narration and Hebrew
 
-MP3s are generated at development time with Russian Svetlana and English Aria voices. Hebrew uses Piper with an explicit pronunciation dictionary containing vowels and stress for every pointed word. Hebrew display text retains niqqud. Letter instructions use explicit letter names; abstract math uses feminine Hebrew number names. The Hebrew parent setting can use the device's Hebrew voice instead; its pronunciation depends on Android's installed voice and it may ignore niqqud. The recorded voice remains available and is used automatically if no Hebrew device voice exists or device speech reports an error. Russian and English can use a same-language fallback. Failed playback produces a visible message and a retry button. Compound recorded questions trim clip padding and schedule short gaps between spoken segments.
+MP3s are generated at development time with Russian Svetlana, English Aria, and
+Hebrew Hila neural voices. Hebrew narration uses explicit unpointed speech
+spellings while display text retains niqqud. Hila is the default, including for
+installations that previously selected a device voice. The device voice remains
+an optional parent setting. The owner approved a short Hila sample; the complete
+catalog still needs a native-speaker listening review in the Game Lab.
 
-The Hebrew voice resource has a non-commercial license. See [Hebrew sources, pronunciation dictionary, and rebuild instructions](scripts/hebrew/SOURCES.md).
-
-The audio is synthesized, not a human recording. Linguistic text is curated, but the clips have not had a native-speaker listening review. The parent voice test and Game Lab support that review.
+See [Hebrew voice sources and rebuild instructions](scripts/hebrew/SOURCES.md).
+Letter instructions use explicit letter names. Failed playback produces a visible
+retry message. Compound questions trim clip padding and use short gaps.
 
 To regenerate changed text:
 
@@ -67,7 +72,7 @@ python3 -m pip install edge-tts==7.2.8
 python3 scripts/generate-audio.py
 ```
 
-The Russian/English generator sends only authored game text to the speech service at build time. Hebrew recordings are generated locally, using the separate instructions above. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
+The Russian/English generator sends only authored game text to the speech service at build time. Hebrew recordings use the separate generation script above and the same online speech service. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
 
 ## Installation, offline play, and updates
 
@@ -75,7 +80,10 @@ After choosing a language, tap **Install app** on the welcome screen. On Android
 
 The service worker caches the application shell; heard clips are cached as well. Before fully offline play, use **Download audio for offline play** for the chosen language and wait for completion. Each language is roughly 3–4 MiB. Installation is browser dependent; local Python previews intentionally skip service-worker registration.
 
-A release caches a complete module graph. Existing installations reload once when a new worker takes control. Progress is preserved. Cache cleanup is limited to this app's own caches, since other GitHub Pages apps share the same origin.
+A release caches a complete module graph. Existing installations reload once when a new worker takes control. Progress is preserved. The parent menu has **Update game**, which opens an independent
+[recovery page](https://yogurtcp.github.io/little-language-quest/update.html) for stuck installations.
+It reinstalls only this app’s shell, reports the installed version, and keeps stars, settings, and audio.
+Transient installation failures are retried before activation. Cache cleanup is limited to this app's own caches, since other GitHub Pages apps share the same origin.
 
 ## Code map
 

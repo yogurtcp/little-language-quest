@@ -9,7 +9,7 @@ export class GameAudio {
       ? Math.max(0, Math.min(250, savedVolume))
       : 100;
     this.muted = readSetting("llq-muted") === "1" || this.volume === 0;
-    this.hebrewVoice = readSetting("llq-hebrew-voice", "device");
+    this.hebrewVoice = readSetting("llq-hebrew-voice-v2", "recorded");
     this.context = null;
     this.master = null;
     this.voices = [];
@@ -42,7 +42,7 @@ export class GameAudio {
     if (mode !== "device" && mode !== "recorded") return;
     this.stop();
     this.hebrewVoice = mode;
-    writeSetting("llq-hebrew-voice", mode);
+    writeSetting("llq-hebrew-voice-v2", mode);
   }
   async unlock() {
     const AudioContext = window.AudioContext || window.webkitAudioContext;

@@ -1,802 +1,803 @@
 {
-  "engine": "Piper 1.8.0 / he_IL-saspeech-medium",
-  "model_sha256": "3dc067debc9e782a8a0d095dbb58786648743d406366dcc2aa81009660873b4d",
+  "engine": "Microsoft neural TTS via edge-tts 7.2.8",
+  "voice": "he-IL-HilaNeural",
+  "rate": "+0%",
   "records": {
     "כֶּלֶב": {
-      "ipa": "kˈelev",
-      "path": "audio/he/fde369a44ba4bbc4.mp3"
+      "input": "כלב",
+      "path": "audio/he/447b45c41900ad67.mp3"
     },
     "חָתוּל": {
-      "ipa": "χatˈul",
-      "path": "audio/he/8df21fdea33f0390.mp3"
+      "input": "חתול",
+      "path": "audio/he/34401f9aca4e2705.mp3"
     },
     "מִיץ": {
-      "ipa": "mˈits",
-      "path": "audio/he/f4b7005219dd1bae.mp3"
+      "input": "מיץ",
+      "path": "audio/he/e1b92b3a05c6af27.mp3"
     },
     "נַקְנִיקִיָּה": {
-      "ipa": "naknikijˈa",
-      "path": "audio/he/9345abb22b53b924.mp3"
+      "input": "נקניקייה",
+      "path": "audio/he/383a8d332781d51f.mp3"
     },
     "שֶׁמֶשׁ": {
-      "ipa": "ʃˈemeʃ",
-      "path": "audio/he/4f6d87b6f449f9ab.mp3"
+      "input": "שמש",
+      "path": "audio/he/15e27e30e4320908.mp3"
     },
     "בַּיִת": {
-      "ipa": "bˈajit",
-      "path": "audio/he/e3ca51f9f2df5fb6.mp3"
+      "input": "בית",
+      "path": "audio/he/3326c3ba65ec3151.mp3"
     },
     "בָּנָנָה": {
-      "ipa": "banˈana",
-      "path": "audio/he/60166701be2fd524.mp3"
+      "input": "בננה",
+      "path": "audio/he/e6f28e9d915028ea.mp3"
     },
     "בַּלּוֹן": {
-      "ipa": "balˈon",
-      "path": "audio/he/0c2f3b15f213e7c1.mp3"
+      "input": "בלון",
+      "path": "audio/he/0bad43d88ba9c1fe.mp3"
     },
     "חָלָב": {
-      "ipa": "χalˈav",
-      "path": "audio/he/5ddf4c98cf6fc5ba.mp3"
+      "input": "חלב",
+      "path": "audio/he/f9f89f720bc47f07.mp3"
     },
     "חַלּוֹן": {
-      "ipa": "χalˈon",
-      "path": "audio/he/0d5a9d582cf523e7.mp3"
+      "input": "חלון",
+      "path": "audio/he/473b3ba6c215ba6c.mp3"
     },
     "שָׁעוֹן": {
-      "ipa": "ʃaˈon",
-      "path": "audio/he/487c3d93461e2ac1.mp3"
+      "input": "שעון",
+      "path": "audio/he/4550c560001adb6d.mp3"
     },
     "שׁוֹקוֹלָד": {
-      "ipa": "ʃokolˈad",
-      "path": "audio/he/ecd8947f7044a503.mp3"
+      "input": "שוקולד",
+      "path": "audio/he/9ebc2c7f33a27da5.mp3"
     },
     "פָּרָה": {
-      "ipa": "paʁˈa",
-      "path": "audio/he/163d7089fcbeb3eb.mp3"
+      "input": "פרה",
+      "path": "audio/he/1564bcc585d7c809.mp3"
     },
     "סֵפֶר": {
-      "ipa": "sˈefeʁ",
-      "path": "audio/he/498826e8d17b7dc6.mp3"
+      "input": "ספר",
+      "path": "audio/he/563ea604cd0413c3.mp3"
     },
     "מַמְתָּק": {
-      "ipa": "mamtˈak",
-      "path": "audio/he/278e293f53c7de03.mp3"
+      "input": "ממתק",
+      "path": "audio/he/11e59515ac63a8ef.mp3"
     },
     "עוּגָה": {
-      "ipa": "ugˈa",
-      "path": "audio/he/82640a015094653c.mp3"
+      "input": "עוגה",
+      "path": "audio/he/0bf0e7016e966365.mp3"
     },
     "מְכוֹנִית": {
-      "ipa": "meχonˈit",
-      "path": "audio/he/6eb7762279280c2c.mp3"
+      "input": "מכונית",
+      "path": "audio/he/f0d35728172e801a.mp3"
     },
     "בַּרְוָז": {
-      "ipa": "baʁvˈaz",
-      "path": "audio/he/765c53eb2642e893.mp3"
+      "input": "ברוז",
+      "path": "audio/he/3c6548240b6c1d3f.mp3"
     },
     "תַּפּוּחַ": {
-      "ipa": "tapˈuaχ",
-      "path": "audio/he/3b3f6dfdd87f2fff.mp3"
+      "input": "תפוח",
+      "path": "audio/he/e26916b1bbf53c18.mp3"
     },
     "דָּג": {
-      "ipa": "dˈag",
-      "path": "audio/he/2f24da533fb43121.mp3"
+      "input": "דג",
+      "path": "audio/he/adec131793c39d43.mp3"
     },
     "עֵץ": {
-      "ipa": "ˈets",
-      "path": "audio/he/7ec88937a259ff25.mp3"
+      "input": "עץ",
+      "path": "audio/he/9233c45bd11c3039.mp3"
     },
     "פֶּרַח": {
-      "ipa": "pˈeʁaχ",
-      "path": "audio/he/281ab40f61f1facd.mp3"
+      "input": "פרח",
+      "path": "audio/he/97251b59af4d5acf.mp3"
     },
     "כַּדּוּר": {
-      "ipa": "kadˈuʁ",
-      "path": "audio/he/49e66dbaa295aab7.mp3"
+      "input": "כדור",
+      "path": "audio/he/f6cc91e70809f9de.mp3"
     },
     "כּוֹכָב": {
-      "ipa": "koχˈav",
-      "path": "audio/he/a35e511d433290d3.mp3"
+      "input": "כוכב",
+      "path": "audio/he/11686e4e76af47f2.mp3"
     },
     "נַעַל": {
-      "ipa": "nˈaal",
-      "path": "audio/he/46fb94fe10ffb5fa.mp3"
+      "input": "נעל",
+      "path": "audio/he/17c7c93271dc3965.mp3"
     },
     "אַרְנָב": {
-      "ipa": "aʁnˈav",
-      "path": "audio/he/11d714d9aa24cdf2.mp3"
+      "input": "ארנב",
+      "path": "audio/he/3d1c5417b9e3ceb1.mp3"
     },
     "דֹּב": {
-      "ipa": "dˈov",
-      "path": "audio/he/893bac45ce7ca57a.mp3"
+      "input": "דוב",
+      "path": "audio/he/c8c57430fa7231fa.mp3"
     },
     "אַרְיֵה": {
-      "ipa": "aʁjˈe",
-      "path": "audio/he/49793cb36a564b42.mp3"
+      "input": "אריה",
+      "path": "audio/he/085f388e55fda773.mp3"
     },
     "פִּיל": {
-      "ipa": "pˈil",
-      "path": "audio/he/ad26ef963f0476a6.mp3"
+      "input": "פיל",
+      "path": "audio/he/f564a5807e3e48d3.mp3"
     },
     "גִּ׳ירָפָה": {
-      "ipa": "dʒiʁˈafa",
-      "path": "audio/he/6a13be786818934d.mp3"
+      "input": "ג׳ירפה",
+      "path": "audio/he/c33f168def5d56b9.mp3"
     },
     "קוֹף": {
-      "ipa": "kˈof",
-      "path": "audio/he/67a6dc441b23e0ec.mp3"
+      "input": "קוף",
+      "path": "audio/he/1d4188bd4ac72f30.mp3"
     },
     "סוּס": {
-      "ipa": "sˈus",
-      "path": "audio/he/354991544dcfea54.mp3"
+      "input": "סוס",
+      "path": "audio/he/af98b667529fa5ee.mp3"
     },
     "כֶּבֶשׂ": {
-      "ipa": "kˈeves",
-      "path": "audio/he/745ce2469cbfa58a.mp3"
+      "input": "כבש",
+      "path": "audio/he/262fadc5905d1c6f.mp3"
     },
     "חֲזִיר": {
-      "ipa": "χazˈiʁ",
-      "path": "audio/he/ef245f27e5a66c46.mp3"
+      "input": "חזיר",
+      "path": "audio/he/3c8b20bdbb6bdc31.mp3"
     },
     "עַכְבָּר": {
-      "ipa": "aχbˈaʁ",
-      "path": "audio/he/b6a3ea74525ed3b3.mp3"
+      "input": "עכבר",
+      "path": "audio/he/62eaa922e6598766.mp3"
     },
     "צְפַרְדֵּעַ": {
-      "ipa": "tsfaʁdˈea",
-      "path": "audio/he/bad1c8142a431d47.mp3"
+      "input": "צפרדע",
+      "path": "audio/he/36d0fdbe9d37a59d.mp3"
     },
     "צָב": {
-      "ipa": "tsˈav",
-      "path": "audio/he/074b95471ba913d0.mp3"
+      "input": "צב",
+      "path": "audio/he/1fec1717d28a7f57.mp3"
     },
     "פַּרְפַּר": {
-      "ipa": "paʁpˈaʁ",
-      "path": "audio/he/6481da0826be06d2.mp3"
+      "input": "פרפר",
+      "path": "audio/he/ed06048b3b05dbdc.mp3"
     },
     "דְּבוֹרָה": {
-      "ipa": "dvoʁˈa",
-      "path": "audio/he/fb99782a47abee20.mp3"
+      "input": "דבורה",
+      "path": "audio/he/e56f3e114c2c3e00.mp3"
     },
     "חִלָּזוֹן": {
-      "ipa": "χilazˈon",
-      "path": "audio/he/4359a6f82272e4c7.mp3"
+      "input": "חילזון",
+      "path": "audio/he/c0595d953da91368.mp3"
     },
     "צִפּוֹר": {
-      "ipa": "tsipˈoʁ",
-      "path": "audio/he/d092c8e03cffaeed.mp3"
+      "input": "ציפור",
+      "path": "audio/he/5b637427876b92a6.mp3"
     },
     "תַּרְנְגוֹל": {
-      "ipa": "taʁnegˈol",
-      "path": "audio/he/ab2e8a6dd046b8d4.mp3"
+      "input": "תרנגול",
+      "path": "audio/he/df21b182d2ce38a2.mp3"
     },
     "פִּינְגְּוִין": {
-      "ipa": "pˈingvin",
-      "path": "audio/he/d97b89cd8a082064.mp3"
+      "input": "פינגוין",
+      "path": "audio/he/d11663aa29e15bbf.mp3"
     },
     "אַגָּס": {
-      "ipa": "agˈas",
-      "path": "audio/he/aafbbd2717561b92.mp3"
+      "input": "אגס",
+      "path": "audio/he/55da8c93731fa369.mp3"
     },
     "תַּפּוּז": {
-      "ipa": "tapˈuz",
-      "path": "audio/he/3962019692158fc7.mp3"
+      "input": "תפוז",
+      "path": "audio/he/209bdde78a1f08e7.mp3"
     },
     "לִימוֹן": {
-      "ipa": "limˈon",
-      "path": "audio/he/cc2839d6393e5cee.mp3"
+      "input": "לימון",
+      "path": "audio/he/579dbeaa63c7a2c4.mp3"
     },
     "תּוּת": {
-      "ipa": "tˈut",
-      "path": "audio/he/1d884c658e8161e3.mp3"
+      "input": "תות",
+      "path": "audio/he/b631ba8bcfaf8ead.mp3"
     },
     "עֲנָבִים": {
-      "ipa": "anavˈim",
-      "path": "audio/he/d6ab67b5dad73d0e.mp3"
+      "input": "ענבים",
+      "path": "audio/he/8de9c018e18a9518.mp3"
     },
     "אֲבַטִּיחַ": {
-      "ipa": "avatˈiaχ",
-      "path": "audio/he/6bce61ace096d387.mp3"
+      "input": "אבטיח",
+      "path": "audio/he/680f7931476b8e29.mp3"
     },
     "גֶּזֶר": {
-      "ipa": "gˈezeʁ",
-      "path": "audio/he/b930441228cb19ca.mp3"
+      "input": "גזר",
+      "path": "audio/he/3d6a716679bc5193.mp3"
     },
     "עַגְבָנִיָּה": {
-      "ipa": "agvanijˈa",
-      "path": "audio/he/070510e19260d7aa.mp3"
+      "input": "עגבנייה",
+      "path": "audio/he/9cbe17f23ff30e44.mp3"
     },
     "מְלָפְפוֹן": {
-      "ipa": "melafefˈon",
-      "path": "audio/he/39888b5613d623e9.mp3"
+      "input": "מלפפון",
+      "path": "audio/he/092ab97a54335284.mp3"
     },
     "לֶחֶם": {
-      "ipa": "lˈeχem",
-      "path": "audio/he/9321eafffb19e257.mp3"
+      "input": "לחם",
+      "path": "audio/he/67508be04713cfbd.mp3"
     },
     "גְּבִינָה": {
-      "ipa": "gvinˈa",
-      "path": "audio/he/998b5db677e91258.mp3"
+      "input": "גבינה",
+      "path": "audio/he/ad60346cf71a8b69.mp3"
     },
     "בֵּיצָה": {
-      "ipa": "bejtsˈa",
-      "path": "audio/he/3761ede5e7593f53.mp3"
+      "input": "ביצה",
+      "path": "audio/he/05a0947a195a8e2c.mp3"
     },
     "גְּלִידָה": {
-      "ipa": "glˈida",
-      "path": "audio/he/c8e86d9444f5a584.mp3"
+      "input": "גלידה",
+      "path": "audio/he/42b9c1b11d2772bc.mp3"
     },
     "פִּיצָה": {
-      "ipa": "pˈitsa",
-      "path": "audio/he/f981f4bb420653ea.mp3"
+      "input": "פיצה",
+      "path": "audio/he/fee4cd913916ce34.mp3"
     },
     "אוֹטוֹבּוּס": {
-      "ipa": "otˈobus",
-      "path": "audio/he/ecdbf8643ee17a66.mp3"
+      "input": "אוטובוס",
+      "path": "audio/he/63b57d30ea024923.mp3"
     },
     "רַכֶּבֶת": {
-      "ipa": "ʁakˈevet",
-      "path": "audio/he/fcc49b75e9eaaf3d.mp3"
+      "input": "רכבת",
+      "path": "audio/he/cb2b9207df1e43e4.mp3"
     },
     "מָטוֹס": {
-      "ipa": "matˈos",
-      "path": "audio/he/0fd092c6f86a0912.mp3"
+      "input": "מטוס",
+      "path": "audio/he/7f3b302ea1f751bf.mp3"
     },
     "סִירָה": {
-      "ipa": "siʁˈa",
-      "path": "audio/he/4cdaf708d9f8fa66.mp3"
+      "input": "סירה",
+      "path": "audio/he/afa7ce3c8ce68547.mp3"
     },
     "אוֹפַנַּיִם": {
-      "ipa": "ofanˈajim",
-      "path": "audio/he/4de3cdfc8fc7afe3.mp3"
+      "input": "אופנים",
+      "path": "audio/he/1b46d34f3a456a84.mp3"
     },
     "טִיל": {
-      "ipa": "tˈil",
-      "path": "audio/he/f85a3819e20ae5a4.mp3"
+      "input": "טיל",
+      "path": "audio/he/1583f18a06ce4649.mp3"
     },
     "מִטְרִיָּה": {
-      "ipa": "mitʁijˈa",
-      "path": "audio/he/79c14e8a9d3915cb.mp3"
+      "input": "מטרייה",
+      "path": "audio/he/d36368d40549bd75.mp3"
     },
     "מַפְתֵּחַ": {
-      "ipa": "maftˈeaχ",
-      "path": "audio/he/6ca96f0ce839392d.mp3"
+      "input": "מפתח",
+      "path": "audio/he/408297c51ed4da87.mp3"
     },
     "כִּסֵּא": {
-      "ipa": "kisˈe",
-      "path": "audio/he/28a0b7343385db76.mp3"
+      "input": "כסא",
+      "path": "audio/he/b934a07c0980ac32.mp3"
     },
     "מִטָּה": {
-      "ipa": "mitˈa",
-      "path": "audio/he/77967e3241ac141c.mp3"
+      "input": "מיטה",
+      "path": "audio/he/24873faba34c78e3.mp3"
     },
     "סֵפֶל": {
-      "ipa": "sˈefel",
-      "path": "audio/he/22995eb2a9cfb6f2.mp3"
+      "input": "ספל",
+      "path": "audio/he/58a02f6620637b2c.mp3"
     },
     "כַּף": {
-      "ipa": "kˈaf",
-      "path": "audio/he/b7d0fdbd741b3920.mp3"
+      "input": "כף",
+      "path": "audio/he/f7deb3c2852b25a4.mp3"
     },
     "מִבְרֶשֶׁת שִׁנַּיִם": {
-      "ipa": "mivʁˈeʃet ʃinˈajim",
-      "path": "audio/he/20d67f39e0f4bce4.mp3"
+      "input": "מברשת שנים",
+      "path": "audio/he/264ea20b7e961329.mp3"
     },
     "עִפָּרוֹן": {
-      "ipa": "ipaʁˈon",
-      "path": "audio/he/9cae973db24a0758.mp3"
+      "input": "עיפרון",
+      "path": "audio/he/99573a17783b1137.mp3"
     },
     "מִסְפָּרַיִם": {
-      "ipa": "mispaʁˈajim",
-      "path": "audio/he/d7fdefb50478377e.mp3"
+      "input": "מספרים",
+      "path": "audio/he/9f460293469bf8e5.mp3"
     },
     "כּוֹבַע": {
-      "ipa": "kˈova",
-      "path": "audio/he/53de532a4e8b5272.mp3"
+      "input": "כובע",
+      "path": "audio/he/6ee549650b228fe8.mp3"
     },
     "חֻלְצָה": {
-      "ipa": "χultsˈa",
-      "path": "audio/he/6a8d0c893e998a06.mp3"
+      "input": "חולצה",
+      "path": "audio/he/2a56bf7051c51ba6.mp3"
     },
     "גֶּרֶב": {
-      "ipa": "gˈeʁev",
-      "path": "audio/he/e9418106cb1f8b4e.mp3"
+      "input": "גרב",
+      "path": "audio/he/9afb59169bd81231.mp3"
     },
     "כְּפָפָה": {
-      "ipa": "kfafˈa",
-      "path": "audio/he/7d1744dd7fe327b4.mp3"
+      "input": "כפפה",
+      "path": "audio/he/b0adde0639ed9623.mp3"
     },
     "תֹּף": {
-      "ipa": "tˈof",
-      "path": "audio/he/2b0907b905959a88.mp3"
+      "input": "תוף",
+      "path": "audio/he/2a109a1688c708eb.mp3"
     },
     "גִּיטָרָה": {
-      "ipa": "gitˈaʁa",
-      "path": "audio/he/72812fa56d7201f5.mp3"
+      "input": "גיטרה",
+      "path": "audio/he/afe186f5033d8846.mp3"
     },
     "עֲפִיפוֹן": {
-      "ipa": "afifˈon",
-      "path": "audio/he/4cd76bdb818f5e60.mp3"
+      "input": "עפיפון",
+      "path": "audio/he/a8b8f1de7f851a7a.mp3"
     },
     "יָרֵחַ": {
-      "ipa": "jaʁˈeaχ",
-      "path": "audio/he/2c316d7967271468.mp3"
+      "input": "ירח",
+      "path": "audio/he/ab9ce808e5c9666e.mp3"
     },
     "עָנָן": {
-      "ipa": "anˈan",
-      "path": "audio/he/1c7db945567704f5.mp3"
+      "input": "ענן",
+      "path": "audio/he/ca589c1b9f8adfe0.mp3"
     },
     "קֶשֶׁת": {
-      "ipa": "kˈeʃet",
-      "path": "audio/he/26c3e646056f41fd.mp3"
+      "input": "קשת",
+      "path": "audio/he/55d1a98b9cab193f.mp3"
     },
     "אִישׁ שֶׁלֶג": {
-      "ipa": "ˈiʃ ʃˈeleg",
-      "path": "audio/he/324386c801b10830.mp3"
+      "input": "איש שלג",
+      "path": "audio/he/8bfeace7a5d5ef8c.mp3"
     },
     "עָלֶה": {
-      "ipa": "alˈe",
-      "path": "audio/he/e1531f3984095d3f.mp3"
+      "input": "עלה",
+      "path": "audio/he/d9f4dac98cb27f1a.mp3"
     },
     "פִּטְרִיָּה": {
-      "ipa": "pitʁijˈa",
-      "path": "audio/he/560de5b5784de4db.mp3"
+      "input": "פטרייה",
+      "path": "audio/he/ae3ca69bb5d5a325.mp3"
     },
     "צְדָפָה": {
-      "ipa": "tsdafˈa",
-      "path": "audio/he/3c43e01899babba9.mp3"
+      "input": "צדפה",
+      "path": "audio/he/88200a08cb137d6e.mp3"
     },
     "מִי אוֹמֵר הַב הַב?": {
-      "ipa": "mˈi omˈeʁ hˈav hˈav?",
-      "path": "audio/he/9ac97aa428f7698c.mp3"
+      "input": "מי אומר הב הב?",
+      "path": "audio/he/09d0968b4bb55fa4.mp3"
     },
     "מִי אוֹמֵר מְיָאוּ?": {
-      "ipa": "mˈi omˈeʁ mjˈau?",
-      "path": "audio/he/5ee4f3fc0f938583.mp3"
+      "input": "מי אומר מיאו?",
+      "path": "audio/he/5ae12f718c29a985.mp3"
     },
     "מִי אוֹמֵר מוּ?": {
-      "ipa": "mˈi omˈeʁ mˈu?",
-      "path": "audio/he/72c8d798c53288ec.mp3"
+      "input": "מי אומר מו?",
+      "path": "audio/he/d7bbaf1ecee07225.mp3"
     },
     "מִי אוֹמֵר גַּע גַּע?": {
-      "ipa": "mˈi omˈeʁ gˈa gˈa?",
-      "path": "audio/he/fb2aac8b31c0d324.mp3"
+      "input": "מי אומר גע גע?",
+      "path": "audio/he/2a2be647a9aa0821.mp3"
     },
     "מִי אוֹמֵר מֶה?": {
-      "ipa": "mˈi omˈeʁ mˈe?",
-      "path": "audio/he/f4c0df347b0de75f.mp3"
+      "input": "מי אומר מה?",
+      "path": "audio/he/6d874073f1c6ddaa.mp3"
     },
     "מִי קוֹרֵא קוּקוּרִיקוּ?": {
-      "ipa": "mˈi koʁˈe kukuʁˈiku?",
-      "path": "audio/he/e4877840aab1f172.mp3"
+      "input": "מי קורא קוקוריקו?",
+      "path": "audio/he/21c2349334c13224.mp3"
     },
     "מִי אוֹמֵר חְרוֹם חְרוֹם?": {
-      "ipa": "mˈi omˈeʁ χʁˈom χʁˈom?",
-      "path": "audio/he/17ac68b6ca1b5697.mp3"
+      "input": "מי אומר חרום חרום?",
+      "path": "audio/he/eb234be088923af3.mp3"
     },
     "מִי צוֹהֵל?": {
-      "ipa": "mˈi tsohˈel?",
-      "path": "audio/he/40d72152947cad90.mp3"
+      "input": "מי צוהל?",
+      "path": "audio/he/8b676921dfff8454.mp3"
     },
     "לְמִי יֵשׁ חֵדֶק אָרֹךְ?": {
-      "ipa": "lemˈi jˈeʃ χˈedek aʁˈoχ?",
-      "path": "audio/he/addb99c78eeb990d.mp3"
+      "input": "למי יש חדק ארוך?",
+      "path": "audio/he/2ac4ab5c9acca279.mp3"
     },
     "לְמִי יֵשׁ צַוָּאר אָרֹךְ מְאוֹד?": {
-      "ipa": "lemˈi jˈeʃ tsavˈaʁ aʁˈoχ meˈod?",
-      "path": "audio/he/748f3451269a3604.mp3"
+      "input": "למי יש צוואר ארוך מאוד?",
+      "path": "audio/he/3d373a5680b97586.mp3"
     },
     "לְמִי יֵשׁ רַעֲמָה סְבִיב הַפָּנִים?": {
-      "ipa": "lemˈi jˈeʃ ʁaamˈa svˈiv hapanˈim?",
-      "path": "audio/he/747bc2c7a51b371e.mp3"
+      "input": "למי יש רעמה סביב הפנים?",
+      "path": "audio/he/2b13e2cd832093d7.mp3"
     },
     "לְמִי יֵשׁ אָזְנַיִם אֲרֻכּוֹת?": {
-      "ipa": "lemˈi jˈeʃ oznˈajim aʁukˈot?",
-      "path": "audio/he/a2c181d8ad612e16.mp3"
+      "input": "למי יש אזנים ארוכות?",
+      "path": "audio/he/529c41f0d371fb90.mp3"
     },
     "לְמִי יֵשׁ שִׁרְיוֹן עַל הַגַּב?": {
-      "ipa": "lemˈi jˈeʃ ʃiʁjˈon ˈal hagˈav?",
-      "path": "audio/he/8671cb7226bcea15.mp3"
+      "input": "למי יש שריון על הגב?",
+      "path": "audio/he/63e19179e1b1081e.mp3"
     },
     "מִי זוֹחֵל עִם בַּיִת עַל הַגַּב?": {
-      "ipa": "mˈi zoχˈel ˈim bˈajit ˈal hagˈav?",
-      "path": "audio/he/3e2a62b3f66a5a0e.mp3"
+      "input": "מי זוחל עם בית על הגב?",
+      "path": "audio/he/4597eb6b6d0766db.mp3"
     },
     "מִי עָף עִם כְּנָפַיִם צִבְעוֹנִיּוֹת?": {
-      "ipa": "mˈi ˈaf ˈim knafˈajim tsivonijˈot?",
-      "path": "audio/he/0fe8a63e9a049c01.mp3"
+      "input": "מי עף עם כנפים צבעוניות?",
+      "path": "audio/he/a6b00dc6607d6be7.mp3"
     },
     "מִי מְכִינָה דְּבַשׁ?": {
-      "ipa": "mˈi meχinˈa dvˈaʃ?",
-      "path": "audio/he/c7a5b2a1a9bc328e.mp3"
+      "input": "מי מכינה דבש?",
+      "path": "audio/he/f6903df412f33b42.mp3"
     },
     "מִי חַי מִתַּחַת לַמַּיִם?": {
-      "ipa": "mˈi χˈaj mitˈaχat lamˈajim?",
-      "path": "audio/he/50f4532cb0fa541b.mp3"
+      "input": "מי חי מתחת למים?",
+      "path": "audio/he/0696959d59f1bb33.mp3"
     },
     "מָה מָתוֹק?": {
-      "ipa": "mˈa matˈok?",
-      "path": "audio/he/81b44bbd56cb9e28.mp3"
+      "input": "מה מתוק?",
+      "path": "audio/he/01272670931ea373.mp3"
     },
     "מָה חָמוּץ?": {
-      "ipa": "mˈa χamˈuts?",
-      "path": "audio/he/57529620b55e3099.mp3"
+      "input": "מה חמוץ?",
+      "path": "audio/he/9ffb6d4d249db51d.mp3"
     },
     "מָה אָדֹם בַּתְּמוּנָה?": {
-      "ipa": "mˈa adˈom batmunˈa?",
-      "path": "audio/he/bca914ba81efbdd9.mp3"
+      "input": "מה אדום בתמונה?",
+      "path": "audio/he/534a8befef73e600.mp3"
     },
     "מָה צָהֹב בַּתְּמוּנָה?": {
-      "ipa": "mˈa tsahˈov batmunˈa?",
-      "path": "audio/he/3cef363ba8b137fd.mp3"
+      "input": "מה צהוב בתמונה?",
+      "path": "audio/he/419f5333a008aeda.mp3"
     },
     "מָה יָרֹק בַּתְּמוּנָה?": {
-      "ipa": "mˈa jaʁˈok batmunˈa?",
-      "path": "audio/he/32ee3b39efe0ee02.mp3"
+      "input": "מה ירוק בתמונה?",
+      "path": "audio/he/b8c4e41f3831c3e8.mp3"
     },
     "אֵיפֹה הַפְּרִי?": {
-      "ipa": "ˈefo hapʁˈi?",
-      "path": "audio/he/1399f073a007d176.mp3"
+      "input": "איפה הפרי?",
+      "path": "audio/he/b3684ad6da459733.mp3"
     },
     "מָה אֶפְשָׁר לִשְׁתּוֹת?": {
-      "ipa": "mˈa efʃˈaʁ liʃtˈot?",
-      "path": "audio/he/5f83cd120d475b34.mp3"
+      "input": "מה אפשר לשתות?",
+      "path": "audio/he/8da089af0ba2589b.mp3"
     },
     "מָה קַר וְנָמֵס?": {
-      "ipa": "mˈa kˈaʁ venamˈes?",
-      "path": "audio/he/a4356bfd1a786a7b.mp3"
+      "input": "מה קר ונמס?",
+      "path": "audio/he/50d0f2f2563ddb0f.mp3"
     },
     "אֵיזֶה יָרָק הָאַרְנָב אוֹהֵב?": {
-      "ipa": "ˈeze jaʁˈak haaʁnˈav ohˈev?",
-      "path": "audio/he/f4f833db03fc32c9.mp3"
+      "input": "איזה ירק הארנב אוהב?",
+      "path": "audio/he/db0a2e5fb9f438da.mp3"
     },
     "מָה אֶפְשָׁר לִקְרֹא?": {
-      "ipa": "mˈa efʃˈaʁ likʁˈo?",
-      "path": "audio/he/5be67ea9e509bf70.mp3"
+      "input": "מה אפשר לקרא?",
+      "path": "audio/he/30e1fb7415ce3e79.mp3"
     },
     "מָה מַרְאֶה אֶת הַשָּׁעָה?": {
-      "ipa": "mˈa maʁˈe ˈet haʃaˈa?",
-      "path": "audio/he/628cbb26a50e4391.mp3"
+      "input": "מה מראה את השעה?",
+      "path": "audio/he/928dc0a66730c11a.mp3"
     },
     "מָה מֵגֵן מִפְּנֵי הַגֶּשֶׁם?": {
-      "ipa": "mˈa megˈen mipnˈej hagˈeʃem?",
-      "path": "audio/he/34a09c0713d04a39.mp3"
+      "input": "מה מגן מפני הגשם?",
+      "path": "audio/he/69909bfdfee7bbf8.mp3"
     },
     "בְּמָה פּוֹתְחִים מַנְעוּל?": {
-      "ipa": "bemˈa potχˈim manˈul?",
-      "path": "audio/he/50f1fdfc3a17fc3a.mp3"
+      "input": "במה פותחים מנעול?",
+      "path": "audio/he/f1e24e3cf315b38d.mp3"
     },
     "אֵיפֹה אֲנַחְנוּ יְשֵׁנִים?": {
-      "ipa": "ˈefo anˈaχnu jeʃenˈim?",
-      "path": "audio/he/617f897e1ce4781b.mp3"
+      "input": "איפה אנחנו ישנים?",
+      "path": "audio/he/1f5cbc28ea2d55c2.mp3"
     },
     "עַל מָה אֲנַחְנוּ יוֹשְׁבִים?": {
-      "ipa": "ˈal mˈa anˈaχnu joʃvˈim?",
-      "path": "audio/he/d7c7ddf3b5f9141c.mp3"
+      "input": "על מה אנחנו יושבים?",
+      "path": "audio/he/f372c80baf1aff79.mp3"
     },
     "בְּמָה אוֹכְלִים מָרָק?": {
-      "ipa": "bemˈa oχlˈim maʁˈak?",
-      "path": "audio/he/f834512325afcb7c.mp3"
+      "input": "במה אוכלים מרק?",
+      "path": "audio/he/82ad3e641d452cbb.mp3"
     },
     "בְּמָה מְצַחְצְחִים שִׁנַּיִם?": {
-      "ipa": "bemˈa metsaχtseχˈim ʃinˈajim?",
-      "path": "audio/he/1b74f4e69d57b2b7.mp3"
+      "input": "במה מצחצחים שנים?",
+      "path": "audio/he/073d0cbcb6a43197.mp3"
     },
     "בְּמָה מְצַיְּרִים עַל נְיָר?": {
-      "ipa": "bemˈa metsajʁˈim ˈal njˈaʁ?",
-      "path": "audio/he/df867685fa133ac8.mp3"
+      "input": "במה מצירים על נייר?",
+      "path": "audio/he/92c64729c032205b.mp3"
     },
     "בְּמָה גּוֹזְרִים נְיָר?": {
-      "ipa": "bemˈa gozʁˈim njˈaʁ?",
-      "path": "audio/he/7773c04fab558d8c.mp3"
+      "input": "במה גוזרים נייר?",
+      "path": "audio/he/9381c9a2a21c31b5.mp3"
     },
     "מָה חוֹבְשִׁים עַל הָרֹאשׁ?": {
-      "ipa": "mˈa χovʃˈim ˈal haʁˈoʃ?",
-      "path": "audio/he/a4b4101f16d28bc2.mp3"
+      "input": "מה חובשים על הראש?",
+      "path": "audio/he/6dc7cb709b1b61fe.mp3"
     },
     "מָה מְחַמֵּם אֶת הַיָּדַיִם?": {
-      "ipa": "mˈa meχamˈem ˈet hajadˈajim?",
-      "path": "audio/he/d088f4ce3bbdd54b.mp3"
+      "input": "מה מחמם את הידים?",
+      "path": "audio/he/29d60a62d58dde18.mp3"
     },
     "מָה לוֹבְשִׁים עַל כַּפּוֹת הָרַגְלַיִם?": {
-      "ipa": "mˈa lovʃˈim ˈal kapˈot haʁaglˈajim?",
-      "path": "audio/he/916aef780f1fc3ea.mp3"
+      "input": "מה לובשים על כפות הרגלים?",
+      "path": "audio/he/f395a1393ef17d18.mp3"
     },
     "מָה נוֹסֵעַ עַל מְסִלָּה?": {
-      "ipa": "mˈa nosˈea ˈal mesilˈa?",
-      "path": "audio/he/52f034fcead033fa.mp3"
+      "input": "מה נוסע על מסילה?",
+      "path": "audio/he/5d138cadb7410ec3.mp3"
     },
     "בְּמָה אֶפְשָׁר לָטוּס בַּשָּׁמַיִם?": {
-      "ipa": "bemˈa efʃˈaʁ latˈus baʃamˈajim?",
-      "path": "audio/he/e4aa79018f650a9f.mp3"
+      "input": "במה אפשר לטוס בשמים?",
+      "path": "audio/he/e471a3cfc8c83f3e.mp3"
     },
     "בְּמָה אֶפְשָׁר לָשׁוּט עַל הַמַּיִם?": {
-      "ipa": "bemˈa efʃˈaʁ laʃˈut ˈal hamˈajim?",
-      "path": "audio/he/35f115bd8b843079.mp3"
+      "input": "במה אפשר לשוט על המים?",
+      "path": "audio/he/65f0cfe8e0ce1cee.mp3"
     },
     "לְמָה יֵשׁ שְׁנֵי גַּלְגַּלִּים וּדְוָשׁוֹת?": {
-      "ipa": "lemˈa jˈeʃ ʃnˈej galgalˈim udvaʃˈot?",
-      "path": "audio/he/227c8098b0bb9eb3.mp3"
+      "input": "למה יש שני גלגלים ודוושות?",
+      "path": "audio/he/d0e6f3eef16595c8.mp3"
     },
     "בְּמָה טָסִים לֶחָלָל?": {
-      "ipa": "bemˈa tasˈim leχalˈal?",
-      "path": "audio/he/ff65d1bbfe2153f4.mp3"
+      "input": "במה טסים לחלל?",
+      "path": "audio/he/0b517dacb4e88bb0.mp3"
     },
     "בְּמָה בּוֹעֲטִים בַּמִּשְׂחָק?": {
-      "ipa": "bemˈa boatˈim bamisχˈak?",
-      "path": "audio/he/073167477af27076.mp3"
+      "input": "במה בועטים במשחק?",
+      "path": "audio/he/6ace3f1e5dcaeb00.mp3"
     },
     "לְאֵיזֶה כְּלִי נְגִינָה יֵשׁ מֵיתָרִים?": {
-      "ipa": "leˈeze klˈi neginˈa jˈeʃ mejtaʁˈim?",
-      "path": "audio/he/0aa5d7d8ffa82329.mp3"
+      "input": "לאיזה כלי נגינה יש מיתרים?",
+      "path": "audio/he/a1775cfda79a2d01.mp3"
     },
     "עַל מָה מַכִּים בְּמַקְלוֹת כְּדֵי לְנַגֵּן?": {
-      "ipa": "ˈal mˈa makˈim bemaklˈot kedˈej lenagˈen?",
-      "path": "audio/he/f0db70b7370dc873.mp3"
+      "input": "על מה מכים במקלות כדי לנגן?",
+      "path": "audio/he/2dfc9b75bef021dc.mp3"
     },
     "מַה בּוֹנִים מִשֶּׁלֶג?": {
-      "ipa": "mˈa bonˈim miʃˈeleg?",
-      "path": "audio/he/ab154f8b9fd94aea.mp3"
+      "input": "מה בונים משלג?",
+      "path": "audio/he/fa6a04d963586864.mp3"
     },
     "מָה מוֹפִיעַ אַחֲרֵי הַגֶּשֶׁם וְיֵשׁ לוֹ הַרְבֵּה צְבָעִים?": {
-      "ipa": "mˈa mofˈia aχaʁˈej hagˈeʃem vejˈeʃ lˈo haʁbˈe tsvaˈim?",
-      "path": "audio/he/8018769632482b6d.mp3"
+      "input": "מה מופיע אחרי הגשם ויש לו הרבה צבעים?",
+      "path": "audio/he/27d12ee921896535.mp3"
     },
     "מָה מֵאִיר וּמְחַמֵּם אוֹתָנוּ בַּיּוֹם?": {
-      "ipa": "mˈa meˈiʁ umeχamˈem otˈanu bajˈom?",
-      "path": "audio/he/71ccc1a194acfef5.mp3"
+      "input": "מה מאיר ומחמם אותנו ביום?",
+      "path": "audio/he/c54cfb2286077381.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת אָלֶף.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ˈalef.",
-      "path": "audio/he/464b457dc4b5391d.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות אלף.",
+      "path": "audio/he/ad41a665c7a07360.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת בֵּית.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot bˈet.",
-      "path": "audio/he/6d9eeab15164e1c4.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות בית.",
+      "path": "audio/he/bcf87c8d73431483.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת גִּימֶל.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot gˈimel.",
-      "path": "audio/he/ca179298bd447579.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות גימל.",
+      "path": "audio/he/594cc2951ec04938.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת דָּלֶת.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot dˈalet.",
-      "path": "audio/he/b709f9c4799a1586.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות דלת.",
+      "path": "audio/he/413c1f8e9d8deab5.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת הֵא.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot hˈe.",
-      "path": "audio/he/769df9bd1adefc43.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות הא.",
+      "path": "audio/he/3ff3a5975a8a129c.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת וָו.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot vˈav.",
-      "path": "audio/he/7720285746a5df96.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות וו.",
+      "path": "audio/he/7c7457899f495857.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת זַיִן.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot zˈajin.",
-      "path": "audio/he/86bb6aea3064f5f1.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות זין.",
+      "path": "audio/he/3146b3668e58c117.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת חֵית.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot χˈet.",
-      "path": "audio/he/81dbcc69bc11d974.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות חית.",
+      "path": "audio/he/71e202d2ff438324.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת טֵית.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot tˈet.",
-      "path": "audio/he/9cabff90a3638455.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות טית.",
+      "path": "audio/he/6e52e3e517e0686f.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת יוֹד.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot jˈod.",
-      "path": "audio/he/6d573bac2a9c988c.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות יוד.",
+      "path": "audio/he/ad41768f8049f912.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת כָּף.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot kˈaf.",
-      "path": "audio/he/d2eca40a042e9742.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות כף.",
+      "path": "audio/he/245705c842e988f1.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת לָמֶד.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot lˈamed.",
-      "path": "audio/he/e5a04b54e174afef.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות למד.",
+      "path": "audio/he/30013cb6b667d757.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת מֵם.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot mˈem.",
-      "path": "audio/he/68e0b74dee4dba84.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות מם.",
+      "path": "audio/he/57228506a58d594e.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת נוּן.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot nˈun.",
-      "path": "audio/he/2a7c0023b3840b32.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות נון.",
+      "path": "audio/he/93f33e293d0318ef.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת סָמֶךְ.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot sˈameχ.",
-      "path": "audio/he/7a23b44eca829286.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות סמך.",
+      "path": "audio/he/b2bbc0af8b5bd5b3.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת עַיִן.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ˈajin.",
-      "path": "audio/he/74e09626eae7234e.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות עין.",
+      "path": "audio/he/169fa546b279ba7d.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת פֵּא.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot pˈe.",
-      "path": "audio/he/be09c18ad6837520.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות פא.",
+      "path": "audio/he/ced5239ddd15ea29.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת צָדִי.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot tsˈadi.",
-      "path": "audio/he/593604d447e39b8d.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות צדי.",
+      "path": "audio/he/324db67a857c3e1d.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת קוֹף.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot kˈof.",
-      "path": "audio/he/c9b878a5a6299055.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות קוף.",
+      "path": "audio/he/829c29ae25b4171a.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת רֵישׁ.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ʁˈeʃ.",
-      "path": "audio/he/d86d01d68ead4694.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות ריש.",
+      "path": "audio/he/ffd712c44f25991d.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת שִׁין.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot ʃˈin.",
-      "path": "audio/he/cb9a08c646a0120e.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות שין.",
+      "path": "audio/he/eb7054b0484b3079.mp3"
     },
     "בְּחַר אֶת כָּל הַתְּמוּנוֹת שֶׁמַּתְחִילוֹת בָּאוֹת תָּו.": {
-      "ipa": "bχˈaʁ ˈet kˈol hatmunˈot ʃematχilˈot baˈot tˈav.",
-      "path": "audio/he/5ffd088f764d0837.mp3"
+      "input": "בחר את כל התמונות שמתחילות באות תו.",
+      "path": "audio/he/dda7b40126091b88.mp3"
     },
     "אֵיפֹה יֵשׁ עִגּוּל אֶחָד?": {
-      "ipa": "ˈefo jˈeʃ igˈul eχˈad?",
-      "path": "audio/he/ff7484d06c508eac.mp3"
+      "input": "איפה יש עיגול אחד?",
+      "path": "audio/he/ffaa88ab03c9eb79.mp3"
     },
     "אֵיפֹה יֵשׁ שְׁנֵי עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ ʃnˈej igulˈim?",
-      "path": "audio/he/730d071e8fa011f6.mp3"
+      "input": "איפה יש שני עיגולים?",
+      "path": "audio/he/772858d0311d4192.mp3"
     },
     "אֵיפֹה יֵשׁ שְׁלוֹשָׁה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ ʃloʃˈa igulˈim?",
-      "path": "audio/he/cb2ead722e324a56.mp3"
+      "input": "איפה יש שלושה עיגולים?",
+      "path": "audio/he/56617c4a921e75f4.mp3"
     },
     "אֵיפֹה יֵשׁ אַרְבָּעָה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ aʁbaˈa igulˈim?",
-      "path": "audio/he/94d8b2a11dd44604.mp3"
+      "input": "איפה יש ארבעה עיגולים?",
+      "path": "audio/he/6598403ec559b69f.mp3"
     },
     "אֵיפֹה יֵשׁ חֲמִשָּׁה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ χamiʃˈa igulˈim?",
-      "path": "audio/he/38703ca6a5fb1f82.mp3"
+      "input": "איפה יש חמשה עיגולים?",
+      "path": "audio/he/0157879a743046e0.mp3"
     },
     "אֵיפֹה יֵשׁ שִׁשָּׁה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ ʃiʃˈa igulˈim?",
-      "path": "audio/he/2e344b82077645cf.mp3"
+      "input": "איפה יש ששה עיגולים?",
+      "path": "audio/he/097dff58cfa106ae.mp3"
     },
     "אֵיפֹה יֵשׁ שִׁבְעָה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ ʃivˈa igulˈim?",
-      "path": "audio/he/85a08858ded01cf2.mp3"
+      "input": "איפה יש שבעה עיגולים?",
+      "path": "audio/he/f44457a6ffa8773e.mp3"
     },
     "אֵיפֹה יֵשׁ שְׁמוֹנָה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ ʃmonˈa igulˈim?",
-      "path": "audio/he/00b1b328cbaf2fb5.mp3"
+      "input": "איפה יש שמונה עיגולים?",
+      "path": "audio/he/da72e80ce2b3c6f2.mp3"
     },
     "אֵיפֹה יֵשׁ תִּשְׁעָה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ tiʃˈa igulˈim?",
-      "path": "audio/he/e75e2b168a152e7d.mp3"
+      "input": "איפה יש תשעה עיגולים?",
+      "path": "audio/he/a016f82fb062f7c0.mp3"
     },
     "אֵיפֹה יֵשׁ עֲשָׂרָה עִגּוּלִים?": {
-      "ipa": "ˈefo jˈeʃ asaʁˈa igulˈim?",
-      "path": "audio/he/b7729010320bb37b.mp3"
+      "input": "איפה יש עשרה עיגולים?",
+      "path": "audio/he/7097060b30db1a3b.mp3"
     },
     "צֹר שְׁנֵי כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ ʃnˈej koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/f72b015950e3ce70.mp3"
+      "input": "צור שני כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/98ed75467d849ae5.mp3"
     },
     "צֹר שְׁלוֹשָׁה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ ʃloʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/b8a2f3e4a71e0e41.mp3"
+      "input": "צור שלושה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/aaff3f3100403d85.mp3"
     },
     "צֹר אַרְבָּעָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ aʁbaˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/f9dd625844b262a5.mp3"
+      "input": "צור ארבעה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/2d296ec9e7113358.mp3"
     },
     "צֹר חֲמִשָּׁה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ χamiʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/37ced41630a0acae.mp3"
+      "input": "צור חמשה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/fb88c3110ed9dded.mp3"
     },
     "צֹר שִׁשָּׁה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ ʃiʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/ee35346833e206ef.mp3"
+      "input": "צור ששה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/0c0f5756bb8c0a1a.mp3"
     },
     "צֹר שִׁבְעָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ ʃivˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/301e36d57d7637d6.mp3"
+      "input": "צור שבעה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/b869bbd72223dce1.mp3"
     },
     "צֹר שְׁמוֹנָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ ʃmonˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/41444ae4ec3b8b5b.mp3"
+      "input": "צור שמונה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/d28be96d63d1c4f1.mp3"
     },
     "צֹר תִּשְׁעָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ tiʃˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/cd263b321169c69c.mp3"
+      "input": "צור תשעה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/4ef0be465214ca79.mp3"
     },
     "צֹר עֲשָׂרָה כּוֹכָבִים. לְחַץ עַל פְּלוּס אוֹ מִינוּס.": {
-      "ipa": "tsˈoʁ asaʁˈa koχavˈim. leχˈats ˈal plˈus ˈo mˈinus.",
-      "path": "audio/he/7b4cac94464b62d9.mp3"
+      "input": "צור עשרה כוכבים. לחץ על פלוס או מינוס.",
+      "path": "audio/he/d571a5c39c8b55fd.mp3"
     },
     "מְצָא זוּגוֹת שֶׁל מִלָּה וּתְמוּנָה.": {
-      "ipa": "metsˈa zugˈot ʃˈel milˈa utmunˈa.",
-      "path": "audio/he/0ecbddfddce71ffa.mp3"
+      "input": "מצא זוגות של מילה ותמונה.",
+      "path": "audio/he/85faff89ffc31cf7.mp3"
     },
     "לְחַץ עַל הָאוֹתִיּוֹת לְפִי הַסֵּדֶר.": {
-      "ipa": "leχˈats ˈal haotijˈot lefˈi hasˈedeʁ.",
-      "path": "audio/he/afa89fe3592da8de.mp3"
+      "input": "לחץ על האותיות לפי הסדר.",
+      "path": "audio/he/7950e83a94af8022.mp3"
     },
     "הַקְשֵׁב וּבְחַר תְּמוּנָה.": {
-      "ipa": "hakʃˈev uvχˈaʁ tmunˈa.",
-      "path": "audio/he/12412db11923e79f.mp3"
+      "input": "הקשב ובחר תמונה.",
+      "path": "audio/he/ec5cd1360b57082f.mp3"
     },
     "אֵיזֶה מִסְפָּר חָסֵר?": {
-      "ipa": "ˈeze mispˈaʁ χasˈeʁ?",
-      "path": "audio/he/b72fbacb0daaad33.mp3"
+      "input": "איזה מספר חסר?",
+      "path": "audio/he/c5fdb80c8b7568a9.mp3"
     },
     "מָה בָּא אַחַר כָּךְ?": {
-      "ipa": "mˈa bˈa aχˈaʁ kˈaχ?",
-      "path": "audio/he/1e867e2e86d49edb.mp3"
+      "input": "מה בא אחר כך?",
+      "path": "audio/he/cec20594dada5234.mp3"
     },
     "אֵיזֶה סִימָן מַתְאִים?": {
-      "ipa": "ˈeze simˈan matˈim?",
-      "path": "audio/he/1c6edff2ff75b65a.mp3"
+      "input": "איזה סימן מתאים?",
+      "path": "audio/he/1ba8508076eb5ebc.mp3"
     },
     "אֶפֶס": {
-      "ipa": "ˈefes",
-      "path": "audio/he/d1c37f365f8570eb.mp3"
+      "input": "אפס",
+      "path": "audio/he/4d3d8fa267b7292b.mp3"
     },
     "אַחַת": {
-      "ipa": "aχˈat",
-      "path": "audio/he/4ada3e9281f284f9.mp3"
+      "input": "אחת",
+      "path": "audio/he/326a42d7c5ffcb0d.mp3"
     },
     "שְׁתַּיִם": {
-      "ipa": "ʃtˈajim",
-      "path": "audio/he/b27e253312714456.mp3"
+      "input": "שתים",
+      "path": "audio/he/aee4e2dba6dbc6ed.mp3"
     },
     "שָׁלוֹשׁ": {
-      "ipa": "ʃalˈoʃ",
-      "path": "audio/he/e23a8ab4300a3d96.mp3"
+      "input": "שלוש",
+      "path": "audio/he/2179f8b1aeaaf2d6.mp3"
     },
     "אַרְבַּע": {
-      "ipa": "ˈaʁba",
-      "path": "audio/he/c58e29d11121656a.mp3"
+      "input": "ארבע",
+      "path": "audio/he/958ac0ce1109a4f9.mp3"
     },
     "חָמֵשׁ": {
-      "ipa": "χamˈeʃ",
-      "path": "audio/he/c5e7e6295778f374.mp3"
+      "input": "חמש",
+      "path": "audio/he/d42b82910cc671b1.mp3"
     },
     "שֵׁשׁ": {
-      "ipa": "ʃˈeʃ",
-      "path": "audio/he/fa61db48d308dc8c.mp3"
+      "input": "שש",
+      "path": "audio/he/2a09b5f184227509.mp3"
     },
     "שֶׁבַע": {
-      "ipa": "ʃˈeva",
-      "path": "audio/he/7aa3403c9f728a67.mp3"
+      "input": "שבע",
+      "path": "audio/he/24a0e1d4dc7e644b.mp3"
     },
     "שְׁמוֹנֶה": {
-      "ipa": "ʃmˈone",
-      "path": "audio/he/e7824cf4b424244a.mp3"
+      "input": "שמונה",
+      "path": "audio/he/8d423448b92cf915.mp3"
     },
     "תֵּשַׁע": {
-      "ipa": "tˈeʃa",
-      "path": "audio/he/abdbe57f159aa106.mp3"
+      "input": "תשע",
+      "path": "audio/he/38eff75d38a4c462.mp3"
     },
     "עֶשֶׂר": {
-      "ipa": "ˈeseʁ",
-      "path": "audio/he/2e77b49c06d41035.mp3"
+      "input": "עשר",
+      "path": "audio/he/68deb5491b616a99.mp3"
     },
     "וְעוֹד": {
-      "ipa": "veˈod",
-      "path": "audio/he/2517ad6ae3d20751.mp3"
+      "input": "ועוד",
+      "path": "audio/he/47990c5ee51a2dc9.mp3"
     },
     "פָּחוֹת": {
-      "ipa": "paχˈot",
-      "path": "audio/he/69c32e981451255c.mp3"
+      "input": "פחות",
+      "path": "audio/he/92d3edcad172a316.mp3"
     },
     "וְגַם": {
-      "ipa": "vegˈam",
-      "path": "audio/he/e85c6d5735026583.mp3"
+      "input": "וגם",
+      "path": "audio/he/4e5cbd873876fb67.mp3"
     },
     "כַּמָּה זֶה?": {
-      "ipa": "kˈama zˈe?",
-      "path": "audio/he/641b1bf496f657f4.mp3"
+      "input": "כמה זה?",
+      "path": "audio/he/61d4c401c436b94a.mp3"
     },
     "מָה הָאוֹת הָרִאשׁוֹנָה בַּמִּלָּה הַזֹּאת?": {
-      "ipa": "mˈa haˈot haʁiʃonˈa bamilˈa hazˈot?",
-      "path": "audio/he/b97ff211a2462806.mp3"
+      "input": "מה האות הראשונה במילה הזאת?",
+      "path": "audio/he/cec917e15c74e9ac.mp3"
     }
   }
 }

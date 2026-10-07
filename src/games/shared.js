@@ -15,7 +15,9 @@ export function picture(item, locale, onClick, showWord = false) {
   return element;
 }
 export function tile(label, onClick, extraClass = "") {
-  return button(`choice tile-choice ${extraClass}`, label, onClick);
+  const element = button(`choice tile-choice notranslate ${extraClass}`, label, onClick);
+  element.setAttribute("translate", "no");
+  return element;
 }
 export function group(count, onClick) {
   const element = button("choice count-choice", "", onClick);

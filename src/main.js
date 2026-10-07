@@ -89,6 +89,8 @@ function clear() {
 }
 function setLanguage(code) {
   locale = code;
+  document.documentElement.setAttribute("translate", "no");
+  document.documentElement.classList.add("notranslate");
   document.documentElement.lang = languages.find(
     (lang) => lang.code === code,
   ).tag;

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Update Language Quest</title>
+<style>
+body{margin:0;background:#fff9ef;color:#28324b;font:18px/1.5 system-ui,sans-serif;display:grid;min-height:100svh;place-items:center}main{margin:24px;padding:28px;max-width:540px;border:3px solid #28324b;border-radius:28px;background:white}h1{font-size:28px}button,a{display:inline-block;padding:14px 22px;border:2px solid #28324b;border-radius:16px;background:#ffe176;color:#28324b;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}button:disabled{opacity:.6}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 monospace}a[hidden]{display:none}select{font:inherit;padding:8px;border-radius:10px}
+</style>
+</head><body><main>
+<select id="language" aria-label="Language"><option value="en">English</option><option value="he">עִבְרִית</option><option value="ru">Русский</option></select>
+<h1 id="title"></h1><p id="note"></p><button id="update"></button><p id="status" role="status"></p><pre id="details" dir="ltr"></pre><a id="play" href="./" hidden></a>
+<script>
+// Independent of the cached game modules, so old installations can reach it.
+const words={
+ en:{title:'Update Language Quest',note:'Downloads a fresh game version. Your stars, settings and saved audio are kept.',button:'Update game',busy:'Downloading the update…',done:'Update installed. Open the game.',failed:'The update did not finish. Check your connection and try again.',play:'Open game'},
+ he:{title:'עִדְכּוּן הַמִּשְׂחָק',note:'מוֹרִידִים גִּרְסָה חֲדָשָׁה. הַכּוֹכָבִים, הַהַגְדָּרוֹת וְהַקּוֹל הַשָּׁמוּר נִשְׁמָרִים.',button:'עִדְכּוּן הַמִּשְׂחָק',busy:'מוֹרִידִים אֶת הָעִדְכּוּן…',done:'הָעִדְכּוּן הֻשְׁלַם. אֶפְשָׁר לִפְתֹּחַ אֶת הַמִּשְׂחָק.',failed:'הָעִדְכּוּן לֹא הֻשְׁלַם. בִּדְקוּ אֶת הַחִבּוּר וְנַסּוּ שׁוּב.',play:'פְּתִיחַת הַמִּשְׂחָק'},
+ ru:{title:'Обновление игры',note:'Загрузим свежую версию. Звёзды, настройки и сохранённый звук останутся.',button:'Обновить игру',busy:'Загружаем обновление…',done:'Обновление установлено. Откройте игру.',failed:'Не удалось обновить игру. Проверьте подключение и повторите.',play:'Открыть игру'}
+};
+const select=document.querySelector('#language'),button=document.querySelector('#update'),status=document.querySelector('#status'),details=document.querySelector('#details'),play=document.querySelector('#play');
+let locale=new URLSearchParams(location.search).get('lang');if(!words[locale])locale='en';select.value=locale;
+function render(){locale=select.value;document.documentElement.lang=locale;document.documentElement.dir=locale==='he'?'rtl':'ltr';for(const id of ['title','note'])document.querySelector('#'+id).textContent=words[locale][id];button.textContent=words[locale].button;play.textContent=words[locale].play;}
+select.addEventListener('change',render);render();
+function activated(worker){return new Promise((resolve,reject)=>{
+ const timeout=setTimeout(()=>finish(new Error('Installation timed out after 90 seconds')),90000);
+ function finish(error){clearTimeout(timeout);worker.removeEventListener('statechange',check);error?reject(error):resolve(worker);}
+ function check(){if(worker.state==='activated')finish();else if(worker.state==='redundant')finish(new Error('The download failed or another update replaced it. Please retry.'));}
+ worker.addEventListener('statechange',check);check();
+});}
+function release(worker){return new Promise((resolve,reject)=>{
+ const channel=new MessageChannel();const timer=setTimeout(()=>{channel.port1.close();reject(new Error('The installed version did not respond'));},5000);
+ channel.port1.onmessage=event=>{clearTimeout(timer);channel.port1.close();resolve(event.data.version);};
+ worker.postMessage({type:'APP_VERSION'},[channel.port2]);
+});}
+button.addEventListener('click',async()=>{
+ button.disabled=true;select.disabled=true;play.hidden=true;status.textContent=words[locale].busy;details.textContent='';
+ try{
+  if(!('serviceWorker' in navigator))throw new Error('This browser does not support offline app updates.');
+  // A unique script URL forces a fresh install even if the existing cache is damaged.
+  const url=new URL('./sw.js',location.href);url.searchParams.set('repair',Date.now());
+  const registration=await navigator.serviceWorker.register(url.href,{scope:new URL('./',location.href).href,updateViaCache:'none'});
+  const worker=registration.installing||registration.waiting||registration.active;
+  if(!worker)throw new Error('No update worker was created');
+  await activated(worker);
+  const version=await release(worker);
+  details.textContent=version;status.textContent=words[locale].done;play.hidden=false;
+ }catch(error){status.textContent=words[locale].failed;details.textContent=error.message;}
+ finally{button.disabled=false;select.disabled=false;}
+});
+</script></main></body></html>

@@ -1,5 +1,5 @@
 // Only this app's caches and requests are handled; other Pages apps share the origin.
-const VERSION = "little-language-quest-shell-v14";
+const VERSION = "little-language-quest-shell-v15";
 const AUDIO = "little-language-quest-audio-v1";
 const CORE = [
   "./",
@@ -55,19 +55,26 @@ const CORE = [
   "./icons/icon-512.png",
   "./icons/icon.svg",
 ];
-self.addEventListener("install", (event) =>
-  event.waitUntil(
-    caches
-      .open(VERSION)
-      .then((cache) =>
-        // A new release must not inherit stale files from the HTTP cache.
-        cache.addAll(CORE.map((path) => new Request(
-          new URL(path, self.registration.scope), { cache: "reload" },
-        ))),
-      )
-      .then(() => self.skipWaiting()),
-  ),
-);
+async function installShell() {
+  const cache = await caches.open(VERSION);
+  const requests = CORE.map((path) => new Request(
+    new URL(path, self.registration.scope), { cache: "reload" },
+  ));
+  // Retry transient deployment/network failures. Activate only a complete shell.
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      await cache.addAll(requests);
+      await self.skipWaiting();
+      return;
+    } catch (error) {
+      if (attempt === 2) throw error;
+    }
+  }
+}
+self.addEventListener("install", (event) => event.waitUntil(installShell()));
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "APP_VERSION") event.ports[0]?.postMessage({ version: VERSION });
+});
 self.addEventListener("activate", (event) =>
   event.waitUntil(
     caches
