@@ -43,6 +43,7 @@ export const letterOrder = {
               element.disabled = true;
               element.classList.add("selected");
               index++;
+              api.encourage?.();
               if (index === target.length) api.complete();
             },
             "letter-tile",

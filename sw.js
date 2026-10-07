@@ -1,5 +1,5 @@
 // Only this app's caches and requests are handled; other Pages apps share the origin.
-const VERSION = "little-language-quest-shell-v11";
+const VERSION = "little-language-quest-shell-v13";
 const AUDIO = "little-language-quest-audio-v1";
 const CORE = [
   "./",
@@ -12,7 +12,7 @@ const CORE = [
   "./src/core/audio-timing.js",
   "./src/core/clues.js",
   "./src/core/content.js",
-  "./src/core/extra-art.js",
+  "./src/core/pixel-art.js",
   "./src/core/helpers.js",
   "./src/core/i18n.js",
   "./src/core/lifecycle.js",
@@ -38,6 +38,19 @@ const CORE = [
   "./src/main.js",
   "./src/ui/parents.js",
   "./src/ui/volume.js",
+  "./src/ui/reactions.js",
+  "./assets/objects/animals.webp",
+  "./assets/objects/nature.webp",
+  "./assets/objects/food.webp",
+  "./assets/objects/home.webp",
+  "./assets/objects/objects.webp",
+  "./assets/objects/extras.webp",
+  "./assets/reactions/thinking.webp",
+  "./assets/reactions/happy.webp",
+  "./assets/reactions/sad.webp",
+  "./assets/reactions/surprised.webp",
+  "./assets/reactions/oops.webp",
+  "./assets/reactions/celebrating.webp",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon.svg",

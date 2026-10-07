@@ -271,6 +271,10 @@ export const t = (locale, key, ...args) =>
     : copy[locale][key];
 // Screen-reader and narration status text stays in the selected language.
 Object.assign(copy.ru, {
+  reactions: "Друг на экране",
+  reactionPreview: "Посмотреть эмоции",
+  artPreview: "Все картинки",
+  reactionNames: { thinking: "Думаем", happy: "Ура!", sad: "Попробуем ещё", surprised: "Вот это да!", oops: "Ой!", celebrating: "Празднуем!" },
   speaker: "Послушать ещё раз",
   audioLoading: "Готовим голос…",
   audioSpeaking: "Слушаем…",
@@ -288,6 +292,10 @@ Object.assign(copy.ru, {
   installDone: "Приложение уже установлено.",
 });
 Object.assign(copy.he, {
+  reactions: "חָבֵר עַל הַמָּסָךְ",
+  reactionPreview: "תְּצוּגַת הַבָּעוֹת",
+  artPreview: "כָּל הַתְּמוּנוֹת",
+  reactionNames: { thinking: "חוֹשְׁבִים", happy: "יֵשׁ!", sad: "נְנַסֶּה שׁוּב", surprised: "וָאוּ!", oops: "אוֹפְּס!", celebrating: "חוֹגְגִים!" },
   hebrewVoice: "קוֹל עִבְרִי",
   hebrewVoicedevice: "קוֹל הַמַּכְשִׁיר",
   hebrewVoicerecorded: "קוֹל מוּקְלָט",
@@ -313,6 +321,10 @@ Object.assign(copy.he, {
   installDone: "הָאֲפְלִיקַצְיָה כְּבָר מֻתְקֶנֶת.",
 });
 Object.assign(copy.en, {
+  reactions: "Picture buddy",
+  reactionPreview: "Preview reactions",
+  artPreview: "All pictures",
+  reactionNames: { thinking: "Thinking", happy: "Hooray!", sad: "Let's try again", surprised: "Wow!", oops: "Oops!", celebrating: "Celebrating!" },
   audioLoading: "Getting the voice ready…",
   audioSpeaking: "Listening…",
   audioError: "Tap “Hear it again”. Check your connection and sound.",

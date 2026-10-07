@@ -28,6 +28,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
         "little-language-quest-shell-v8",
         "little-language-quest-shell-v9",
         "little-language-quest-shell-v10",
+        "little-language-quest-shell-v11",
         "little-language-quest-audio-v1",
       ],
       delete: async (key) => removed.push(key),
@@ -53,6 +54,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
     "little-language-quest-shell-v8",
     "little-language-quest-shell-v9",
     "little-language-quest-shell-v10",
+    "little-language-quest-shell-v11",
   ]);
   let intercepted = false;
   handlers.fetch({

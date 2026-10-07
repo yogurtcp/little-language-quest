@@ -3,6 +3,10 @@ import { languages, copy, t } from "../core/i18n.js";
 import { downloadLanguage } from "../core/offline.js";
 import { games } from "../games/index.js";
 import { volumeControl } from "./volume.js";
+import { createReaction, reactionStates, reactionsEnabled } from "./reactions.js";
+import { writeSetting } from "../core/storage.js";
+import { concepts, word } from "../core/content.js";
+import { art } from "../core/art.js";
 export function createParentUI(app) {
   let gate = null,
     download = null;
@@ -111,6 +115,13 @@ export function createParentUI(app) {
     }
     level.addEventListener("change", () => app.setLevel(Number(level.value)));
     row(panel, t(locale, "difficulty"), level);
+    const portraits = node("input");
+    portraits.type = "checkbox";
+    portraits.checked = reactionsEnabled();
+    portraits.addEventListener("change", () =>
+      writeSetting("llq-reactions", portraits.checked ? "1" : "0"),
+    );
+    row(panel, t(locale, "reactions"), portraits);
     if (locale === "he") {
       const hebrewVoice = node("select", "setting-select");
       for (const mode of ["device", "recorded"]) {
@@ -190,6 +201,8 @@ export function createParentUI(app) {
     });
     panel.append(offline);
     panel.append(button("wide-button", t(locale, "debug"), showLab));
+    panel.append(button("wide-button", t(locale, "reactionPreview"), showReactions));
+    panel.append(button("wide-button", t(locale, "artPreview"), showArtwork));
     panel.append(
       button("wide-button danger", t(locale, "reset"), () => {
         if (confirm(t(locale, "resetAsk"))) {
@@ -226,6 +239,30 @@ export function createParentUI(app) {
       ),
     );
     panel.append(list, button("secondary-button", t(locale, "menu"), showMenu));
+  }
+  function showReactions() {
+    const locale = app.locale(),
+      panel = app.panel(t(locale, "reactionPreview")),
+      gallery = node("div", "reaction-gallery");
+    for (const state of reactionStates) {
+      const reaction = createReaction(state, { preview: true });
+      const card = button("reaction-card", "", () => reaction.set(state));
+      card.append(reaction.element, node("span", "", t(locale, "reactionNames")[state]));
+      gallery.append(card);
+    }
+    panel.append(gallery, button("secondary-button", t(locale, "menu"), showMenu));
+  }
+  function showArtwork() {
+    const locale = app.locale(),
+      panel = app.panel(t(locale, "artPreview")),
+      gallery = node("div", "art-gallery");
+    for (const item of concepts) {
+      const entry = node("figure", "art-preview-card");
+      entry.innerHTML = art(item.id, word(item, locale).display);
+      entry.append(node("figcaption", "", word(item, locale).display));
+      gallery.append(entry);
+    }
+    panel.append(gallery, button("secondary-button", t(locale, "menu"), showMenu));
   }
   return { showGate, showMenu, showLab };
 }

@@ -44,6 +44,7 @@ export function numberChoices(host, options, answer, api) {
 }
 
 export function revealWord(element, item, api) {
+  api.encourage?.();
   if (!element.querySelector(".picture-word"))
     element.append(
       node("span", "picture-word", word(item, api.locale).display),

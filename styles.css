@@ -1093,3 +1093,71 @@ button:disabled {
   font-family: inherit;
   font-weight: 750;
 }
+
+/* Portrait reactions stay beside the prompt, away from answer hit targets. */
+.question-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin: 16px 0 8px;
+}
+.question-row .task-prompt { flex: 1; min-width: 0; margin: 0; }
+.reaction-portrait {
+  position: relative;
+  flex: 0 0 auto;
+  width: 190px;
+  aspect-ratio: 1;
+  pointer-events: none;
+  user-select: none;
+  isolation: isolate;
+}
+.reaction-portrait[hidden] { display: none; }
+.reaction-art {
+  position: absolute;
+  width: 62.5%;
+  height: 62.5%;
+  inset: 18.75%;
+  isolation: isolate;
+}
+.reaction-art::before {
+  content: "";
+  position: absolute;
+  inset: 12% 4% 2%;
+  border-radius: 50%;
+  background: #f0e9ff;
+  z-index: -1;
+}
+.reaction-portrait[data-reaction="happy"] .reaction-art::before,
+.reaction-portrait[data-reaction="celebrating"] .reaction-art::before { background: #fff0bd; }
+.reaction-portrait[data-reaction="oops"] .reaction-art::before { background: #ffebe1; }
+.reaction-portrait[data-reaction="sad"] .reaction-art::before { background: #e5f3ff; }
+.reaction-image { display: block; width: 100%; height: 100%; object-fit: contain; }
+.reaction-pop .reaction-art { animation: reaction-pop var(--reaction-focus-duration, 2200ms) ease-out; }
+@keyframes reaction-pop {
+  /* Hold the enlarged portrait for 2000ms, then settle over 200ms. */
+  0%, 90.909% { transform: scale(1.6); }
+  100% { transform: scale(1); }
+}
+.welcome-portrait { width: clamp(170px, 28vw, 240px); margin-top: 20px; }
+.reward-portrait { width: clamp(140px, 28vh, 240px); }
+.reward-overlay.has-portrait .reward-star { font-size: 65px; text-shadow: 2px 3px #28324b; }
+.reward-overlay.has-portrait .reward-title { margin: 8px 0 18px; }
+.reaction-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 20px 0; }
+.reaction-card { border: 2px solid #ded7ef; border-radius: 22px; background: #fffaf0; padding: 12px; color: inherit; font-weight: 750; }
+.reaction-card .reaction-portrait { width: 100%; max-width: 220px; margin: 0 auto 10px; }
+@media (max-width: 650px) {
+  .question-row { gap: 8px; margin: 12px 0 8px; }
+  .question-row .reaction-portrait { width: 128px; }
+  .reaction-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reaction-pop .reaction-art { animation: none; }
+}
+
+/* Pixel art is limited to the vocabulary objects; portraits stay photographic. */
+.pixel-art, .pixel-art image { image-rendering: pixelated; }
+.art-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 20px 0; }
+.art-preview-card { margin: 0; padding: 12px; border: 2px solid #ded7ef; border-radius: 16px; background: #fffaf0; text-align: center; }
+.art-preview-card figcaption { font-size: 18px; font-weight: 750; margin-top: 6px; }

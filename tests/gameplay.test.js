@@ -12,7 +12,7 @@ import { audioManifest } from "../src/core/audio-manifest.js";
 import { speechCatalog } from "../src/core/speech.js";
 import { readFileSync, statSync } from "node:fs";
 
-test("all 86 words have distinct original artwork and all 50 clues have unambiguous pools", () => {
+test("all 86 words have distinct pixel artwork and all 50 clues have unambiguous pools", () => {
   assert.equal(concepts.length, 86);
   assert.equal(clues.length, 50);
   assert.deepEqual(
@@ -203,7 +203,7 @@ test("each audio asset exists and is nonempty; service-worker shell has every mo
   for (const file of [
     "src/core/audio-manifest.js",
     "src/core/clues.js",
-    "src/core/extra-art.js",
+    "src/core/pixel-art.js",
     "src/ui/parents.js",
     "src/core/lifecycle.js",
   ])

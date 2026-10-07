@@ -5,7 +5,7 @@
 A browser game for young children, with a Russian, Hebrew, or English choice on every launch. The child-facing game stays in that language. No account, tracking, ads, API keys, or runtime dependencies.
 
 - 12 independent activities: starting letters, counting, word/picture memory, letter order, first letters, clues, addition/subtraction, comparison, listening, missing numbers, making amounts, and patterns.
-- 86 original SVG illustrations and independently localized words; 50 clues with explicit correct and incorrect choice pools.
+- 86 generated pixel art illustrations and independently localized words; 50 clues with explicit correct and incorrect choice pools.
 - 612 active narration clips, downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. A saved volume slider on each task and in the adult menu adjusts speech and effects from silent to 250% with peak limiting. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
 - One of each activity per shuffled round. Separate content decks cycle through clues, listening words, letters, and math examples before repeating, and are remembered per language.
 - Five completed tasks earn a star; five stars unlock a celebration. Mistakes never take stars away. Difficulty advances separately after eight unassisted completions of each skill.
@@ -31,6 +31,26 @@ Tests exercise completing all 12 games in three languages and three levels, incl
 **Tap the Menu / gear button**, then answer the adult arithmetic check (12 + 7). Keyboard shortcut: Alt+Shift+P. Escape closes the check; the native dialog manages keyboard focus.
 
 Settings include language, sound, level, voice test, app installation, offline audio downloads, progress reset, and the Game Lab. Hebrew also has a saved choice between the device's Hebrew voice and the phonetic recorded voice. If no Hebrew device voice is available, the recorded voice plays. Choose any activity and a task number in the lab for a reproducible question.
+
+## Object artwork
+
+All 86 vocabulary pictures use cute pixel art, shared across all games and languages.
+Six transparent WebP atlases total about 680 KiB and are cached for offline play.
+Use **All pictures** in the adult menu to review the complete localized collection.
+The counting circles remain simple geometric shapes.
+
+`scripts/build-pixel-art.cjs` normalizes generated 4×4 PNG sheets into compact atlases.
+It requires the build-only `sharp` package; the browser has no image-processing dependency.
+Rebuild with `node scripts/build-pixel-art.cjs <sheet-name> <source.png>`.
+
+## Portrait reactions
+
+Six realistic transparent portrait stickers react to new questions, correct choices, retries,
+and star rewards. Mistakes alternate sad and oops expressions. Each expression
+stays enlarged for two seconds before gently settling. The parent menu has a Picture buddy switch and a reaction gallery.
+Reaction reset timers belong to the current task and cannot replace a newer success.
+The six 384px WebP files in `assets/reactions/` total about 150 KiB and are included
+in the offline shell. The original family photo is not included in the repository.
 
 ## Narration and Hebrew
 
@@ -61,7 +81,7 @@ A release caches a complete module graph. Existing installations reload once whe
 
 - `src/games/`: each activity creates a task and renders only its own board.
 - `src/games/shared.js`: picture cards, word reveal, number choices, small DOM helpers.
-- `src/core/content.js`, `clues.js`, `art.js`, `extra-art.js`: vocabulary, reviewed clue pools, lightweight illustrations.
+- `src/core/content.js`, `clues.js`, `art.js`, `pixel-art.js`: vocabulary, reviewed clue pools, shared pixel artwork.
 - `src/core/scheduler.js`: activity rotation, content history, reproducible lab generation.
 - `src/core/speech.js`, `audio.js`, `audio-manifest.js`: finite narration catalog, cancellable playback, clip mapping.
 - `src/core/lifecycle.js`, `rewards.js`, `storage.js`: task cleanup, progression, resilient local storage.

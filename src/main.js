@@ -7,6 +7,7 @@ import { readSetting, writeSetting } from "./core/storage.js";
 import { TaskLifetime } from "./core/lifecycle.js";
 import { createParentUI } from "./ui/parents.js";
 import { volumeControl } from "./ui/volume.js";
+import { createReaction } from "./ui/reactions.js";
 import { games } from "./games/index.js";
 
 const app = document.querySelector("#app"),
@@ -133,6 +134,10 @@ function welcome() {
   const hero = node("section", "welcome-card");
   hero.innerHTML =
     '<div class="welcome-art" aria-hidden="true"><span>★</span><span>●</span><span>▲</span></div>';
+  const welcomePortrait = createReaction("happy");
+  welcomePortrait.element.classList.add("welcome-portrait");
+  if (!welcomePortrait.element.hidden)
+    hero.replaceChildren(welcomePortrait.element);
   hero.append(
     node("h1", "welcome-title", t(locale, "play")),
     button("primary-button play-button", t(locale, "play"), () => {
@@ -218,7 +223,10 @@ function startTask({ gameId = null, seed = null, practice = false } = {}) {
   stage.append(meta);
   const title = node("h1", "task-prompt", task.prompt);
   title.tabIndex = -1;
-  stage.append(title);
+  const reaction = createReaction("thinking", { lifetime: taskLife });
+  const questionRow = node("div", "question-row");
+  questionRow.append(title, reaction.element);
+  stage.append(questionRow);
   const audioStatus = node("div", "audio-status");
   audioStatus.setAttribute("role", "status");
   stage.append(audioStatus);
@@ -243,9 +251,17 @@ function startTask({ gameId = null, seed = null, practice = false } = {}) {
     audio,
     isComplete: () => complete || !taskLife.alive,
     later: (fn, delay) => taskLife.later(fn, delay),
+    encourage() {
+      if (!complete && taskLife.alive) {
+        reaction.set("happy", 2400);
+        feedback.textContent = t(locale, "good");
+        feedback.className = "feedback success";
+      }
+    },
     wrong(element) {
       if (complete || !taskLife.alive) return;
       misses++;
+      reaction.set(misses % 2 ? "sad" : "oops", 2400);
       audio.effect("wrong");
       feedback.textContent = t(locale, "try");
       feedback.className = "feedback retry";
@@ -258,6 +274,7 @@ function startTask({ gameId = null, seed = null, practice = false } = {}) {
     complete() {
       if (complete || !taskLife.alive) return;
       complete = true;
+      reaction.set("happy");
       audio.effect("right");
       for (const control of field.querySelectorAll("button"))
         control.disabled = true;
@@ -278,6 +295,7 @@ function startTask({ gameId = null, seed = null, practice = false } = {}) {
       meta.replaceChild(starRail(), meta.firstChild);
       if (result.star)
         feedback.textContent = `${t(locale, "good")} ★ ${t(locale, "star")}`;
+      if (result.star) reaction.set(result.celebrate ? "celebrating" : "surprised");
       stage.append(
         button("primary-button next-button", t(locale, "next"), () =>
           result.star ? showReward(stage, result.celebrate) : startTask(),
@@ -303,6 +321,10 @@ function showReward(stage, celebrate) {
   overlay.setAttribute("aria-label", t(locale, celebrate ? "party" : "star"));
   overlay.innerHTML =
     '<div class="reward-confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="reward-star" aria-hidden="true">★</div>';
+  const rewardPortrait = createReaction(celebrate ? "celebrating" : "surprised");
+  rewardPortrait.element.classList.add("reward-portrait");
+  if (!rewardPortrait.element.hidden) overlay.classList.add("has-portrait");
+  overlay.append(rewardPortrait.element);
   overlay.append(
     node("h2", "reward-title", t(locale, celebrate ? "party" : "star")),
   );
