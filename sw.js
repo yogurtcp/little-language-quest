@@ -1,5 +1,5 @@
 // Only this app's caches and requests are handled; other Pages apps share the origin.
-const VERSION = "little-language-quest-shell-v13";
+const VERSION = "little-language-quest-shell-v14";
 const AUDIO = "little-language-quest-audio-v1";
 const CORE = [
   "./",
@@ -59,7 +59,12 @@ self.addEventListener("install", (event) =>
   event.waitUntil(
     caches
       .open(VERSION)
-      .then((cache) => cache.addAll(CORE))
+      .then((cache) =>
+        // A new release must not inherit stale files from the HTTP cache.
+        cache.addAll(CORE.map((path) => new Request(
+          new URL(path, self.registration.scope), { cache: "reload" },
+        ))),
+      )
       .then(() => self.skipWaiting()),
   ),
 );

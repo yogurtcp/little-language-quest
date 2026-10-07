@@ -9,6 +9,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
   const cache = { addAll: async (paths) => core.push(...paths) };
   const sandbox = {
     URL,
+    Request,
     Promise,
     self: {
       registration: { scope: "https://example.com/little-language-quest/" },
@@ -29,6 +30,8 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
         "little-language-quest-shell-v9",
         "little-language-quest-shell-v10",
         "little-language-quest-shell-v11",
+        "little-language-quest-shell-v13",
+        "little-language-quest-shell-v14",
         "little-language-quest-audio-v1",
       ],
       delete: async (key) => removed.push(key),
@@ -41,8 +44,11 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
   let pending;
   handlers.install({ waitUntil: (p) => (pending = p) });
   await pending;
-  for (const path of core)
+  for (const request of core) {
+    assert.equal(request.cache, "reload", "new releases must bypass stale HTTP cache entries");
+    const path = new URL(request.url).pathname.replace("/little-language-quest/", "");
     assert.ok(existsSync(new URL(`../${path}`, import.meta.url)), path);
+  }
   handlers.activate({ waitUntil: (p) => (pending = p) });
   await pending;
   assert.deepEqual(removed, [
@@ -55,6 +61,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
     "little-language-quest-shell-v9",
     "little-language-quest-shell-v10",
     "little-language-quest-shell-v11",
+    "little-language-quest-shell-v13",
   ]);
   let intercepted = false;
   handlers.fetch({
@@ -77,6 +84,7 @@ test("audio plays even if its cache is full; reload bypasses a stale cache", asy
     };
   const sandbox = {
     URL,
+    Request,
     Promise,
     self: {
       registration: { scope: "https://example.com/game/" },

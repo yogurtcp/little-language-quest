@@ -49,10 +49,24 @@ if (
   "serviceWorker" in navigator &&
   !["localhost", "127.0.0.1"].includes(location.hostname)
 ) {
+  let registration, checkingUpdate = false;
+  async function checkForUpdate() {
+    if (!registration || checkingUpdate || document.visibilityState === "hidden") return;
+    checkingUpdate = true;
+    try {
+      await registration.update();
+    } catch (error) {
+      console.warn("App update check failed", error);
+    } finally {
+      checkingUpdate = false;
+    }
+  }
+  document.addEventListener("visibilitychange", checkForUpdate);
+  window.addEventListener("online", checkForUpdate);
   window.addEventListener("load", async () => {
     try {
-      const registration = await navigator.serviceWorker.register("./sw.js");
-      await registration.update();
+      registration = await navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" });
+      await checkForUpdate();
     } catch (error) {
       console.warn("Offline app registration failed", error);
     }
