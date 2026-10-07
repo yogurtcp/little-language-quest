@@ -9,12 +9,14 @@ export class GameAudio {
       ? Math.max(0, Math.min(250, savedVolume))
       : 100;
     this.muted = readSetting("llq-muted") === "1" || this.volume === 0;
+    this.hebrewVoice = readSetting("llq-hebrew-voice", "device");
     this.context = null;
     this.master = null;
     this.voices = [];
     this.generation = 0;
     this.sources = new Set();
     this.buffers = new Map();
+    this.utterance = null;
     this.onStatus = () => {};
     this.status = "idle";
     this.refreshVoices();
@@ -31,6 +33,16 @@ export class GameAudio {
         voice.lang.toLowerCase().startsWith(locale),
       ) || null
     );
+  }
+  hasHebrewDeviceVoice() {
+    this.refreshVoices();
+    return Boolean(this.voice("he"));
+  }
+  setHebrewVoice(mode) {
+    if (mode !== "device" && mode !== "recorded") return;
+    this.stop();
+    this.hebrewVoice = mode;
+    writeSetting("llq-hebrew-voice", mode);
   }
   async unlock() {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -61,6 +73,7 @@ export class GameAudio {
     for (const source of this.sources) source.stop();
     this.sources.clear();
     window.speechSynthesis?.cancel();
+    this.utterance = null;
     this.notify(this.muted ? "muted" : "idle");
   }
   setMuted(value) {
@@ -130,6 +143,46 @@ export class GameAudio {
     if (this.muted) return false;
     const generation = this.generation;
     const parts = Array.isArray(input) ? input : [input];
+    if (locale === "he" && this.hebrewVoice === "device") {
+      this.refreshVoices();
+      const deviceVoice = this.voice("he");
+      if (deviceVoice && this.speakSystem(parts, locale, deviceVoice, generation))
+        return true;
+    }
+    return this.speakRecorded(parts, locale, generation);
+  }
+  speakSystem(parts, locale, voice, generation) {
+    if (!window.speechSynthesis || !window.SpeechSynthesisUtterance)
+      return false;
+    const utterance = new window.SpeechSynthesisUtterance(parts.join(" "));
+    utterance.voice = voice;
+    utterance.lang = languages.find((lang) => lang.code === locale).tag;
+    utterance.rate = 1;
+    utterance.volume = Math.min(1, this.volume / 100);
+    utterance.onend = () => {
+      if (generation === this.generation) {
+        this.utterance = null;
+        this.notify("idle");
+      }
+    };
+    utterance.onerror = () => {
+      if (generation === this.generation) {
+        this.utterance = null;
+        if (locale === "he") void this.speakRecorded(parts, locale, generation);
+        else this.notify("error");
+      }
+    };
+    try {
+      this.utterance = utterance;
+      this.notify("speaking");
+      window.speechSynthesis.speak(utterance);
+      return true;
+    } catch {
+      this.utterance = null;
+      return false;
+    }
+  }
+  async speakRecorded(parts, locale, generation) {
     this.notify("loading");
     try {
       await this.unlock();
@@ -164,25 +217,11 @@ export class GameAudio {
       return true;
     } catch {
       if (generation !== this.generation) return false;
-      // Hebrew must use the authored phonetic recordings: system voices can ignore niqqud.
+      // Never silently switch Hebrew to a different pronunciation engine.
       this.refreshVoices();
       const voice = locale === "he" ? null : this.voice(locale);
-      if (voice && window.SpeechSynthesisUtterance) {
-        const utterance = new window.SpeechSynthesisUtterance(parts.join(". "));
-        utterance.voice = voice;
-        utterance.lang = languages.find((lang) => lang.code === locale).tag;
-        utterance.rate = 0.85;
-        utterance.volume = Math.min(1, this.volume / 100);
-        utterance.onend = () => {
-          if (generation === this.generation) this.notify("idle");
-        };
-        utterance.onerror = () => {
-          if (generation === this.generation) this.notify("error");
-        };
-        this.notify("speaking");
-        window.speechSynthesis.speak(utterance);
+      if (voice && this.speakSystem(parts, locale, voice, generation))
         return true;
-      }
       this.notify("error");
       return false;
     }

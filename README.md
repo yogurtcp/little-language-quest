@@ -30,11 +30,11 @@ Tests exercise completing all 12 games in three languages and three levels, incl
 
 **Tap the Menu / gear button**, then answer the adult arithmetic check (12 + 7). Keyboard shortcut: Alt+Shift+P. Escape closes the check; the native dialog manages keyboard focus.
 
-Settings include language, sound, level, voice test, app installation, offline audio downloads, progress reset, and the Game Lab. Choose any activity and a task number in the lab for a reproducible question.
+Settings include language, sound, level, voice test, app installation, offline audio downloads, progress reset, and the Game Lab. Hebrew also has a saved choice between the device's Hebrew voice and the phonetic recorded voice. If no Hebrew device voice is available, the recorded voice plays. Choose any activity and a task number in the lab for a reproducible question.
 
 ## Narration and Hebrew
 
-MP3s are generated at development time with Russian Svetlana and English Aria voices. Hebrew uses Piper with an explicit pronunciation dictionary containing vowels and stress for every pointed word. Hebrew display text retains niqqud. Letter instructions use explicit letter names; abstract math uses feminine Hebrew number names. Hebrew never falls back to system voices that may ignore niqqud. Russian and English can use a same-language fallback. Failed playback produces a visible message and a retry button. Compound questions trim clip padding and schedule short gaps between spoken segments.
+MP3s are generated at development time with Russian Svetlana and English Aria voices. Hebrew uses Piper with an explicit pronunciation dictionary containing vowels and stress for every pointed word. Hebrew display text retains niqqud. Letter instructions use explicit letter names; abstract math uses feminine Hebrew number names. The Hebrew parent setting can use the device's Hebrew voice instead; its pronunciation depends on Android's installed voice and it may ignore niqqud. The recorded voice remains available and is used automatically if no Hebrew device voice exists or device speech reports an error. Russian and English can use a same-language fallback. Failed playback produces a visible message and a retry button. Compound recorded questions trim clip padding and schedule short gaps between spoken segments.
 
 The Hebrew voice resource has a non-commercial license. See [Hebrew sources, pronunciation dictionary, and rebuild instructions](scripts/hebrew/SOURCES.md).
 

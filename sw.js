@@ -1,5 +1,5 @@
 // Only this app's caches and requests are handled; other Pages apps share the origin.
-const VERSION = "little-language-quest-shell-v10";
+const VERSION = "little-language-quest-shell-v11";
 const AUDIO = "little-language-quest-audio-v1";
 const CORE = [
   "./",

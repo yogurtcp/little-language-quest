@@ -52,6 +52,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
     "little-language-quest-shell-v7",
     "little-language-quest-shell-v8",
     "little-language-quest-shell-v9",
+    "little-language-quest-shell-v10",
   ]);
   let intercepted = false;
   handlers.fetch({

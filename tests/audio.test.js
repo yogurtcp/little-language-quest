@@ -150,12 +150,44 @@ test("Hebrew does not fall back to a system voice that can ignore niqqud", async
     SpeechSynthesisUtterance: class {},
   };
   const audio = new GameAudio();
+  audio.setHebrewVoice("recorded");
   assert.equal(
     await audio.speak(Object.keys(audioManifest.he)[0], "he"),
     false,
   );
   assert.equal(spoken, 0);
   assert.equal(audio.status, "error");
+});
+
+test("Hebrew device voice is optional and reads the selected pointed prompt", async () => {
+  const spoken = [],
+    voice = { lang: "he-IL", name: "Hebrew" };
+  globalThis.window = {
+    speechSynthesis: {
+      getVoices: () => [voice],
+      addEventListener() {},
+      cancel() {},
+      speak(utterance) {
+        spoken.push(utterance);
+      },
+    },
+    SpeechSynthesisUtterance: class {
+      constructor(text) {
+        this.text = text;
+      }
+    },
+  };
+  const audio = new GameAudio();
+  audio.setHebrewVoice("device");
+  assert.equal(audio.hasHebrewDeviceVoice(), true);
+  assert.equal(await audio.speak("אֵיפֹה יֵשׁ שְׁנֵי עִגּוּלִים?", "he"), true);
+  assert.equal(spoken.length, 1);
+  assert.equal(spoken[0].voice, voice);
+  assert.equal(spoken[0].lang, "he-IL");
+  assert.equal(spoken[0].text, "אֵיפֹה יֵשׁ שְׁנֵי עִגּוּלִים?");
+  audio.setHebrewVoice("recorded");
+  assert.equal(await audio.speak("אֵיפֹה יֵשׁ שְׁנֵי עִגּוּלִים?", "he"), false);
+  assert.equal(spoken.length, 1);
 });
 
 test("saved volume boosts recorded speech and effects through a peak limiter", async () => {

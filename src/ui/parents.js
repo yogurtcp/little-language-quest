@@ -111,13 +111,52 @@ export function createParentUI(app) {
     }
     level.addEventListener("change", () => app.setLevel(Number(level.value)));
     row(panel, t(locale, "difficulty"), level);
+    if (locale === "he") {
+      const hebrewVoice = node("select", "setting-select");
+      for (const mode of ["device", "recorded"]) {
+        const option = node("option", "", t(locale, `hebrewVoice${mode}`));
+        option.value = mode;
+        option.selected = mode === app.audio.hebrewVoice;
+        hebrewVoice.append(option);
+      }
+      hebrewVoice.addEventListener("change", () => {
+        app.audio.setHebrewVoice(hebrewVoice.value);
+        updateVoiceAvailability();
+      });
+      row(panel, t(locale, "hebrewVoice"), hebrewVoice);
+      panel.append(node("p", "panel-note", t(locale, "hebrewVoiceHint")));
+    }
     const voice = node("div", "voice-panel");
-    voice.append(node("span", "voice-ok", t(locale, "voiceReady")));
+    const availability = node("span", "voice-ok", t(locale, "voiceReady"));
+    voice.append(availability);
+    function updateVoiceAvailability() {
+      if (locale !== "he") return;
+      const missing =
+        app.audio.hebrewVoice === "device" &&
+        !app.audio.hasHebrewDeviceVoice();
+      availability.className = missing ? "voice-warning" : "voice-ok";
+      availability.textContent = missing
+        ? t(locale, "hebrewVoiceFallback")
+        : t(
+            locale,
+            app.audio.hebrewVoice === "device" ? "hebrewDeviceReady" : "voiceReady",
+          );
+    }
+    updateVoiceAvailability();
+    if (locale === "he")
+      window.speechSynthesis?.addEventListener(
+        "voiceschanged",
+        updateVoiceAvailability,
+        { once: true },
+      );
     const status = node("span", "audio-status");
     status.setAttribute("aria-live", "polite");
     voice.append(
       button("secondary-button", t(locale, "voiceTest"), () =>
-        app.audio.speak(t(locale, "listenChoose"), locale),
+        app.audio.speak(
+          t(locale, locale === "he" ? "countGroup" : "listenChoose", 2),
+          locale,
+        ),
       ),
       status,
     );
