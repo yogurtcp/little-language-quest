@@ -2,7 +2,7 @@ import { concepts, word } from "../core/content.js";
 import { shuffle, node, button, pick } from "../core/helpers.js";
 import { art } from "../core/art.js";
 import { t } from "../core/i18n.js";
-import { grid, revealWord } from "./shared.js";
+import { grid, revealWord, appendWord } from "./shared.js";
 export const memoryPairs = {
   id: "memoryPairs",
   create({ locale, level, rng, choose = (_key, pool) => pick(pool, rng) }) {
@@ -99,9 +99,7 @@ export const memoryPairs = {
               ? art(card.item.art, word(card.item, locale).display)
               : "";
           if (card.kind === "word")
-            element.append(
-              node("span", "memory-word", word(card.item, locale).display),
-            );
+            appendWord(element, card.item, locale, "memory-word");
           element.setAttribute("aria-label", word(card.item, locale).display);
           element.setAttribute("aria-pressed", "true");
           element.classList.add("revealed");

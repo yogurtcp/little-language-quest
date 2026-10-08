@@ -1,5 +1,5 @@
-import { alphabets, earlyRuns } from "../core/content.js";
-import { randomInt, shuffle, node, pick } from "../core/helpers.js";
+import { alphabets, earlyRuns, literacyRows } from "../core/content.js";
+import { shuffle, node, pick } from "../core/helpers.js";
 import { t } from "../core/i18n.js";
 import { grid, tile } from "./shared.js";
 export const letterOrder = {
@@ -7,11 +7,14 @@ export const letterOrder = {
   create({ locale, level, rng, choose = (_key, pool) => pick(pool, rng) }) {
     const length = level === 3 ? 4 : 3;
     const alphabet = alphabets[locale];
-    const start = randomInt(0, alphabet.length - length, rng);
     const sequences =
       level === 1
         ? earlyRuns[locale]
-        : Array.from({ length: alphabet.length - length + 1 }, (_, i) =>
+        : literacyRows[locale]
+          ? literacyRows[locale].flatMap((row) =>
+              Array.from({ length: Math.max(0, row.length - length + 1) }, (_, i) => row.slice(i, i + length)),
+            )
+          : Array.from({ length: alphabet.length - length + 1 }, (_, i) =>
             alphabet.slice(i, i + length),
           );
     const runs = sequences.map((letters) => ({

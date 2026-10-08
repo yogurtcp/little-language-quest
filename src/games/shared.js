@@ -9,10 +9,14 @@ export function grid(host, className = "") {
 export function picture(item, locale, onClick, showWord = false) {
   const element = button("choice picture-choice", "", onClick);
   element.innerHTML = art(item.art, word(item, locale).display);
-  if (showWord)
-    element.append(node("span", "picture-word", word(item, locale).display));
+  if (showWord) appendWord(element, item, locale);
   element.setAttribute("aria-label", word(item, locale).display);
   return element;
+}
+export function appendWord(element, item, locale, className = "picture-word") {
+  const entry = word(item, locale);
+  element.append(node("span", className, entry.display));
+  if (entry.reading) element.append(node("span", "word-reading", entry.reading));
 }
 export function tile(label, onClick, extraClass = "") {
   const element = button(`choice tile-choice notranslate ${extraClass}`, label, onClick);
@@ -48,9 +52,7 @@ export function numberChoices(host, options, answer, api) {
 export function revealWord(element, item, api) {
   api.encourage?.();
   if (!element.querySelector(".picture-word"))
-    element.append(
-      node("span", "picture-word", word(item, api.locale).display),
-    );
+    appendWord(element, item, api.locale);
   element.classList.add("selected");
   api.audio.speak(word(item, api.locale).speech, api.locale);
 }

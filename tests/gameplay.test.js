@@ -1,3 +1,5 @@
+import { languages } from "../src/core/i18n.js";
+const locales = languages.map(({ code }) => code);
 import test from "node:test";
 import assert from "node:assert/strict";
 import { parseHTML } from "linkedom";
@@ -28,13 +30,13 @@ test("all 86 words have distinct pixel artwork and all 50 clues have unambiguous
       new Set([...clue.answers, ...clue.distractors]).size,
       clue.answers.length + clue.distractors.length,
     );
-    for (const locale of ["ru", "he", "en"]) assert.ok(clue.prompts[locale]);
+    for (const locale of locales) assert.ok(clue.prompts[locale]);
   }
 });
 test("activity rounds cover every game; all clues and listening words cycle before repeats", () => {
   const scheduler = new TaskScheduler();
   scheduler.history = {};
-  for (const locale of ["ru", "he", "en"]) {
+  for (const locale of locales) {
     let last = null;
     for (let round = 0; round < 4; round++) {
       const ids = Array.from(
@@ -108,7 +110,7 @@ function fixture(task, locale) {
 }
 test("all games can be completed in all languages and levels; answers reveal full words", () => {
   for (const game of games)
-    for (const locale of ["ru", "he", "en"])
+    for (const locale of locales)
       for (const level of [1, 2, 3])
         for (let seed = 1; seed <= 10; seed++) {
           const task = game.create({ locale, level, rng: seeded(seed) }),
@@ -177,7 +179,7 @@ test("all games can be completed in all languages and levels; answers reveal ful
         }
 });
 test("every generated instruction has bundled narration, including Hebrew niqqud", () => {
-  for (const locale of ["ru", "he", "en"]) {
+  for (const locale of locales) {
     for (const text of speechCatalog(locale))
       assert.ok(audioManifest[locale][text], `${locale}: ${text}`);
     for (const game of games)

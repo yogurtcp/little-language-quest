@@ -1,10 +1,12 @@
+import { clueText as chinese } from "../locales/zh.js";
+import { clueText as japanese } from "../locales/ja.js";
 // Explicit answer AND distractor pools keep broad clues unambiguous.
 // A distractor is reviewed for this clue, rather than inferred from a missing tag.
 const clue = (id, answers, distractors, ru, he, en) => ({
   id,
   answers: answers.split(" "),
   distractors: distractors.split(" "),
-  prompts: { ru, he, en },
+  prompts: { ru, he, en, zh: chinese[id], ja: japanese[id] },
 });
 export const clues = [
   clue(

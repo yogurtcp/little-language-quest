@@ -121,14 +121,17 @@ function languagePicker() {
   document.documentElement.dir = "ltr";
   document.title = "Little Language Quest";
   const screen = node("main", "screen launch-screen");
+  const subtitle = node("p", "launch-subtitle");
+  for (const lang of languages) {
+    const label = node("span", "", t(lang.code, "choose"));
+    label.lang = lang.tag;
+    label.dir = "auto";
+    subtitle.append(label);
+  }
   screen.append(
     node("div", "launch-badge", "✦  ✿  ★"),
     node("h1", "launch-title", "Little Language Quest"),
-    node(
-      "p",
-      "launch-subtitle",
-      "Choose a language · Выбери язык · בְּחַר שָׂפָה",
-    ),
+    subtitle,
   );
   const choices = node("div", "language-choices");
   for (const lang of languages) {
@@ -137,7 +140,7 @@ function languagePicker() {
       welcome();
     });
     choice.lang = lang.tag;
-    choice.innerHTML = `<span class="language-sample" dir="${lang.code === "he" ? "rtl" : "ltr"}">${lang.flag}</span><span>${lang.name}</span><span class="choice-arrow" aria-hidden="true">↗</span>`;
+    choice.innerHTML = `<span class="language-sample" aria-hidden="true">${lang.flag}</span><span dir="auto">${lang.name}</span><span class="choice-arrow" aria-hidden="true">↗</span>`;
     choices.append(choice);
   }
   screen.append(choices);

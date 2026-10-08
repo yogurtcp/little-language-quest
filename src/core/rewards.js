@@ -1,9 +1,10 @@
 import { readSetting, writeSetting } from "./storage.js";
+import { languages } from "./i18n.js";
 const KEY = "little-language-quest-progress-v1";
 const blank = () => ({
   correct: 0,
   celebrations: 0,
-  byLocale: { ru: 0, he: 0, en: 0 },
+  byLocale: Object.fromEntries(languages.map(({ code }) => [code, 0])),
   skills: {},
 });
 const count = (value) =>
@@ -16,7 +17,7 @@ export function readProgress() {
       correct: count(value.correct),
       celebrations: count(value.celebrations),
       byLocale: Object.fromEntries(
-        ["ru", "he", "en"].map((locale) => [
+        languages.map(({ code: locale }) => [
           locale,
           count(value.byLocale?.[locale]),
         ]),

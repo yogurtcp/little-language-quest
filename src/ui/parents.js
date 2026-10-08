@@ -77,7 +77,7 @@ export function createParentUI(app) {
       panel = app.panel(t(locale, "parentTitle"));
     const language = node("select", "setting-select");
     for (const lang of languages) {
-      const option = node("option", "", lang.name);
+      const option = node("option", "", `${lang.flag} ${lang.name}`);
       option.value = lang.code;
       option.selected = lang.code === locale;
       language.append(option);
@@ -175,7 +175,7 @@ export function createParentUI(app) {
     panel.append(button("secondary-button", t(locale, "update"), () => {
       location.href = `./update.html?lang=${locale}`;
     }));
-    panel.append(node("p", "panel-note", "v17"));
+    panel.append(node("p", "panel-note", "v18"));
     app.audio.onStatus = (value) => {
       status.textContent =
         value === "error"

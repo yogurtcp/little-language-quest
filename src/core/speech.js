@@ -1,7 +1,11 @@
 import { concepts, alphabets, word } from "./content.js";
 import { t } from "./i18n.js";
 import { clues } from "./clues.js";
+import { speech as chinese, initialPrompt } from "../locales/zh.js";
+import { speech as japanese, quantity as japaneseQuantity } from "../locales/ja.js";
 export const spoken = {
+  zh: chinese,
+  ja: japanese,
   ru: {
     numbers: [
       "ноль",
@@ -124,7 +128,7 @@ export const spoken = {
   },
 };
 export const initialSpeech = (locale, letter) =>
-  t(
+  locale === "zh" ? initialPrompt(letter) : t(
     locale,
     "initialSet",
     spoken[locale].letters[alphabets[locale].indexOf(letter)],
@@ -176,6 +180,8 @@ const russianQuantities = {
   ],
 };
 export function quantitySpeech(locale, kind, n) {
+  if (locale === "ja") return japaneseQuantity(kind, n);
+  if (locale === "zh") return t(locale, kind, n === 2 ? "两" : chinese.numbers[n]);
   if (locale !== "ru") return t(locale, kind, n);
   const phrase = russianQuantities[kind]?.[n];
   if (!phrase)

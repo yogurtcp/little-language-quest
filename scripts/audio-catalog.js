@@ -1,8 +1,9 @@
 import { speechCatalog } from "../src/core/speech.js";
+import { languages } from "../src/core/i18n.js";
 console.log(
   JSON.stringify(
     Object.fromEntries(
-      ["ru", "he", "en"].map((locale) => [locale, speechCatalog(locale)]),
+      languages.map(({ code }) => [code, speechCatalog(code)]),
     ),
   ),
 );

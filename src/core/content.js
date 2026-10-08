@@ -1,9 +1,22 @@
-// Each locale is curated independently. `initial` is the letter taught by the game.
+import * as chinese from "../locales/zh.js";
+import * as japanese from "../locales/ja.js";
+// Each locale is curated independently. `initial` is the letter, pinyin unit or kana taught.
 const item = (id, ru, he, en, initials, facts = []) => ({
   id,
   art: id,
   facts,
   words: {
+    zh: {
+      display: chinese.vocabulary[id][0],
+      speech: chinese.vocabulary[id][0],
+      reading: chinese.vocabulary[id][1],
+      initial: chinese.vocabulary[id][1].normalize("NFD").replace(/\p{M}/gu, "").match(/^(zh|ch|sh|[a-z])/u)[0],
+    },
+    ja: {
+      display: japanese.vocabulary[id][0],
+      speech: japanese.vocabulary[id][1],
+      initial: [...japanese.vocabulary[id][0]][0],
+    },
     ru: { display: ru, speech: ru, initial: initials[0] },
     he: { display: he, speech: he, initial: initials[1] },
     en: { display: en, speech: en, initial: initials[2] },
@@ -133,16 +146,22 @@ export const byId = Object.fromEntries(
   concepts.map((concept) => [concept.id, concept]),
 );
 export const alphabets = {
+  zh: chinese.alphabet,
+  ja: japanese.alphabet,
   ru: [..."АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"],
   he: [..."אבגדהוזחטיכלמנסעפצקרשת"],
   en: [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
 };
 export const earlyLetters = {
+  zh: chinese.early,
+  ja: japanese.early,
   ru: ["А", "Б", "В", "Д", "К", "М", "О", "С", "Т"],
   he: ["א", "ב", "ג", "ד", "ה", "ו", "ח", "כ", "מ", "ש"],
   en: ["A", "B", "C", "D", "E", "F", "H", "M", "S"],
 };
 export const earlyRuns = {
+  zh: chinese.rows.slice(0, 4).map((row) => row.slice(0, 3)),
+  ja: japanese.rows.slice(0, 7).map((row) => row.slice(0, 3)),
   ru: [
     ["А", "Б", "В"],
     ["Г", "Д", "Е"],
@@ -174,6 +193,8 @@ export const earlyRuns = {
 export function word(concept, locale) {
   return concept.words[locale];
 }
+// These writing systems use teaching rows rather than an English alphabet order.
+export const literacyRows = { zh: chinese.rows, ja: japanese.rows };
 export function groups(locale) {
   const result = new Map();
   for (const concept of concepts) {

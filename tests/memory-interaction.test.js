@@ -1,3 +1,5 @@
+import { languages } from "../src/core/i18n.js";
+const locales = languages.map(({ code }) => code);
 import test from "node:test";
 import assert from "node:assert/strict";
 import { parseHTML } from "linkedom";
@@ -32,7 +34,7 @@ function setup(locale, level) {
 }
 
 test("a tap during mismatch preview immediately reveals that card; stale timers cannot hide it", () => {
-  for (const locale of ["ru", "he", "en"])
+  for (const locale of locales)
     for (const level of [1, 2, 3]) {
       const f = setup(locale, level),
         cards = f.task.cards;
@@ -95,7 +97,7 @@ test("a newer mismatch keeps its own preview when an older timer fires", () => {
 });
 
 test("tapping an open card turns it face down, and matched cards stop responding", () => {
-  for (const locale of ["ru", "he", "en"]) {
+  for (const locale of locales) {
     const f = setup(locale, 1),
       cards = f.task.cards;
     const first = 0;

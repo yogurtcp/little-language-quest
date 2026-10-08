@@ -104,10 +104,17 @@ button:disabled {
   letter-spacing: -0.04em;
 }
 .launch-subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
   font-size: 18px;
   color: #62718a;
-  margin-bottom: 35px;
+  margin-bottom: 24px;
+  max-width: 580px;
+  line-height: 1.6;
 }
+.launch-subtitle span { white-space: nowrap; }
 .language-choices {
   display: grid;
   gap: 15px;
@@ -115,7 +122,8 @@ button:disabled {
 }
 .language-choice {
   display: grid;
-  grid-template-columns: 100px 1fr 35px;
+  grid-template-columns: 64px 1fr 35px;
+  gap: 16px;
   align-items: center;
   text-align: start;
   padding: 14px 24px;
@@ -136,6 +144,12 @@ button:disabled {
 .language-choice:nth-child(3) .language-sample {
   background: #e2d2ff;
 }
+.language-choice:nth-child(4) .language-sample {
+  background: #ffe2d7;
+}
+.language-choice:nth-child(5) .language-sample {
+  background: #dceaff;
+}
 .language-choice:hover,
 .choice:hover,
 .primary-button:hover,
@@ -143,7 +157,9 @@ button:disabled {
   transform: translateY(-3px);
 }
 .language-sample {
-  font-size: 22px;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 30px;
+  line-height: 1;
   border-radius: 14px;
   padding: 10px;
   text-align: center;
@@ -390,6 +406,13 @@ button:disabled {
   font-weight: 800;
   font-size: 20px;
 }
+.word-reading {
+  display: block;
+  color: #52617c;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
 .tile-choice {
   font-size: clamp(35px, 6vw, 65px);
   font-weight: 850;
@@ -417,6 +440,9 @@ button:disabled {
 }
 .memory-card .art {
   height: 110px;
+}
+:lang(zh) .memory-card {
+  height: 160px;
 }
 .card-back {
   font-size: 55px;
@@ -828,12 +854,13 @@ button:disabled {
     grid-template-columns: repeat(2, 1fr);
   }
   .language-choice {
-    grid-template-columns: 72px 1fr 25px;
+    grid-template-columns: 48px 1fr 25px;
     padding: 10px 14px;
     font-size: 22px;
   }
   .language-sample {
-    font-size: 17px;
+    font-size: 27px;
+    padding: 8px;
   }
   .pattern-symbol {
     width: 45px;

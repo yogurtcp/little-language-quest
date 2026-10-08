@@ -1,3 +1,5 @@
+import { ui as chinese } from "../locales/zh.js";
+import { ui as japanese } from "../locales/ja.js";
 const ruNoun = (n, one, few, many) =>
   n % 10 === 1 && n % 100 !== 11
     ? one
@@ -11,11 +13,15 @@ const heCircle = (n) =>
       ? "שְׁנֵי עִגּוּלִים"
       : `${["", "", "", "שְׁלוֹשָׁה", "אַרְבָּעָה", "חֲמִשָּׁה", "שִׁשָּׁה", "שִׁבְעָה", "שְׁמוֹנָה", "תִּשְׁעָה", "עֲשָׂרָה"][n]} עִגּוּלִים`;
 export const languages = [
-  { code: "ru", name: "Русский", tag: "ru-RU", flag: "АБВ" },
-  { code: "he", name: "עִבְרִית", tag: "he-IL", flag: "אבג" },
-  { code: "en", name: "English", tag: "en-US", flag: "ABC" },
+  { code: "ru", name: "Русский", tag: "ru-RU", flag: "🇷🇺" },
+  { code: "he", name: "עִבְרִית", tag: "he-IL", flag: "🇮🇱" },
+  { code: "en", name: "English", tag: "en-US", flag: "🇺🇸" },
+  { code: "zh", name: "中文", tag: "zh-CN", flag: "🇨🇳" },
+  { code: "ja", name: "日本語", tag: "ja-JP", flag: "🇯🇵" },
 ];
 export const copy = {
+  zh: chinese,
+  ja: japanese,
   ru: {
     update: "Обновить игру",
     appName: "Игра слов и чисел",

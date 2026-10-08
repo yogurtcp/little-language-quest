@@ -8,11 +8,13 @@
 body{margin:0;background:#fff9ef;color:#28324b;font:18px/1.5 system-ui,sans-serif;display:grid;min-height:100svh;place-items:center}main{margin:24px;padding:28px;max-width:540px;border:3px solid #28324b;border-radius:28px;background:white}h1{font-size:28px}button,a{display:inline-block;padding:14px 22px;border:2px solid #28324b;border-radius:16px;background:#ffe176;color:#28324b;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}button:disabled{opacity:.6}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 monospace}a[hidden]{display:none}select{font:inherit;padding:8px;border-radius:10px}
 </style>
 </head><body><main>
-<select id="language" aria-label="Language"><option value="en">English</option><option value="he">עִבְרִית</option><option value="ru">Русский</option></select>
+<select id="language" aria-label="Language"><option value="en">🇺🇸 English</option><option value="he">🇮🇱 עִבְרִית</option><option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option></select>
 <h1 id="title"></h1><p id="note"></p><button id="update"></button><p id="status" role="status"></p><pre id="details" dir="ltr"></pre><a id="play" href="./" hidden></a>
 <script>
 // Independent of the cached game modules, so old installations can reach it.
 const words={
+ zh:{title:'更新游戏',note:'下载新版本。星星、设置和已保存的语音都会保留。',button:'更新游戏',busy:'正在下载更新……',done:'更新完成，可以打开游戏了。',failed:'更新未完成，请检查网络后重试。',play:'打开游戏'},
+ ja:{title:'ゲームをこうしん',note:'新しいバージョンをダウンロードします。星、設定、保存した音声はそのまま残ります。',button:'ゲームをこうしん',busy:'こうしんを ダウンロードちゅう…',done:'こうしんできました。ゲームを ひらいてね。',failed:'更新できませんでした。接続を確認して再試行してください。',play:'ゲームをひらく'},
  en:{title:'Update Language Quest',note:'Downloads a fresh game version. Your stars, settings and saved audio are kept.',button:'Update game',busy:'Downloading the update…',done:'Update installed. Open the game.',failed:'The update did not finish. Check your connection and try again.',play:'Open game'},
  he:{title:'עִדְכּוּן הַמִּשְׂחָק',note:'מוֹרִידִים גִּרְסָה חֲדָשָׁה. הַכּוֹכָבִים, הַהַגְדָּרוֹת וְהַקּוֹל הַשָּׁמוּר נִשְׁמָרִים.',button:'עִדְכּוּן הַמִּשְׂחָק',busy:'מוֹרִידִים אֶת הָעִדְכּוּן…',done:'הָעִדְכּוּן הֻשְׁלַם. אֶפְשָׁר לִפְתֹּחַ אֶת הַמִּשְׂחָק.',failed:'הָעִדְכּוּן לֹא הֻשְׁלַם. בִּדְקוּ אֶת הַחִבּוּר וְנַסּוּ שׁוּב.',play:'פְּתִיחַת הַמִּשְׂחָק'},
  ru:{title:'Обновление игры',note:'Загрузим свежую версию. Звёзды, настройки и сохранённый звук останутся.',button:'Обновить игру',busy:'Загружаем обновление…',done:'Обновление установлено. Откройте игру.',failed:'Не удалось обновить игру. Проверьте подключение и повторите.',play:'Открыть игру'}

@@ -1,3 +1,5 @@
+import { languages } from "../src/core/i18n.js";
+const locales = languages.map(({ code }) => code);
 import test from "node:test";
 import assert from "node:assert/strict";
 import { parseHTML } from "linkedom";
@@ -10,7 +12,7 @@ import { byId, word } from "../src/core/content.js";
 
 test("incorrect picture taps say the chosen word without revealing spelling", () => {
   for (const game of [describe, listenChoose, initialSet])
-    for (const locale of ["ru", "he", "en"]) {
+    for (const locale of locales) {
       const { document } = parseHTML("<main></main>");
       globalThis.document = document;
       const host = document.querySelector("main"),
@@ -35,7 +37,7 @@ test("incorrect picture taps say the chosen word without revealing spelling", ()
     }
 });
 test("first-letter picture question never supplies the written object name", () => {
-  for (const locale of ["ru", "he", "en"])
+  for (const locale of locales)
     for (let seed = 1; seed <= 30; seed++) {
       const task = firstLetter.create({ locale, level: 3, rng: seeded(seed) });
       assert.ok(!task.prompt.includes(word(byId[task.key], locale).display));
