@@ -1,0 +1,8 @@
+{
+  "גֶּזֶר": {
+    "input": "הארנב אוכל גזר.",
+    "extractLastWord": "גזר",
+    "pronunciation": "gézer — stress on the first syllable",
+    "reason": "An isolated unpointed גזר is ambiguous with the verb gazar. Food context selects the vegetable; only the final word is included in the shipped clip."
+  }
+}

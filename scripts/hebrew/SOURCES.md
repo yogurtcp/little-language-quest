@@ -9,6 +9,13 @@ to its unpointed speech spelling, including required full spellings such as
 `עיגולים`, `מיטה`, and `תוף`. Simply deleting the vowel marks can produce a
 different word; the generator fails if any token lacks a mapping.
 
+For example, duck and penguin use `ברווז` and `פינגווין` in speech input.
+The [Hebrew Academy's duck entry](https://terms.hebrew-academy.org.il/munnah/109681_1/) distinguishes pointed `בַּרְוָז` from full spelling `ברווז`.
+Ambiguous isolated words can have a `context.json` entry: carrot is synthesized
+as `הארנב אוכל גזר.` (the rabbit eats a carrot), then only the final word is
+extracted using the engine's word timestamps. The rest of the sentence never
+plays in the game. Context and extraction version are included in the clip hash.
+
 `recordings.json` records the actual input and file path for each clip. Content
 hashes include the voice, rate, display text, and spoken text. The app uses the
 bundled clips by default; an optional device voice remains in the parent menu.
@@ -17,7 +24,7 @@ No runtime TTS account, API key, or external speech service is needed.
 ## Rebuild
 
 ```sh
-python3 -m pip install edge-tts==7.2.8
+python3 -m pip install edge-tts==7.2.8 soundfile==0.14.0
 python3 scripts/hebrew/generate.py
 python3 scripts/generate-audio.py
 ```

@@ -72,8 +72,8 @@
       "path": "audio/he/f0d35728172e801a.mp3"
     },
     "בַּרְוָז": {
-      "input": "ברוז",
-      "path": "audio/he/3c6548240b6c1d3f.mp3"
+      "input": "ברווז",
+      "path": "audio/he/2a298d1ccded60de.mp3"
     },
     "תַּפּוּחַ": {
       "input": "תפוח",
@@ -172,8 +172,8 @@
       "path": "audio/he/df21b182d2ce38a2.mp3"
     },
     "פִּינְגְּוִין": {
-      "input": "פינגוין",
-      "path": "audio/he/d11663aa29e15bbf.mp3"
+      "input": "פינגווין",
+      "path": "audio/he/d415a2d7f13f3c6f.mp3"
     },
     "אַגָּס": {
       "input": "אגס",
@@ -200,8 +200,9 @@
       "path": "audio/he/680f7931476b8e29.mp3"
     },
     "גֶּזֶר": {
-      "input": "גזר",
-      "path": "audio/he/3d6a716679bc5193.mp3"
+      "input": "הארנב אוכל גזר.",
+      "path": "audio/he/20fd766c8c2b014d.mp3",
+      "extractLastWord": "גזר"
     },
     "עַגְבָנִיָּה": {
       "input": "עגבנייה",
