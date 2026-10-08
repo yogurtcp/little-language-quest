@@ -1,5 +1,5 @@
 // Only this app's caches and requests are handled; other Pages apps share the origin.
-const VERSION = "little-language-quest-shell-v15";
+const VERSION = "little-language-quest-shell-v16";
 const AUDIO = "little-language-quest-audio-v1";
 const CORE = [
   "./",
@@ -49,7 +49,7 @@ const CORE = [
   "./assets/reactions/happy.webp",
   "./assets/reactions/sad.webp",
   "./assets/reactions/surprised.webp",
-  "./assets/reactions/oops.webp",
+  "./assets/reactions/oops-sad.webp",
   "./assets/reactions/celebrating.webp",
   "./icons/icon-192.png",
   "./icons/icon-512.png",

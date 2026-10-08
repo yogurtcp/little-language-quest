@@ -4,6 +4,9 @@ import { readSetting } from "../core/storage.js";
 export const reactionStates = [
   "thinking", "happy", "sad", "surprised", "oops", "celebrating",
 ];
+export const reactionFiles = Object.fromEntries(reactionStates.map((state) =>
+  [state, state === "oops" ? "oops-sad.webp" : `${state}.webp`],
+));
 export const reactionsEnabled = () => readSetting("llq-reactions", "1") !== "0";
 export const REACTION_FOCUS_MS = 2000;
 export const REACTION_SETTLE_MS = 200;
@@ -44,7 +47,7 @@ export function createReaction(initial = "thinking", { lifetime, preview = false
     };
     // Start the full two-second hold when the image is actually available.
     portrait.onload = show;
-    portrait.src = new URL(`../../assets/reactions/${state}.webp`, import.meta.url).href;
+    portrait.src = new URL(`../../assets/reactions/${reactionFiles[state]}`, import.meta.url).href;
     if (portrait.complete && portrait.naturalWidth > 0) show();
   }
   set(initial);

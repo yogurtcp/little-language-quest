@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { parseHTML } from "linkedom";
-import { createReaction, reactionStates, REACTION_FOCUS_MS, REACTION_SETTLE_MS } from "../src/ui/reactions.js";
+import { createReaction, reactionStates, reactionFiles, REACTION_FOCUS_MS, REACTION_SETTLE_MS } from "../src/ui/reactions.js";
 import { existsSync, statSync } from "node:fs";
 
 test("older reaction timers cannot overwrite success or a new screen", () => {
@@ -28,7 +28,7 @@ test("older reaction timers cannot overwrite success or a new screen", () => {
 test("all reaction assets exist and stay below a small combined download budget", () => {
   let total = 0;
   for (const state of reactionStates) {
-    const path = new URL(`../assets/reactions/${state}.webp`, import.meta.url);
+    const path = new URL(`../assets/reactions/${reactionFiles[state]}`, import.meta.url);
     assert.ok(existsSync(path));
     total += statSync(path).size;
   }
