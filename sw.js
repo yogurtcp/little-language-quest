@@ -1,5 +1,5 @@
 // Only this app's caches and requests are handled; other Pages apps share the origin.
-const VERSION = "little-language-quest-shell-v18";
+const VERSION = "little-language-quest-shell-v19";
 const AUDIO = "little-language-quest-audio-v1";
 const CORE = [
   "./",
@@ -17,6 +17,8 @@ const CORE = [
   "./src/core/i18n.js",
   "./src/locales/zh.js",
   "./src/locales/ja.js",
+  "./src/locales/ar.js",
+  "./src/locales/tr.js",
   "./src/core/lifecycle.js",
   "./src/core/offline.js",
   "./src/core/rewards.js",

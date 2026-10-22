@@ -1,5 +1,5 @@
 import { node, button } from "./core/helpers.js";
-import { languages, t } from "./core/i18n.js";
+import { languages, t, direction } from "./core/i18n.js";
 import { GameAudio } from "./core/audio.js";
 import { nextTask, TaskScheduler } from "./core/scheduler.js";
 import { readProgress, resetProgress, award } from "./core/rewards.js";
@@ -94,27 +94,35 @@ function setLanguage(code) {
   document.documentElement.lang = languages.find(
     (lang) => lang.code === code,
   ).tag;
-  document.documentElement.dir = code === "he" ? "rtl" : "ltr";
+  document.documentElement.dir = direction(code);
   document.title = t(code, "appName");
 }
-function header({ parent = true } = {}) {
+function header({ parent = true, playing = false } = {}) {
   const bar = node("header", "topbar"),
     brand = node("div", "brand");
   brand.innerHTML = '<span class="brand-mark" aria-hidden="true">✦</span>';
   brand.append(node("span", "brand-name", t(locale, "appName")));
   bar.append(brand);
   if (parent) {
+    const controls = node("div", "header-controls");
+    const language = languages.find((entry) => entry.code === locale);
+    const change = button("language-switch", "", () => languagePicker({ resumeGame: playing }));
+    change.setAttribute("aria-label", t(locale, "choose"));
+    change.title = t(locale, "choose");
+    change.innerHTML = `<span aria-hidden="true">🌐</span><span dir="auto">${language.name}</span>`;
+    controls.append(change);
     const gate = button("parent-gate", "", parents.showGate);
     gate.setAttribute("aria-label", t(locale, "parent"));
     gate.append(
       node("span", "", "⚙"),
       node("span", "menu-label", t(locale, "menu")),
     );
-    bar.append(gate);
+    controls.append(gate);
+    bar.append(controls);
   }
   return bar;
 }
-function languagePicker() {
+function languagePicker({ resumeGame = false } = {}) {
   clear();
   locale = null;
   document.documentElement.lang = "en";
@@ -137,7 +145,8 @@ function languagePicker() {
   for (const lang of languages) {
     const choice = button("language-choice", "", () => {
       setLanguage(lang.code);
-      welcome();
+      if (resumeGame) startTask();
+      else welcome();
     });
     choice.lang = lang.tag;
     choice.innerHTML = `<span class="language-sample" aria-hidden="true">${lang.flag}</span><span dir="auto">${lang.name}</span><span class="choice-arrow" aria-hidden="true">↗</span>`;
@@ -145,6 +154,7 @@ function languagePicker() {
   }
   screen.append(choices);
   app.append(screen);
+  window.scrollTo(0, 0);
 }
 function welcome() {
   clear();
@@ -219,7 +229,7 @@ function startTask({ gameId = null, seed = null, practice = false } = {}) {
   let complete = false,
     misses = 0;
   const screen = node("main", "screen game-screen");
-  screen.append(header());
+  screen.append(header({ playing: true }));
   const stage = node("section", "stage"),
     meta = node("div", "stage-meta"),
     actions = node("div", "stage-actions");

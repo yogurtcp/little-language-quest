@@ -2,11 +2,11 @@
 
 [Play the game](https://yogurtcp.github.io/little-language-quest/)
 
-A browser game for young children, with a Russian, Hebrew, English, Mandarin Chinese, or Japanese choice on every launch. The child-facing game stays in that language. No account, tracking, ads, API keys, or runtime dependencies.
+A browser game for young children, with a Russian, Hebrew, English, Mandarin Chinese, Arabic, Turkish, or Japanese choice on every launch. The child-facing game stays in that language. No account, tracking, ads, API keys, or runtime dependencies.
 
 - 12 independent activities: starting letters, counting, word/picture memory, letter order, first letters, clues, addition/subtraction, comparison, listening, missing numbers, making amounts, and patterns.
 - 86 generated pixel art illustrations and independently localized words; 50 clues with explicit correct and incorrect choice pools.
-- 1,063 active narration clips, downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. A saved volume slider on each task and in the adult menu adjusts speech and effects from silent to 250% with peak limiting. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
+- 1,474 active narration clips, downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. A saved volume slider on each task and in the adult menu adjusts speech and effects from silent to 250% with peak limiting. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
 - One of each activity per shuffled round. Separate content decks cycle through clues, listening words, letters, and math examples before repeating, and are remembered per language.
 - Five completed tasks earn a star; five stars unlock a celebration. Mistakes never take stars away. Difficulty advances separately after eight unassisted completions of each skill.
 - Completed answers stay visible until Next. Lab tasks do not award stars or change content decks.
@@ -24,7 +24,26 @@ npm ci
 npm test
 ```
 
-Tests exercise completing all 12 games in five languages and three levels, including mistakes, revealed labels, memory reset, content cycles, audio coverage, playback without system voices, canceled speech, canceled timers, and rewards.
+Tests exercise completing all 12 games in seven languages and three levels, including mistakes, revealed labels, memory reset, content cycles, audio coverage, playback without system voices, canceled speech, canceled timers, and rewards.
+
+## Change language during play
+
+Tap the **🌐 language button** beside Menu, then choose a language. A fresh question
+starts immediately in that language; earned stars and saved progress are kept.
+There is no adult arithmetic check for changing languages. The picker order is
+Russian, Hebrew, English, Chinese, Arabic, Turkish, Japanese.
+
+## Arabic and Turkish
+
+Arabic uses Modern Standard Arabic, vowel-marked picture words, and a right-to-left
+interface and letter-order answer line. Opening alif variants share the base alif
+in letter tasks. Turkish uses the native 29-letter alphabet, including distinct
+`I` and `İ`, and its own localized vocabulary and clues. Both languages include
+all 12 games, 86 picture words, 50 clues, and downloadable recorded narration.
+Arabic recordings use Zariyah and Turkish recordings use Emel. As with the other
+languages, a native-speaker listening review is recommended.
+
+`src/locales/ar.js` and `src/locales/tr.js` own the translations and literacy data.
 
 ## Adult menu
 
@@ -34,7 +53,7 @@ Settings include language, sound, level, voice test, app installation, offline a
 
 ## Chinese and Japanese
 
-All five languages appear with flags on launch and in the parent language selector.
+All seven languages appear with flags on launch and in the parent language selector.
 Chinese uses **Simplified Chinese and Mandarin**. Revealed words and memory word
 cards include tone-marked pinyin. Starting-sound games use pinyin units, keeping
 `zh`, `ch`, and `sh` intact. Ordering follows familiar pinyin teaching rows.
@@ -76,7 +95,7 @@ in the offline shell. The original family photo is not included in the repositor
 ## Narration and Hebrew
 
 MP3s are generated at development time with Russian Svetlana, English Aria, and
-Hebrew Hila, Mandarin Xiaoxiao, and Japanese Nanami neural voices. Hebrew narration uses explicit unpointed speech
+Hebrew Hila, Mandarin Xiaoxiao, Japanese Nanami, Arabic Zariyah, and Turkish Emel neural voices. Hebrew narration uses explicit unpointed speech
 spellings while display text retains niqqud. Hila is the default, including for
 installations that previously selected a device voice. The device voice remains
 an optional parent setting. The owner approved a short Hila sample; the complete
@@ -89,11 +108,11 @@ retry message. Compound questions trim clip padding and use short gaps.
 To regenerate changed text:
 
 ```sh
-python3 -m pip install edge-tts==7.2.8
+python3 -m pip install edge-tts==7.3.1
 python3 scripts/generate-audio.py
 ```
 
-The Russian/English/Mandarin/Japanese generator sends only authored game text to the speech service at build time. Hebrew recordings use the separate generation script above and the same online speech service. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
+The Russian/English/Mandarin/Japanese/Arabic/Turkish generator sends only authored game text to the speech service at build time. Hebrew recordings use the separate generation script above and the same online speech service. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
 
 ## Installation, offline play, and updates
 

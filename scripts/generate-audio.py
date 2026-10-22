@@ -1,11 +1,11 @@
-"""Build optional-dependency audio assets: pip install edge-tts==7.2.8; python scripts/generate-audio.py.
+"""Build optional-dependency audio assets: pip install edge-tts==7.3.1; python scripts/generate-audio.py.
 Authored game text only. No runtime speech service, API key, or external request.
 Existing hashed clips are reused. Commit assets and manifest together.
 """
 import asyncio, hashlib, json, pathlib, subprocess, shutil
 import edge_tts
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-VOICES={'ru':'ru-RU-SvetlanaNeural','en':'en-US-AriaNeural','zh':'zh-CN-XiaoxiaoNeural','ja':'ja-JP-NanamiNeural'}
+VOICES={'ru':'ru-RU-SvetlanaNeural','en':'en-US-AriaNeural','zh':'zh-CN-XiaoxiaoNeural','ja':'ja-JP-NanamiNeural','ar':'ar-SA-ZariyahNeural','tr':'tr-TR-EmelNeural'}
 catalog=json.loads(subprocess.check_output(['node','scripts/audio-catalog.js'],cwd=ROOT))
 manifest={locale:{} for locale in catalog}
 hebrew=json.loads((ROOT/'scripts/hebrew/recordings.json').read_text())['records']

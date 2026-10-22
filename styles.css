@@ -150,6 +150,8 @@ button:disabled {
 .language-choice:nth-child(5) .language-sample {
   background: #dceaff;
 }
+.language-choice:nth-child(6) .language-sample { background: #ffe0ea; }
+.language-choice:nth-child(7) .language-sample { background: #dff1d7; }
 .language-choice:hover,
 .choice:hover,
 .primary-button:hover,
@@ -1188,3 +1190,18 @@ button:disabled {
 .art-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 20px 0; }
 .art-preview-card { margin: 0; padding: 12px; border: 2px solid #ded7ef; border-radius: 16px; background: #fffaf0; text-align: center; }
 .art-preview-card figcaption { font-size: 18px; font-weight: 750; margin-top: 6px; }
+
+/* Keep language switching visible and reachable during play, including on phones. */
+.header-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.language-switch {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 49px; padding: 8px 12px; border: 2px solid #b8a2e8;
+  border-radius: 16px; background: #f1eaff; color: #42315f; font-weight: 800;
+}
+.language-switch > span:first-child { font-size: 24px; }
+:lang(ar) .brand-name, :lang(ar) .task-prompt { line-height: 1.6; letter-spacing: normal; }
+@media (max-width: 600px) {
+  .topbar { gap: 10px; flex-wrap: wrap; }
+  .header-controls { margin-inline-start: auto; gap: 7px; }
+  .language-switch { padding: 7px 9px; }
+}

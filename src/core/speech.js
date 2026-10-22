@@ -1,9 +1,13 @@
+import { speech as arabic } from "../locales/ar.js";
+import { speech as turkish } from "../locales/tr.js";
 import { concepts, alphabets, word } from "./content.js";
 import { t } from "./i18n.js";
 import { clues } from "./clues.js";
 import { speech as chinese, initialPrompt } from "../locales/zh.js";
 import { speech as japanese, quantity as japaneseQuantity } from "../locales/ja.js";
 export const spoken = {
+  ar: arabic,
+  tr: turkish,
   zh: chinese,
   ja: japanese,
   ru: {

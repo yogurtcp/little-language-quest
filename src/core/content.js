@@ -1,3 +1,5 @@
+import * as arabic from "../locales/ar.js";
+import * as turkish from "../locales/tr.js";
 import * as chinese from "../locales/zh.js";
 import * as japanese from "../locales/ja.js";
 // Each locale is curated independently. `initial` is the letter, pinyin unit or kana taught.
@@ -6,6 +8,8 @@ const item = (id, ru, he, en, initials, facts = []) => ({
   art: id,
   facts,
   words: {
+    ar: { display: arabic.vocabulary[id], speech: arabic.vocabulary[id], initial: arabic.initial(arabic.vocabulary[id]) },
+    tr: { display: turkish.vocabulary[id], speech: turkish.vocabulary[id], initial: turkish.initial(turkish.vocabulary[id]) },
     zh: {
       display: chinese.vocabulary[id][0],
       speech: chinese.vocabulary[id][0],
@@ -146,6 +150,8 @@ export const byId = Object.fromEntries(
   concepts.map((concept) => [concept.id, concept]),
 );
 export const alphabets = {
+  ar: arabic.alphabet,
+  tr: turkish.alphabet,
   zh: chinese.alphabet,
   ja: japanese.alphabet,
   ru: [..."АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"],
@@ -153,6 +159,8 @@ export const alphabets = {
   en: [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
 };
 export const earlyLetters = {
+  ar: arabic.early,
+  tr: turkish.early,
   zh: chinese.early,
   ja: japanese.early,
   ru: ["А", "Б", "В", "Д", "К", "М", "О", "С", "Т"],
@@ -160,6 +168,8 @@ export const earlyLetters = {
   en: ["A", "B", "C", "D", "E", "F", "H", "M", "S"],
 };
 export const earlyRuns = {
+  ar: arabic.rows,
+  tr: turkish.rows,
   zh: chinese.rows.slice(0, 4).map((row) => row.slice(0, 3)),
   ja: japanese.rows.slice(0, 7).map((row) => row.slice(0, 3)),
   ru: [

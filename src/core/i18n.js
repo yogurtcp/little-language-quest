@@ -1,3 +1,5 @@
+import { ui as arabic } from "../locales/ar.js";
+import { ui as turkish } from "../locales/tr.js";
 import { ui as chinese } from "../locales/zh.js";
 import { ui as japanese } from "../locales/ja.js";
 const ruNoun = (n, one, few, many) =>
@@ -17,9 +19,14 @@ export const languages = [
   { code: "he", name: "עִבְרִית", tag: "he-IL", flag: "🇮🇱" },
   { code: "en", name: "English", tag: "en-US", flag: "🇺🇸" },
   { code: "zh", name: "中文", tag: "zh-CN", flag: "🇨🇳" },
+  { code: "ar", name: "العَرَبِيَّة", tag: "ar-SA", flag: "🇸🇦" },
+  { code: "tr", name: "Türkçe", tag: "tr-TR", flag: "🇹🇷" },
   { code: "ja", name: "日本語", tag: "ja-JP", flag: "🇯🇵" },
 ];
+export const direction = (locale) => ["he", "ar"].includes(locale) ? "rtl" : "ltr";
 export const copy = {
+  ar: arabic,
+  tr: turkish,
   zh: chinese,
   ja: japanese,
   ru: {

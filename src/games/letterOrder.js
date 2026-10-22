@@ -1,6 +1,6 @@
 import { alphabets, earlyRuns, literacyRows } from "../core/content.js";
 import { shuffle, node, pick } from "../core/helpers.js";
-import { t } from "../core/i18n.js";
+import { t, direction } from "../core/i18n.js";
 import { grid, tile } from "./shared.js";
 export const letterOrder = {
   id: "letterOrder",
@@ -30,7 +30,7 @@ export const letterOrder = {
       prompt: t(locale, "letterOrder"),
       render(host, api) {
         const line = node("div", "answer-line");
-        line.dir = locale === "he" ? "rtl" : "ltr";
+        line.dir = direction(locale);
         host.append(line);
         const area = grid(host, "letter-grid");
         let index = 0;
