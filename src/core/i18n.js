@@ -1,3 +1,4 @@
+import { ui as spanish } from "../locales/es.js";
 import { ui as arabic } from "../locales/ar.js";
 import { ui as turkish } from "../locales/tr.js";
 import { ui as chinese } from "../locales/zh.js";
@@ -15,16 +16,18 @@ const heCircle = (n) =>
       ? "שְׁנֵי עִגּוּלִים"
       : `${["", "", "", "שְׁלוֹשָׁה", "אַרְבָּעָה", "חֲמִשָּׁה", "שִׁשָּׁה", "שִׁבְעָה", "שְׁמוֹנָה", "תִּשְׁעָה", "עֲשָׂרָה"][n]} עִגּוּלִים`;
 export const languages = [
+  { code: "es", name: "Español", tag: "es-ES", flag: "🇪🇸" },
   { code: "ru", name: "Русский", tag: "ru-RU", flag: "🇷🇺" },
   { code: "he", name: "עִבְרִית", tag: "he-IL", flag: "🇮🇱" },
   { code: "en", name: "English", tag: "en-US", flag: "🇺🇸" },
   { code: "zh", name: "中文", tag: "zh-CN", flag: "🇨🇳" },
+  { code: "ja", name: "日本語", tag: "ja-JP", flag: "🇯🇵" },
   { code: "ar", name: "العَرَبِيَّة", tag: "ar-SA", flag: "🇸🇦" },
   { code: "tr", name: "Türkçe", tag: "tr-TR", flag: "🇹🇷" },
-  { code: "ja", name: "日本語", tag: "ja-JP", flag: "🇯🇵" },
 ];
 export const direction = (locale) => ["he", "ar"].includes(locale) ? "rtl" : "ltr";
 export const copy = {
+  es: spanish,
   ar: arabic,
   tr: turkish,
   zh: chinese,

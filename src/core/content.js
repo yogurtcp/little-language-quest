@@ -1,3 +1,4 @@
+import * as spanish from "../locales/es.js";
 import * as arabic from "../locales/ar.js";
 import * as turkish from "../locales/tr.js";
 import * as chinese from "../locales/zh.js";
@@ -8,6 +9,7 @@ const item = (id, ru, he, en, initials, facts = []) => ({
   art: id,
   facts,
   words: {
+    es: { display: spanish.vocabulary[id], speech: spanish.vocabulary[id], initial: spanish.initial(spanish.vocabulary[id]) },
     ar: { display: arabic.vocabulary[id], speech: arabic.vocabulary[id], initial: arabic.initial(arabic.vocabulary[id]) },
     tr: { display: turkish.vocabulary[id], speech: turkish.vocabulary[id], initial: turkish.initial(turkish.vocabulary[id]) },
     zh: {
@@ -150,6 +152,7 @@ export const byId = Object.fromEntries(
   concepts.map((concept) => [concept.id, concept]),
 );
 export const alphabets = {
+  es: spanish.alphabet,
   ar: arabic.alphabet,
   tr: turkish.alphabet,
   zh: chinese.alphabet,
@@ -159,6 +162,7 @@ export const alphabets = {
   en: [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
 };
 export const earlyLetters = {
+  es: spanish.early,
   ar: arabic.early,
   tr: turkish.early,
   zh: chinese.early,
@@ -168,6 +172,7 @@ export const earlyLetters = {
   en: ["A", "B", "C", "D", "E", "F", "H", "M", "S"],
 };
 export const earlyRuns = {
+  es: spanish.rows,
   ar: arabic.rows,
   tr: turkish.rows,
   zh: chinese.rows.slice(0, 4).map((row) => row.slice(0, 3)),

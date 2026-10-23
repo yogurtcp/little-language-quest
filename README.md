@@ -2,11 +2,11 @@
 
 [Play the game](https://yogurtcp.github.io/little-language-quest/)
 
-A browser game for young children, with a Russian, Hebrew, English, Mandarin Chinese, Arabic, Turkish, or Japanese choice on every launch. The child-facing game stays in that language. No account, tracking, ads, API keys, or runtime dependencies.
+A browser game for young children, with a Spanish, Russian, Hebrew, English, Mandarin Chinese, Japanese, Arabic, or Turkish choice on every launch. The child-facing game stays in that language. No account, tracking, ads, API keys, or runtime dependencies.
 
 - 12 independent activities: starting letters, counting, word/picture memory, letter order, first letters, clues, addition/subtraction, comparison, listening, missing numbers, making amounts, and patterns.
 - 86 generated pixel art illustrations and independently localized words; 50 clues with explicit correct and incorrect choice pools.
-- 1,474 active narration clips, downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. A saved volume slider on each task and in the adult menu adjusts speech and effects from silent to 250% with peak limiting. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
+- 1,678 active narration clips, downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. A saved volume slider on each task and in the adult menu adjusts speech and effects from silent to 250% with peak limiting. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
 - One of each activity per shuffled round. Separate content decks cycle through clues, listening words, letters, and math examples before repeating, and are remembered per language.
 - Five completed tasks earn a star; five stars unlock a celebration. Mistakes never take stars away. Difficulty advances separately after eight unassisted completions of each skill.
 - Completed answers stay visible until Next. Lab tasks do not award stars or change content decks.
@@ -24,14 +24,21 @@ npm ci
 npm test
 ```
 
-Tests exercise completing all 12 games in seven languages and three levels, including mistakes, revealed labels, memory reset, content cycles, audio coverage, playback without system voices, canceled speech, canceled timers, and rewards.
+Tests exercise completing all 12 games in eight languages and three levels, including mistakes, revealed labels, memory reset, content cycles, audio coverage, playback without system voices, canceled speech, canceled timers, and rewards.
 
 ## Change language during play
 
 Tap the **🌐 language button** beside Menu, then choose a language. A fresh question
 starts immediately in that language; earned stars and saved progress are kept.
 There is no adult arithmetic check for changing languages. The picker order is
-Russian, Hebrew, English, Chinese, Arabic, Turkish, Japanese.
+Spanish, Russian, Hebrew, English, Chinese, Japanese, Arabic, Turkish.
+
+## Spanish
+
+Spanish uses vocabulary and Elvira recordings from Spain, with the modern 27-letter
+alphabet. Initial-letter matching removes vowel accents while retaining `Ñ` as a
+separate letter. All 12 games, 86 picture words, and 50 clues are localized in
+`src/locales/es.js`.
 
 ## Arabic and Turkish
 
@@ -53,7 +60,7 @@ Settings include language, sound, level, voice test, app installation, offline a
 
 ## Chinese and Japanese
 
-All seven languages appear with flags on launch and in the parent language selector.
+All eight languages appear with flags on launch and in the parent language selector.
 Chinese uses **Simplified Chinese and Mandarin**. Revealed words and memory word
 cards include tone-marked pinyin. Starting-sound games use pinyin units, keeping
 `zh`, `ch`, and `sh` intact. Ordering follows familiar pinyin teaching rows.
@@ -95,7 +102,7 @@ in the offline shell. The original family photo is not included in the repositor
 ## Narration and Hebrew
 
 MP3s are generated at development time with Russian Svetlana, English Aria, and
-Hebrew Hila, Mandarin Xiaoxiao, Japanese Nanami, Arabic Zariyah, and Turkish Emel neural voices. Hebrew narration uses explicit unpointed speech
+Hebrew Hila, Mandarin Xiaoxiao, Japanese Nanami, Arabic Zariyah, Turkish Emel, and Spanish Elvira neural voices. Hebrew narration uses explicit unpointed speech
 spellings while display text retains niqqud. Hila is the default, including for
 installations that previously selected a device voice. The device voice remains
 an optional parent setting. The owner approved a short Hila sample; the complete
@@ -112,7 +119,7 @@ python3 -m pip install edge-tts==7.3.1
 python3 scripts/generate-audio.py
 ```
 
-The Russian/English/Mandarin/Japanese/Arabic/Turkish generator sends only authored game text to the speech service at build time. Hebrew recordings use the separate generation script above and the same online speech service. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
+The Russian/English/Mandarin/Japanese/Arabic/Turkish/Spanish generator sends only authored game text to the speech service at build time. Hebrew recordings use the separate generation script above and the same online speech service. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
 
 ## Installation, offline play, and updates
 
@@ -120,7 +127,7 @@ After choosing a language, tap **Install app** on the welcome screen. On Android
 
 The service worker caches the application shell; heard clips are cached as well. Before fully offline play, use **Download audio for offline play** for the chosen language and wait for completion. Each language is roughly 3–4 MiB. Installation is browser dependent; local Python previews intentionally skip service-worker registration.
 
-A release caches a complete module graph. Existing installations reload once when a new worker takes control. Progress is preserved. The parent menu has **Update game**, which opens an independent
+A release caches a complete module graph. Online startups check for updates once; the app does not poll or check on foreground return or reconnection. An idle app applies an available release once. An active question stays visible until the next navigation boundary, then the app applies the update and resumes in the chosen language. Stars, settings, and downloaded audio are preserved. Updates cannot run while the app is closed. The parent menu has **Update game**, which opens an independent
 [recovery page](https://yogurtcp.github.io/little-language-quest/update.html) for stuck installations.
 It reinstalls only this app’s shell, reports the installed version, and keeps stars, settings, and audio.
 Transient installation failures are retried before activation. Cache cleanup is limited to this app's own caches, since other GitHub Pages apps share the same origin.

@@ -1,3 +1,4 @@
+import { watchUpdates } from "./core/updates.js";
 import { node, button } from "./core/helpers.js";
 import { languages, t, direction } from "./core/i18n.js";
 import { GameAudio } from "./core/audio.js";
@@ -45,42 +46,15 @@ window.addEventListener("appinstalled", () => {
   installPrompt = null;
   document.querySelector(".welcome-install")?.remove();
 });
-if (
-  "serviceWorker" in navigator &&
-  !["localhost", "127.0.0.1"].includes(location.hostname)
-) {
-  let registration, checkingUpdate = false;
-  async function checkForUpdate() {
-    if (!registration || checkingUpdate || document.visibilityState === "hidden") return;
-    checkingUpdate = true;
-    try {
-      await registration.update();
-    } catch (error) {
-      console.warn("App update check failed", error);
-    } finally {
-      checkingUpdate = false;
-    }
-  }
-  document.addEventListener("visibilitychange", checkForUpdate);
-  window.addEventListener("online", checkForUpdate);
-  window.addEventListener("load", async () => {
-    try {
-      registration = await navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" });
-      await checkForUpdate();
-    } catch (error) {
-      console.warn("Offline app registration failed", error);
-    }
-  });
-  // Old cache-first installations must reload once to use the newly activated release.
-  const hadController = Boolean(navigator.serviceWorker.controller);
-  let reloading = false;
-  navigator.serviceWorker.addEventListener("controllerchange", () => {
-    if (hadController && !reloading && navigator.serviceWorker.controller) {
-      reloading = true;
-      location.reload();
-    }
-  });
-}
+const UPDATE_RESUME = "llq-update-resume-v1";
+const updates = "serviceWorker" in navigator && !["localhost", "127.0.0.1"].includes(location.hostname)
+  ? watchUpdates({
+      canReload: () => Boolean(document.querySelector(".launch-screen, .welcome-screen")) && !document.querySelector("dialog"),
+      beforeReload(state = { locale, playing: false }) {
+        try { sessionStorage.setItem(UPDATE_RESUME, JSON.stringify(state)); } catch {}
+      },
+    })
+  : { applyPending: () => false };
 function clear() {
   lifetime?.dispose();
   audio.onStatus = () => {};
@@ -123,6 +97,7 @@ function header({ parent = true, playing = false } = {}) {
   return bar;
 }
 function languagePicker({ resumeGame = false } = {}) {
+  if (updates.applyPending({ safe: true, state: { locale: null, resumeGame } })) return;
   clear();
   locale = null;
   document.documentElement.lang = "en";
@@ -157,6 +132,7 @@ function languagePicker({ resumeGame = false } = {}) {
   window.scrollTo(0, 0);
 }
 function welcome() {
+  if (updates.applyPending({ safe: true, state: { locale, playing: false } })) return;
   clear();
   const screen = node("main", "screen welcome-screen");
   screen.append(header());
@@ -213,6 +189,7 @@ function starRail() {
   return rail;
 }
 function startTask({ gameId = null, seed = null, practice = false } = {}) {
+  if (updates.applyPending({ safe: true, state: { locale, playing: true } })) return;
   clear();
   lifetime = new TaskLifetime();
   const taskLife = lifetime;
@@ -396,4 +373,13 @@ document.addEventListener("keydown", (event) => {
   )
     parents.showGate();
 });
-languagePicker();
+let updateResume = null;
+try {
+  updateResume = JSON.parse(sessionStorage.getItem(UPDATE_RESUME));
+  sessionStorage.removeItem(UPDATE_RESUME);
+} catch {}
+if (languages.some(({ code }) => code === updateResume?.locale)) {
+  setLanguage(updateResume.locale);
+  if (updateResume.playing) startTask();
+  else welcome();
+} else languagePicker({ resumeGame: Boolean(updateResume?.resumeGame) });

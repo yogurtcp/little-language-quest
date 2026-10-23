@@ -15,10 +15,10 @@ function checkShape(expected, actual, path) {
   else if (expected && typeof expected === "object")
     for (const [key, value] of Object.entries(expected)) checkShape(value, actual[key], `${path}.${key}`);
 }
-test("all seven languages have flags and complete UI translations", () => {
-  assert.deepEqual(languages.map((language) => language.code), ["ru", "he", "en", "zh", "ar", "tr", "ja"]);
+test("all eight languages have flags and complete UI translations", () => {
+  assert.deepEqual(languages.map((language) => language.code), ["es", "ru", "he", "en", "zh", "ja", "ar", "tr"]);
   for (const language of languages) assert.match(language.flag, /^[\u{1F1E6}-\u{1F1FF}]{2}$/u);
-  for (const locale of ["zh", "ar", "tr", "ja"]) checkShape(copy.en, copy[locale], locale);
+  for (const locale of ["es", "zh", "ja", "ar", "tr"]) checkShape(copy.en, copy[locale], locale);
 });
 test("Chinese pinyin units preserve digraphs; Japanese words start with their displayed kana", () => {
   assert.equal(byId.pig.words.zh.initial, "zh");
@@ -71,5 +71,5 @@ test("existing stars survive migration and new language progress survives a relo
 });
 test("all locale modules ship in the offline shell", () => {
   const worker = readFileSync(new URL("../sw.js", import.meta.url), "utf8");
-  for (const locale of ["zh", "ar", "tr", "ja"]) assert.ok(worker.includes(`./src/locales/${locale}.js`));
+  for (const locale of ["es", "zh", "ja", "ar", "tr"]) assert.ok(worker.includes(`./src/locales/${locale}.js`));
 });

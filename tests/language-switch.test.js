@@ -55,7 +55,7 @@ test("a child can switch language from a running game without the adult gate or 
     assert.ok(document.querySelector(".game-screen"));
     let previousStage = document.querySelector(".stage");
     const savedBefore = saved.get("little-language-quest-progress-v1");
-    for (const code of ["ar", "tr", "zh", "he", "en"]) {
+    for (const code of ["es", "zh", "ja", "ar", "tr", "he", "en"]) {
       const previousStops = stops;
       document.querySelector(".language-switch").click();
       assert.equal(document.querySelectorAll("dialog").length, 0);
@@ -80,4 +80,28 @@ test("a child can switch language from a running game without the adult gate or 
     GameAudio.prototype.stop = oldStop;
     GameAudio.prototype.speak = oldSpeak;
   }
+});
+
+test("an update resumes the chosen language and play mode once without changing saved stars", async () => {
+  const { document, window } = parseHTML('<html><body><div id="app"></div></body></html>');
+  globalThis.document = document;
+  globalThis.window = window;
+  Object.defineProperty(globalThis, "navigator", { configurable: true, value: {} });
+  globalThis.location = { hostname: "localhost" };
+  window.scrollTo = () => {};
+  window.matchMedia = () => ({ matches: false });
+  const saved = new Map([["little-language-quest-progress-v1", JSON.stringify({correct: 15, byLocale: {es: 5, he: 10}, skills: {"he:countGroup": 8}})]]);
+  const session = new Map([["llq-update-resume-v1", JSON.stringify({locale: "es", playing: true})]]);
+  globalThis.localStorage = {getItem: (key) => saved.get(key) ?? null, setItem: (key, value) => saved.set(key, value)};
+  globalThis.sessionStorage = {getItem: (key) => session.get(key) ?? null, removeItem: (key) => session.delete(key)};
+  const oldSpeak = GameAudio.prototype.speak;
+  GameAudio.prototype.speak = async () => true;
+  try {
+    await import("../src/main.js?resume-test");
+    assert.ok(document.querySelector(".game-screen"));
+    assert.equal(document.documentElement.lang, "es-ES");
+    assert.equal(document.querySelector(".star-count").textContent, "3");
+    assert.equal(session.has("llq-update-resume-v1"), false);
+    assert.equal(readProgress().skills["he:countGroup"], 8);
+  } finally { GameAudio.prototype.speak = oldSpeak; }
 });

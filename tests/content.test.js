@@ -6,7 +6,7 @@ import { concepts, groups, alphabets } from "../src/core/content.js";
 import { games } from "../src/games/index.js";
 import { seeded } from "../src/core/helpers.js";
 
-test("all pictured words have seven complete language entries and distinct IDs", () => {
+test("all pictured words have eight complete language entries and distinct IDs", () => {
   assert.equal(new Set(concepts.map((item) => item.id)).size, concepts.length);
   for (const item of concepts)
     for (const locale of locales) {

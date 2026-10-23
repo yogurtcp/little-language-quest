@@ -1,3 +1,4 @@
+import { clueText as spanish } from "../locales/es.js";
 import { clueText as arabic } from "../locales/ar.js";
 import { clueText as turkish } from "../locales/tr.js";
 import { clueText as chinese } from "../locales/zh.js";
@@ -8,7 +9,7 @@ const clue = (id, answers, distractors, ru, he, en) => ({
   id,
   answers: answers.split(" "),
   distractors: distractors.split(" "),
-  prompts: { ru, he, en, ar: arabic[id], tr: turkish[id], zh: chinese[id], ja: japanese[id] },
+  prompts: { ru, he, en, es: spanish[id], ar: arabic[id], tr: turkish[id], zh: chinese[id], ja: japanese[id] },
 });
 export const clues = [
   clue(
