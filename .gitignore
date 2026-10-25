@@ -2,3 +2,9 @@ node_modules/
 __pycache__/
 *.tmp
 .DS_Store
+
+# Local speech-service credentials (never ship in browser assets).
+.env
+.env.*
+!.env.example
+*service-account*.json

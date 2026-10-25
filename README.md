@@ -146,3 +146,9 @@ Transient installation failures are retried before activation. Cache cleanup is 
 Tasks expose answer metadata for tests; it is not rendered to children. A task receives `locale`, `level`, `rng`, and a `choose` content-deck function. Its UI receives a completion callback, retry feedback, audio, and cancellable timers. New games should use `api.later()` rather than unmanaged timeouts.
 
 See [BUILD_PLAN.md](BUILD_PLAN.md) for the initial product plan.
+
+## Selected Hebrew voice upgrade
+
+Kore is the selected replacement for Hebrew narration. The build-time migration
+and credential setup are documented in [HEBREW_KORE.md](scripts/HEBREW_KORE.md).
+The published voice changes only when the replacement audio is generated and released.
