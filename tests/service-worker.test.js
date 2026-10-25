@@ -55,6 +55,9 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
     const path = new URL(request.url).pathname.replace("/little-language-quest/", "");
     assert.ok(existsSync(new URL(`../${path}`, import.meta.url)), path);
   }
+  const {audioManifest}=await import('../src/core/audio-manifest.js');
+  const voiceRelease=JSON.parse(readFileSync(new URL('../scripts/hebrew/blue-recordings.json',import.meta.url)));
+  for(const path of [...Object.values(audioManifest.he),...voiceRelease.previousPaths])assert.ok(core.some(({url})=>url.endsWith(path)),`Bundled Hebrew clip: ${path}`);
   handlers.activate({ waitUntil: (p) => (pending = p) });
   await pending;
   assert.deepEqual(removed, [
@@ -74,6 +77,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
     "little-language-quest-shell-v17",
     "little-language-quest-shell-v18",
     "little-language-quest-shell-v19",
+    "little-language-quest-shell-v20",
   ]);
   let intercepted = false;
   handlers.fetch({
@@ -171,4 +175,24 @@ test("a transient shell download failure retries; permanent failure never activa
       assert.equal(activated, true);
     }
   }
+});
+
+test("a new Hebrew voice plays offline from its complete release while old voice files stay cached", async () => {
+  const handlers = {};
+  const old = { oldHila: true }, blue = { approvedFemaleVoice: true };
+  let pending, network = 0;
+  const requested = "https://example.com/game/audio/he/blue-new.mp3";
+  vm.runInNewContext(readFileSync(new URL('../sw.js',import.meta.url),'utf8'), {
+    URL, Request, Promise,
+    self: { registration: {scope: "https://example.com/game/"}, addEventListener: (name, fn) => handlers[name] = fn },
+    caches: {open: async (name) => ({
+      match: async (request) => name.includes("audio-v1")
+        ? (request.url.endsWith("old-hila.mp3") ? old : undefined)
+        : request.url === requested ? blue : undefined,
+    })},
+    fetch: async () => { network++; throw Error("offline"); },
+  });
+  handlers.fetch({request: {method: "GET", cache: "default", url: requested}, respondWith: (promise) => pending = promise});
+  assert.equal(await pending, blue);
+  assert.equal(network, 0);
 });

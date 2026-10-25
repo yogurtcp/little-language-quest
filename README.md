@@ -56,7 +56,7 @@ languages, a native-speaker listening review is recommended.
 
 **Tap the Menu / gear button**, then answer the adult arithmetic check (12 + 7). Keyboard shortcut: Alt+Shift+P. Escape closes the check; the native dialog manages keyboard focus.
 
-Settings include language, sound, level, voice test, app installation, offline audio downloads, progress reset, and the Game Lab. Hebrew also has a saved choice between Hila recordings and the device's Hebrew voice. If no Hebrew device voice is available, the recorded voice plays. Choose any activity and a task number in the lab for a reproducible question.
+Settings include language, sound, level, voice test, app installation, offline audio downloads, progress reset, and the Game Lab. Hebrew also has a saved choice between the female BlueTTS recordings and the device's Hebrew voice. If no Hebrew device voice is available, the recorded voice plays. Choose any activity and a task number in the lab for a reproducible question.
 
 ## Chinese and Japanese
 
@@ -101,31 +101,22 @@ in the offline shell. The original family photo is not included in the repositor
 
 ## Narration and Hebrew
 
-MP3s are generated at development time with Russian Svetlana, English Aria, and
-Hebrew Hila, Mandarin Xiaoxiao, Japanese Nanami, Arabic Zariyah, Turkish Emel, and Spanish Elvira neural voices. Hebrew narration uses explicit unpointed speech
-spellings while display text retains niqqud. Hila is the default, including for
-installations that previously selected a device voice. The device voice remains
-an optional parent setting. The owner approved a short Hila sample; the complete
-catalog still needs a native-speaker listening review in the Game Lab.
+Hebrew recordings use the approved female BlueTTS 2.5 voice and local Hebrew
+pronunciation models. Existing reviewed letter/word pronunciations are retained;
+new text uses ReNikudPlus with supplied niqqud respected. The recorded voice is
+the default for existing installations. An optional device voice remains in the
+adult menu. Complete provenance and local regeneration steps are documented in
+[scripts/FREE_HEBREW_VOICES.md](scripts/FREE_HEBREW_VOICES.md).
 
-See [Hebrew voice sources and rebuild instructions](scripts/hebrew/SOURCES.md).
-Letter instructions use explicit letter names. Failed playback produces a visible
-retry message. Compound questions trim clip padding and use short gaps.
-
-To regenerate changed text:
-
-```sh
-python3 -m pip install edge-tts==7.3.1
-python3 scripts/generate-audio.py
-```
-
-The Russian/English/Mandarin/Japanese/Arabic/Turkish/Spanish generator sends only authored game text to the speech service at build time. Hebrew recordings use the separate generation script above and the same online speech service. The shipped app loads its own static audio files from GitHub Pages. Hashed filenames reuse unchanged clips; commit the manifest and clips together.
+Other languages keep their existing bundled recordings. Their optional build-only
+generator uses edge-tts; it reuses Hebrew BlueTTS clips and cannot regenerate them
+with another voice. The installed game has no runtime speech-service dependency.
 
 ## Installation, offline play, and updates
 
 After choosing a language, tap **Install app** on the welcome screen. On Android Chrome this opens the system install prompt when available. Launch the resulting **Language Quest** icon from the app drawer or home screen to use the standalone view without Chrome's address bar. If Chrome only creates a browser shortcut, remove it and use Chrome's **Add to Home Screen → Install app** command instead. The install control is also in the adult menu. On iPhone/iPad, use Safari's Share menu and **Add to Home Screen**.
 
-The service worker caches the application shell; heard clips are cached as well. Before fully offline play, use **Download audio for offline play** for the chosen language and wait for completion. Each language is roughly 3–4 MiB. Installation is browser dependent; local Python previews intentionally skip service-worker registration.
+The service worker caches the application shell and all current Hebrew narration; heard clips in other languages are cached as well. Before fully offline play, use **Download audio for offline play** for the chosen language and wait for completion. Each language is roughly 3–4 MiB. Installation is browser dependent; local Python previews intentionally skip service-worker registration.
 
 A release caches a complete module graph. Online startups check for updates once; the app does not poll or check on foreground return or reconnection. An idle app applies an available release once. An active question stays visible until the next navigation boundary, then the app applies the update and resumes in the chosen language. Stars, settings, and downloaded audio are preserved. Updates cannot run while the app is closed. The parent menu has **Update game**, which opens an independent
 [recovery page](https://yogurtcp.github.io/little-language-quest/update.html) for stuck installations.
@@ -147,7 +138,10 @@ Tasks expose answer metadata for tests; it is not rendered to children. A task r
 
 See [BUILD_PLAN.md](BUILD_PLAN.md) for the initial product plan.
 
-## Free Hebrew voice evaluation
+## Free Hebrew narration
 
-We are evaluating a free, local Hebrew narration replacement. See
-[FREE_HEBREW_VOICES.md](scripts/FREE_HEBREW_VOICES.md) for the candidate and release plan.
+Hebrew uses the approved **female BlueTTS 2.5 voice**, generated locally and bundled
+for offline play. No TTS account, API key or usage fees are required. New audio URLs
+and complete offline caches update installed copies at the normal online startup
+boundary, preserving stars, settings and active work. Other language voices remain
+unchanged. See [voice provenance and local rebuild instructions](scripts/FREE_HEBREW_VOICES.md).
