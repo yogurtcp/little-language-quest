@@ -147,8 +147,7 @@ Tasks expose answer metadata for tests; it is not rendered to children. A task r
 
 See [BUILD_PLAN.md](BUILD_PLAN.md) for the initial product plan.
 
-## Selected Hebrew voice upgrade
+## Free Hebrew voice evaluation
 
-Kore is the selected replacement for Hebrew narration. The build-time migration
-and credential setup are documented in [HEBREW_KORE.md](scripts/HEBREW_KORE.md).
-The published voice changes only when the replacement audio is generated and released.
+We are evaluating a free, local Hebrew narration replacement. See
+[FREE_HEBREW_VOICES.md](scripts/FREE_HEBREW_VOICES.md) for the candidate and release plan.

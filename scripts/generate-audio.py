@@ -8,9 +8,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 VOICES={'es':'es-ES-ElviraNeural','ru':'ru-RU-SvetlanaNeural','en':'en-US-AriaNeural','zh':'zh-CN-XiaoxiaoNeural','ja':'ja-JP-NanamiNeural','ar':'ar-SA-ZariyahNeural','tr':'tr-TR-EmelNeural'}
 catalog=json.loads(subprocess.check_output(['node','scripts/audio-catalog.js'],cwd=ROOT))
 manifest={locale:{} for locale in catalog}
-hebrew_path=ROOT/'scripts/hebrew/kore-recordings.json'
-if not hebrew_path.exists():hebrew_path=ROOT/'scripts/hebrew/recordings.json'
-hebrew=json.loads(hebrew_path.read_text())['records']
+hebrew=json.loads((ROOT/'scripts/hebrew/recordings.json').read_text())['records']
 semaphore=asyncio.Semaphore(4)
 completed=0
 async def generate(locale,text):
