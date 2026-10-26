@@ -1,3 +1,4 @@
+import { ui as filipino } from "../locales/fil.js";
 import { ui as spanish } from "../locales/es.js";
 import { ui as arabic } from "../locales/ar.js";
 import { ui as turkish } from "../locales/tr.js";
@@ -24,9 +25,11 @@ export const languages = [
   { code: "ja", name: "日本語", tag: "ja-JP", flag: "🇯🇵" },
   { code: "ar", name: "العَرَبِيَّة", tag: "ar-SA", flag: "🇸🇦" },
   { code: "tr", name: "Türkçe", tag: "tr-TR", flag: "🇹🇷" },
+  { code: "fil", name: "Filipino", tag: "fil-PH", flag: "🇵🇭" },
 ];
 export const direction = (locale) => ["he", "ar"].includes(locale) ? "rtl" : "ltr";
 export const copy = {
+  fil: filipino,
   es: spanish,
   ar: arabic,
   tr: turkish,

@@ -49,12 +49,13 @@ export function numberChoices(host, options, answer, api) {
   return area;
 }
 
-export function revealWord(element, item, api) {
+export function revealWord(element, item, api, { beforeSpeech = [] } = {}) {
   api.encourage?.();
   if (!element.querySelector(".picture-word"))
     appendWord(element, item, api.locale);
   element.classList.add("selected");
-  api.audio.speak(word(item, api.locale).speech, api.locale);
+  const speech = word(item, api.locale).speech;
+  api.audio.speak(beforeSpeech.length ? [...beforeSpeech, speech] : speech, api.locale);
 }
 
 // Incorrect picture taps teach the word too, without revealing its spelling.

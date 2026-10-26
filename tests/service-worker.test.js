@@ -57,7 +57,7 @@ test("worker caches every shell asset and leaves unrelated origin caches untouch
   }
   const {audioManifest}=await import('../src/core/audio-manifest.js');
   const voiceRelease=JSON.parse(readFileSync(new URL('../scripts/hebrew/blue-recordings.json',import.meta.url)));
-  for(const path of [...Object.values(audioManifest.he),...voiceRelease.previousPaths])assert.ok(core.some(({url})=>url.endsWith(path)),`Bundled Hebrew clip: ${path}`);
+  for(const path of [...Object.values(audioManifest.he),...Object.values(audioManifest.fil),...voiceRelease.previousPaths])assert.ok(core.some(({url})=>url.endsWith(path)),`Bundled narration clip: ${path}`);
   handlers.activate({ waitUntil: (p) => (pending = p) });
   await pending;
   assert.deepEqual(removed, [

@@ -1,3 +1,4 @@
+import { speech as filipino, quantity as filipinoQuantity } from "../locales/fil.js";
 import { speech as spanish } from "../locales/es.js";
 import { speech as arabic } from "../locales/ar.js";
 import { speech as turkish } from "../locales/tr.js";
@@ -7,6 +8,7 @@ import { clues } from "./clues.js";
 import { speech as chinese, initialPrompt } from "../locales/zh.js";
 import { speech as japanese, quantity as japaneseQuantity } from "../locales/ja.js";
 export const spoken = {
+  fil: filipino,
   es: spanish,
   ar: arabic,
   tr: turkish,
@@ -186,6 +188,7 @@ const russianQuantities = {
   ],
 };
 export function quantitySpeech(locale, kind, n) {
+  if (locale === "fil") return filipinoQuantity(kind, n);
   if (locale === "ja") return japaneseQuantity(kind, n);
   if (locale === "zh") return t(locale, kind, n === 2 ? "两" : chinese.numbers[n]);
   if (locale !== "ru") return t(locale, kind, n);
@@ -215,6 +218,7 @@ export function speechCatalog(locale) {
       "patternNext",
       "compare",
     ].map((key) => t(locale, key)),
+    ...(locale === "fil" ? spoken.fil.letters : []),
     ...spoken[locale].numbers,
     spoken[locale].plus,
     spoken[locale].minus,
@@ -224,3 +228,5 @@ export function speechCatalog(locale) {
   ];
   return [...new Set(values)];
 }
+
+export const letterSpeech = (locale, letter) => spoken[locale].letters[alphabets[locale].indexOf(letter)];

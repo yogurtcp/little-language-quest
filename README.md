@@ -2,11 +2,11 @@
 
 [Play the game](https://yogurtcp.github.io/little-language-quest/)
 
-A browser game for young children, with a Spanish, Russian, Hebrew, English, Mandarin Chinese, Japanese, Arabic, or Turkish choice on every launch. The child-facing game stays in that language. No account, tracking, ads, API keys, or runtime dependencies.
+A browser game for young children, with a Spanish, Russian, Hebrew, English, Mandarin Chinese, Japanese, Arabic, Turkish, or Filipino choice on every launch. The child-facing game stays in that language. No account, tracking, ads, API keys, or runtime dependencies.
 
 - 12 independent activities: starting letters, counting, word/picture memory, letter order, first letters, clues, addition/subtraction, comparison, listening, missing numbers, making amounts, and patterns.
 - 86 generated pixel art illustrations and independently localized words; 50 clues with explicit correct and incorrect choice pools.
-- 1,678 active narration clips, downloaded only as needed. Instructions play automatically after Play; the speaker button repeats them. A saved volume slider on each task and in the adult menu adjusts speech and effects from silent to 250% with peak limiting. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
+- 1,911 active narration clips. Hebrew and Filipino speech are bundled for offline play; other recordings download as needed. Instructions play automatically after Play; the speaker button repeats them. A saved volume slider on each task and in the adult menu adjusts speech and effects from silent to 250% with peak limiting. All picture choices pronounce the chosen word, including mistakes. Correct pictures also reveal the complete word; questions do not reveal the pictured answer in writing.
 - One of each activity per shuffled round. Separate content decks cycle through clues, listening words, letters, and math examples before repeating, and are remembered per language.
 - Five completed tasks earn a star; five stars unlock a celebration. Mistakes never take stars away. Difficulty advances separately after eight unassisted completions of each skill.
 - Completed answers stay visible until Next. Lab tasks do not award stars or change content decks.
@@ -24,14 +24,33 @@ npm ci
 npm test
 ```
 
-Tests exercise completing all 12 games in eight languages and three levels, including mistakes, revealed labels, memory reset, content cycles, audio coverage, playback without system voices, canceled speech, canceled timers, and rewards.
+Tests exercise completing all 12 games in nine languages and three levels, including mistakes, revealed labels, memory reset, content cycles, audio coverage, playback without system voices, canceled speech, canceled timers, and rewards.
 
 ## Change language during play
 
 Tap the **🌐 language button** beside Menu, then choose a language. A fresh question
 starts immediately in that language; earned stars and saved progress are kept.
 There is no adult arithmetic check for changing languages. The picker order is
-Spanish, Russian, Hebrew, English, Chinese, Japanese, Arabic, Turkish.
+Spanish, Russian, Hebrew, English, Chinese, Japanese, Arabic, Turkish, Filipino.
+
+## Filipino
+
+Filipino appears after Turkish in the launch picker, the in-game language switcher,
+the adult menu and the independent update page. All 12 activities, 86 picture words,
+50 clues and settings have Filipino text and recorded Filipino narration.
+
+The modern 28-letter alphabet includes **Ñ** and the single letter **NG**, ordered
+N, Ñ, NG, O. Letter-order questions and taps say the letter names; first-letter
+choices pronounce the selected letter before the full word. Math narration uses
+Filipino number names and linking forms such as `dalawang bilog` and `apat na bituin`.
+
+The recorded voice is **Blessica** (`fil-PH-BlessicaNeural`), matching Bar Words.
+196 exact-match recordings were reused and 37 additional math/instruction clips
+were generated at build time. All 233 Filipino clips ship in the complete offline
+shell. Existing stars, settings and the approved female Hebrew voice are preserved.
+
+References: [KWF Filipino orthography](https://www.kwf.gov.ph/wp-content/uploads/Ortograpiyang_Pambansa_1.pdf),
+[Microsoft voice support](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts).
 
 ## Spanish
 
@@ -60,7 +79,7 @@ Settings include language, sound, level, voice test, app installation, offline a
 
 ## Chinese and Japanese
 
-All eight languages appear with flags on launch and in the parent language selector.
+All nine languages appear with flags on launch and in the parent language selector.
 Chinese uses **Simplified Chinese and Mandarin**. Revealed words and memory word
 cards include tone-marked pinyin. Starting-sound games use pinyin units, keeping
 `zh`, `ch`, and `sh` intact. Ordering follows familiar pinyin teaching rows.
@@ -116,7 +135,7 @@ with another voice. The installed game has no runtime speech-service dependency.
 
 After choosing a language, tap **Install app** on the welcome screen. On Android Chrome this opens the system install prompt when available. Launch the resulting **Language Quest** icon from the app drawer or home screen to use the standalone view without Chrome's address bar. If Chrome only creates a browser shortcut, remove it and use Chrome's **Add to Home Screen → Install app** command instead. The install control is also in the adult menu. On iPhone/iPad, use Safari's Share menu and **Add to Home Screen**.
 
-The service worker caches the application shell and all current Hebrew narration; heard clips in other languages are cached as well. Before fully offline play, use **Download audio for offline play** for the chosen language and wait for completion. Each language is roughly 3–4 MiB. Installation is browser dependent; local Python previews intentionally skip service-worker registration.
+The service worker caches the application shell and all current Hebrew and Filipino narration; heard clips in other languages are cached as well. Before fully offline play, use **Download audio for offline play** for the chosen language and wait for completion. Each language is roughly 3–4 MiB. Installation is browser dependent; local Python previews intentionally skip service-worker registration.
 
 A release caches a complete module graph. Online startups check for updates once; the app does not poll or check on foreground return or reconnection. An idle app applies an available release once. An active question stays visible until the next navigation boundary, then the app applies the update and resumes in the chosen language. Stars, settings, and downloaded audio are preserved. Updates cannot run while the app is closed. The parent menu has **Update game**, which opens an independent
 [recovery page](https://yogurtcp.github.io/little-language-quest/update.html) for stuck installations.

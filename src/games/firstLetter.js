@@ -1,4 +1,4 @@
-import { firstSpeech } from "../core/speech.js";
+import { firstSpeech, letterSpeech } from "../core/speech.js";
 import { concepts, earlyLetters, word } from "../core/content.js";
 import { pick, sample, shuffle } from "../core/helpers.js";
 import { art } from "../core/art.js";
@@ -24,7 +24,7 @@ export const firstLetter = {
       answer,
       options,
       prompt: t(locale, "firstLetterPicture"),
-      speech: firstSpeech(locale, item),
+      speech: locale === "fil" ? [...firstSpeech(locale, item), ...options.map(letter => letterSpeech(locale, letter))] : firstSpeech(locale, item),
       render(host, api) {
         const visual = document.createElement("div");
         visual.className = "hero-art";
@@ -36,9 +36,12 @@ export const firstLetter = {
             letter,
             () => {
               if (api.isComplete?.()) return;
-              if (letter !== answer) return api.wrong(element);
+              if (letter !== answer) {
+                if (locale === "fil") api.audio.speak(letterSpeech(locale, letter), locale);
+                return api.wrong(element);
+              }
               element.classList.add("selected");
-              revealWord(visual, item, api);
+              revealWord(visual, item, api, { beforeSpeech: locale === "fil" ? [letterSpeech(locale, letter)] : [] });
               api.complete();
             },
             "letter-tile",

@@ -1,3 +1,4 @@
+import { letterSpeech } from "../core/speech.js";
 import { alphabets, earlyRuns, literacyRows } from "../core/content.js";
 import { shuffle, node, pick } from "../core/helpers.js";
 import { t, direction } from "../core/i18n.js";
@@ -28,6 +29,7 @@ export const letterOrder = {
       answer: target,
       options,
       prompt: t(locale, "letterOrder"),
+      ...(locale === "fil" ? { speech: [t(locale, "letterOrder"), ...target.map(letter => letterSpeech(locale, letter))] } : {}),
       render(host, api) {
         const line = node("div", "answer-line");
         line.dir = direction(locale);
@@ -38,6 +40,8 @@ export const letterOrder = {
           const element = tile(
             letter,
             () => {
+              if (api.isComplete?.() || element.disabled) return;
+              if (locale === "fil") api.audio?.speak(letterSpeech(locale, letter), locale);
               if (letter !== target[index]) {
                 api.wrong(element);
                 return;

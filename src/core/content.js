@@ -1,3 +1,4 @@
+import * as filipino from "../locales/fil.js";
 import * as spanish from "../locales/es.js";
 import * as arabic from "../locales/ar.js";
 import * as turkish from "../locales/tr.js";
@@ -9,6 +10,7 @@ const item = (id, ru, he, en, initials, facts = []) => ({
   art: id,
   facts,
   words: {
+    fil: { display: filipino.vocabulary[id], speech: filipino.vocabulary[id], initial: filipino.initial(filipino.vocabulary[id]) },
     es: { display: spanish.vocabulary[id], speech: spanish.vocabulary[id], initial: spanish.initial(spanish.vocabulary[id]) },
     ar: { display: arabic.vocabulary[id], speech: arabic.vocabulary[id], initial: arabic.initial(arabic.vocabulary[id]) },
     tr: { display: turkish.vocabulary[id], speech: turkish.vocabulary[id], initial: turkish.initial(turkish.vocabulary[id]) },
@@ -152,6 +154,7 @@ export const byId = Object.fromEntries(
   concepts.map((concept) => [concept.id, concept]),
 );
 export const alphabets = {
+  fil: filipino.alphabet,
   es: spanish.alphabet,
   ar: arabic.alphabet,
   tr: turkish.alphabet,
@@ -162,6 +165,7 @@ export const alphabets = {
   en: [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
 };
 export const earlyLetters = {
+  fil: filipino.early,
   es: spanish.early,
   ar: arabic.early,
   tr: turkish.early,
@@ -172,6 +176,7 @@ export const earlyLetters = {
   en: ["A", "B", "C", "D", "E", "F", "H", "M", "S"],
 };
 export const earlyRuns = {
+  fil: filipino.rows,
   es: spanish.rows,
   ar: arabic.rows,
   tr: turkish.rows,

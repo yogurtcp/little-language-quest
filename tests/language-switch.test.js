@@ -55,7 +55,7 @@ test("a child can switch language from a running game without the adult gate or 
     assert.ok(document.querySelector(".game-screen"));
     let previousStage = document.querySelector(".stage");
     const savedBefore = saved.get("little-language-quest-progress-v1");
-    for (const code of ["es", "zh", "ja", "ar", "tr", "he", "en"]) {
+    for (const code of ["es", "zh", "ja", "ar", "tr", "fil", "he", "en"]) {
       const previousStops = stops;
       document.querySelector(".language-switch").click();
       assert.equal(document.querySelectorAll("dialog").length, 0);

@@ -1219,3 +1219,5 @@ button:disabled {
   .language-choice { grid-template-columns: 32px minmax(0, 1fr); gap: 6px; padding: 12px 8px; font-size: 16px; border-radius: 18px; }
   .language-sample { font-size: 24px; padding: 5px 2px; }
 }
+
+.language-choice:nth-child(9) .language-sample { background: #dceaff; }
